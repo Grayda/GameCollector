@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Item extends Resource
@@ -23,7 +24,7 @@ class Item extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -53,9 +54,14 @@ class Item extends Resource
             Markdown::make('Description')
               ->alwaysShow(),
             BelongsTo::make('Acquisition')
-              ->help('How was this item acquired?')
+              ->withoutTrashed()
+              ->help('How was this item acquired?'),
             BelongsTo::make('Condition')
-              ->help('What condition is this item in?')
+              ->withoutTrashed()
+              ->help('What condition is this item in?'),
+            HasMany::make('Item', 'Related Items')
+              ->nullable()
+              ->help('Items related to this one (e.g. boxes, manuals)')
         ];
     }
 
