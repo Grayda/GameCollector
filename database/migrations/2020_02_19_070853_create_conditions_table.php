@@ -15,8 +15,9 @@ class CreateConditionsTable extends Migration
     {
         Schema::create('conditions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->strining('title'); // The name of the grade (e.g. Destroyed, Very Good etc.)
+            $table->string('title'); // The name of the grade (e.g. Destroyed, Very Good etc.)
             $table->integer('grade'); // What grade is this game? e.g. 0 = Destroyed, 100 = perfect
+            $table->string('description'); // Short description of this condition.
             $table->timestamps();
         });
     }

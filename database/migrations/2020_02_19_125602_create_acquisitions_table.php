@@ -16,6 +16,7 @@ class CreateAcquisitionsTable extends Migration
         Schema::create('acquisitions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title'); // The title of this acquisition type (e.g. "Facebook Marketplace", "eBay" etc.)
+            $table->text('description'); // A description of this acquisition type (e.g. "Items purchased via Facebook Marketplace")
             $table->timestamps();
         });
     }

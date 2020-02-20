@@ -22,10 +22,11 @@ class CreateItemsTable extends Migration
             $table->text('notes')->nullable(); // Extra notes about this item.
             $table->date('purchased_at')->nullable(); // When was this purchased / obtained?
             $table->float('purchase_price', 8, 2)->nullable(); // How much did you buy this for?
-            $table->string('purchase_method')->nullable(); // How was this obtained?
+            $table->integer('acquisition_id')->nullable(); // How was this obtained?
             $table->integer('condition_id')->nullable(); // What condition is this item in?
             $table->bigInteger('parent_id')->nullable(); // Does this belong to another item? For example, A transfer pak would have Pokemon Stadium as a parent.
             $table->bigInteger('created_by'); // Who created this? Used to track your own stuff.
+            $table->json('metadata')->nullable(); // Key / value metadata (e.g. "Serial Number" => "ABC123")
             $table->softDeletes(); // Don't delete the row from the database, just mark the item as deleted and keep the row
             $table->timestamps();
         });
