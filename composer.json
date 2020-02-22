@@ -9,10 +9,12 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ebess/advanced-nova-media-library": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
+        "laravel/nova": "~2.0",
         "laravel/tinker": "^2.0",
-        "laravel/nova": "~2.0"
+        "wildside/userstamps": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

@@ -16,8 +16,8 @@ class CreatePlatformsTable extends Migration
         Schema::create('platforms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title'); // The name of the platform
-            $table->text('Description'); // A little bit about the platform
-            $table->string('Manufactuer');
+            $table->text('description'); // A little bit about the platform
+            $table->string('manufacturer'); // Who manufactured the item 
             $table->timestamps();
         });
     }

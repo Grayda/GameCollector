@@ -42,23 +42,23 @@ class PlatformsTableSeeder extends Seeder
         'manufacturer' => 'Nintendo'
       ],
       [
-        'title' => 'Gamecube',
-        'description' => 'Gamecube',
+        'title' => 'Nintendo Gamecube',
+        'description' => 'Nintendo Gamecube',
         'manufacturer' => 'Nintendo'
       ],
       [
-        'title' => 'Wii',
-        'description' => 'Wii',
+        'title' => 'Nintendo Wii',
+        'description' => 'Nintendo Wii',
         'manufacturer' => 'Nintendo'
       ],
       [
-        'title' => 'Wii U',
-        'description' => 'Wii U',
+        'title' => 'Nintendo Wii U',
+        'description' => 'Nintendo Wii U',
         'manufacturer' => 'Nintendo'
       ],
       [
-        'title' => 'Switch',
-        'description' => 'Switch',
+        'title' => 'Nintendo Switch',
+        'description' => 'Nintendo Switch',
         'manufacturer' => 'Nintendo'
       ],
       [
@@ -100,6 +100,6 @@ class PlatformsTableSeeder extends Seeder
         'title' => 'Xbox 360',
         'description' => 'Xbox 360',
         'manufacturer' => 'Microsoft'
-      ],
+      ]]);
     }
 }

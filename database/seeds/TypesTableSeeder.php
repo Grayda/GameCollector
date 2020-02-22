@@ -51,5 +51,9 @@ class TypesTableSeeder extends Seeder
         'title' => 'Manual',
         'description' => 'A manual or booklet for an item'
       ],
+      [
+        'title' => 'Other',
+        'description' => 'Other type of item'
+      ]]);
     }
 }
