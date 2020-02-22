@@ -12,8 +12,11 @@ use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\BooleanGroup;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
+
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -34,12 +37,24 @@ class Item extends Resource
     public static $title = 'title';
 
     /**
+     * The group in which this resource belongs to.
+     *
+     * @var string
+     */
+    public static $group = 'Items';
+
+    /**
      * The columns that should be searched.
      *
      * @var array
      */
     public static $search = [
         'id',
+        'title',
+        'platform',
+        'type',
+        'condition',
+        'metadata'
     ];
 
     /**
@@ -84,6 +99,7 @@ class Item extends Resource
               ->withoutTrashed()
               ->hideFromIndex()
               ->help('What condition is this item in?'),
+            BooleanGroup::make('Included Items')->options(\App\Feature::pluck('title', 'title')),
             BelongsTo::make('Related Item', 'parent', Item::class)
               ->nullable()
               ->hideFromDetail()
@@ -149,6 +165,8 @@ class Item extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+          new DownloadExcel,
+        ];
     }
 }

@@ -15,6 +15,8 @@ class CreateFeaturesTable extends Migration
     {
         Schema::create('features', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title'); // The title of this feature (e.g. Manual)
+            $table->text('description'); // The title of this feature (e.g. Manual)
             $table->timestamps();
         });
     }

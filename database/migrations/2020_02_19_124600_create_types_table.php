@@ -16,7 +16,7 @@ class CreateTypesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title'); // The title of this type (e.g. Box, Console, Game)
-            $table->text('description'); // A description of this item. 
+            $table->text('description'); // A description of this item type.
             $table->timestamps();
         });
     }

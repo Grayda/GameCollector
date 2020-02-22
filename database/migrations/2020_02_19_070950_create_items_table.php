@@ -24,6 +24,7 @@ class CreateItemsTable extends Migration
             $table->float('purchase_price', 8, 2)->nullable(); // How much did you buy this for?
             $table->integer('acquisition_id')->nullable(); // How was this obtained?
             $table->integer('condition_id')->nullable(); // What condition is this item in?
+            $table->json('feature_ids')->nullable();
             $table->bigInteger('parent_id')->nullable(); // Does this belong to another item? For example, A transfer pak would have Pokemon Stadium as a parent.
             $table->bigInteger('created_by'); // Who created this? Used to track your own stuff.
             $table->bigInteger('updated_by'); // Who updated this? Not used, but required by the Userstamps package

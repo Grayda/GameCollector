@@ -25,6 +25,13 @@ class User extends Resource
     public static $title = 'name';
 
     /**
+     * The group in which this resource belongs to.
+     *
+     * @var string
+     */
+    public static $group = 'Settings';
+
+    /**
      * The columns that should be searched.
      *
      * @var array
