@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->text('platform_id'); // What platform does this belong to (e.g. Nintendo, Sega etc.)
             $table->text('notes')->nullable(); // Extra notes about this item.
             $table->date('acquired_at')->nullable(); // When was this purchased / obtained?
-            $table->decimal('purchase_price', 8, 2)->nullable(); // How much did you buy this for?
+            $table->decimal('purchase_price', 8, 2)->default(0); // How much did you buy this for?
             $table->integer('acquisition_id')->nullable(); // How was this obtained?
             $table->integer('condition_id')->nullable(); // What condition is this item in?
             $table->integer('type_id'); // What type of item is this?
