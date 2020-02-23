@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Heading;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\BooleanGroup;
 
@@ -118,6 +119,7 @@ class Item extends Resource
             HasOne::make('Parent Item', 'parent', Item::class),
             HasMany::make('Child Item', 'children', Item::class),
             Heading::make('Additional Information'),
+            Markdown::make('Notes'),
             Tags::make('Tags'),
             KeyValue::make('Metadata')
               ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),
