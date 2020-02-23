@@ -17,7 +17,6 @@ class CreateItemsTable extends Migration
           // This table contains the actual items you have (e.g. games, consoles, accessories)
             $table->bigIncrements('id');
             $table->string('title'); // The title of the item.
-            $table->string('description')->nullable(); // The description of the item.
             $table->text('platform_id'); // What platform does this belong to (e.g. Nintendo, Sega etc.)
             $table->text('notes')->nullable(); // Extra notes about this item.
             $table->date('acquired_at')->nullable(); // When was this purchased / obtained?

@@ -79,7 +79,6 @@ class Item extends Resource
                   'placeholder' => 'Super Mario Bros. 3',
                 ],
               ]),
-            Text::make('Description'),
             BelongsTo::make('Platform')
               ->withoutTrashed()
               ->sortable()
@@ -120,7 +119,8 @@ class Item extends Resource
             HasMany::make('Child Item', 'children', Item::class),
             Heading::make('Additional Information'),
             Markdown::make('Notes'),
-            Tags::make('Tags'),
+            Tags::make('Tags')
+              ->help('Extra tags to add to the item'),
             KeyValue::make('Metadata')
               ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),
             Images::make('Images', 'item_images')
