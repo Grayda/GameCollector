@@ -83,6 +83,10 @@ class Item extends Resource
               ->withoutTrashed()
               ->sortable()
               ->help('What platform is this item for?'),
+            BelongsTo::make('Region')
+              ->nullable()
+              ->hideFromIndex()
+              ->help('What region this item is from'),
             BelongsTo::make('Type')
               ->withoutTrashed()
               ->sortable()

@@ -37,6 +37,10 @@ class Item extends Model implements HasMedia
       return $this->belongsTo(Type::class)->orderBy('title', 'desc');
     }
 
+    function region() {
+      return $this->belongsTo(Region::class);
+    }
+
     function parent() {
       return $this->belongsTo(Item::class);
     }
