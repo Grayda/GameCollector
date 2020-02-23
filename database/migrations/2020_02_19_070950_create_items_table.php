@@ -25,6 +25,7 @@ class CreateItemsTable extends Migration
             $table->integer('acquisition_id')->nullable(); // How was this obtained?
             $table->integer('condition_id')->nullable(); // What condition is this item in?
             $table->integer('type_id'); // What type of item is this?
+            $table->integer('region_id')->nullable(); // What region is this item from?
             $table->json('feature_ids')->nullable();
             $table->bigInteger('parent_id')->nullable(); // Does this belong to another item? For example, A transfer pak would have Pokemon Stadium as a parent.
             $table->bigInteger('created_by'); // Who created this? Used to track your own stuff.
