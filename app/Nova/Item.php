@@ -101,6 +101,7 @@ class Item extends Resource
               ->hideFromIndex()
               ->help('How was this item acquired?'),
             Currency::make('Purchase Price')
+              ->nullable()
               ->help('How much did you pay for this item?'),
             Heading::make('Item Condition'),
             BelongsTo::make('Condition')
