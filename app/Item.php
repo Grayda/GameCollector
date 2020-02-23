@@ -61,15 +61,4 @@ class Item extends Model implements HasMedia
       $this->addMediaCollection('item_images');
     }
 
-    public function registerMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('thumb')
-              ->width(320)
-              ->height(240);
-
-        $this->addMediaConversion('medium-size')
-              ->width(800)
-              ->height(600);
-    }
-
 }
