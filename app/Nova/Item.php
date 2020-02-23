@@ -118,7 +118,8 @@ class Item extends Resource
             HasOne::make('Parent Item', 'parent', Item::class),
             HasMany::make('Child Item', 'children', Item::class),
             Heading::make('Additional Information'),
-            Markdown::make('Notes'),
+            Markdown::make('Notes')
+              ->alwaysShow(),
             Tags::make('Tags')
               ->help('Extra tags to add to the item'),
             KeyValue::make('Metadata')
