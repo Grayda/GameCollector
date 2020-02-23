@@ -21,6 +21,10 @@ class Item extends Model implements HasMedia
       'feature_ids' => 'array'
     ];
 
+    protected $attributes = [
+        'purchase_price' => 0,
+    ];
+
     function acquisition() {
       return $this->belongsTo(Acquisition::class)->orderBy('title');
     }
