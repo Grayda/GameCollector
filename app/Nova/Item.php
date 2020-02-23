@@ -16,6 +16,7 @@ use Laravel\Nova\Fields\BooleanGroup;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
+use Spatie\TagsField\Tags;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -99,7 +100,7 @@ class Item extends Resource
               ->withoutTrashed()
               ->hideFromIndex()
               ->help('What condition is this item in?'),
-            BooleanGroup::make('Included Items')->options(\App\Feature::pluck('title', 'title')),
+            BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'title')),
             BelongsTo::make('Related Item', 'parent', Item::class)
               ->nullable()
               ->hideFromDetail()
@@ -113,6 +114,7 @@ class Item extends Resource
             HasOne::make('Parent Item', 'parent', Item::class),
             HasMany::make('Child Item', 'children', Item::class),
             Heading::make('Additional Information'),
+            Tags::make('Tags'),
             KeyValue::make('Metadata')
               ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),
             Images::make('Images', 'item_images')
