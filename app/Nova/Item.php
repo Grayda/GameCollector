@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Date;
@@ -99,6 +100,8 @@ class Item extends Resource
               ->withoutTrashed()
               ->hideFromIndex()
               ->help('How was this item acquired?'),
+            Currency::make('Purchase Price')
+              ->help('How much did you pay for this item?'),
             Heading::make('Item Condition'),
             BelongsTo::make('Condition')
               ->withoutTrashed()
