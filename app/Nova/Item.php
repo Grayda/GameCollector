@@ -58,7 +58,8 @@ class Item extends Resource
     public static $search = [
         'id',
         'title',
-        'metadata'
+        'metadata',
+        'notes'
     ];
 
     /**
