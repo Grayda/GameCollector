@@ -157,6 +157,11 @@ class Item extends Resource
             KeyValue::make('Metadata')
               ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),
             Images::make('Images', 'item_images')
+              ->conversionOnPreview('medium-size') // conversion used to display the "original" image
+              ->conversionOnDetailView('thumb') // conversion used on the model's view
+              ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+              ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+              ->fullSize() // full size column
         ];
     }
 
