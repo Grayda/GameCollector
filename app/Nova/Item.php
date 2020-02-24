@@ -123,8 +123,6 @@ class Item extends Resource
             Heading::make('Acquisition Details'),
             Date::make('Date Acquired', 'acquired_at')
               ->nullable()
-              ->format('MMM Do Y')
-              ->pickerFormat('d-m-Y')
               ->help('When was this item acquired?'),
             BelongsTo::make('Acquisition Method', 'acquisition', 'App\Nova\Acquisition')
               ->withoutTrashed()
