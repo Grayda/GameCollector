@@ -38,6 +38,10 @@ class AcquisitionsTableSeeder extends Seeder
       [
         'title' => 'Op Shop / Thrift Shop',
         'description' => 'Purchased from a thrift store (e.g. Goodwill, Salvation Army)'
+      ],
+      [
+        'title' => 'Game Dealer',
+        'description' => 'Purchased from a games dealer (e.g. JJGames, DKOldies etc.)'
       ]]); // Put some acquisition methods into the database
     }
 }
