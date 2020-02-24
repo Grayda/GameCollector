@@ -20,11 +20,15 @@ use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 use Spatie\TagsField\Tags;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
+use Titasgailius\SearchRelations\SearchesRelations;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Item extends Resource
 {
+
+    use SearchesRelations;
+
     /**
      * The model the resource corresponds to.
      *
@@ -54,10 +58,18 @@ class Item extends Resource
     public static $search = [
         'id',
         'title',
-        'platform_id',
-        'type_id',
-        'condition_id',
         'metadata'
+    ];
+
+    /**
+     * The relationship columns that should be searched.
+     *
+     * @var array
+     */
+    public static $searchRelations = [
+        'condition' => ['title'],
+        'region' => ['title'],
+        'type' => ['title'],
     ];
 
     /**
