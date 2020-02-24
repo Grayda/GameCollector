@@ -20,11 +20,15 @@ use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 use Spatie\TagsField\Tags;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
+use Titasgailius\SearchRelations\SearchesRelations;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Item extends Resource
 {
+
+    use SearchesRelations;
+
     /**
      * The model the resource corresponds to.
      *
@@ -54,11 +58,35 @@ class Item extends Resource
     public static $search = [
         'id',
         'title',
-        'platform',
-        'type',
-        'condition',
         'metadata'
     ];
+
+    /**
+     * The relationship columns that should be searched.
+     *
+     * @var array
+     */
+    public static $searchRelations = [
+        'condition' => ['title'],
+        'region' => ['title'],
+        'type' => ['title'],
+    ];
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if($request->user()->is_admin === true) {
+          return $query;
+        } else {
+          return $query->where('created_by', $request->user()->id);
+        }
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -151,7 +179,12 @@ class Item extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+          new Filters\TypeFilter,
+          new Filters\ConditionFilter,
+          new Filters\RegionFilter,
+
+        ];
     }
 
     /**
