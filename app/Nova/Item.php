@@ -54,9 +54,9 @@ class Item extends Resource
     public static $search = [
         'id',
         'title',
-        'platform',
-        'type',
-        'condition',
+        'platform_id',
+        'type_id',
+        'condition_id',
         'metadata'
     ];
 
@@ -167,7 +167,12 @@ class Item extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+          new Filters\TypeFilter,
+          new Filters\ConditionFilter,
+          new Filters\RegionFilter,
+
+        ];
     }
 
     /**
