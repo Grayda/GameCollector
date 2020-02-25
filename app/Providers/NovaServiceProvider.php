@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
+use App\Nova\Metrics\CollectionTypeBreakdown;
+use App\Nova\Metrics\CollectionPlatformBreakdown;
+use App\Nova\Metrics\CollectionConditionBreakdown;
+use App\Nova\Metrics\CollectionAcquisitionBreakdown;
+use App\Nova\Metrics\CollectionSizeBreakdown;
+
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
     /**
@@ -55,7 +61,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-
+          new CollectionTypeBreakdown,
+          new CollectionPlatformBreakdown,
+          new CollectionAcquisitionBreakdown,
+          new CollectionConditionBreakdown,
+          new CollectionSizeBreakdown
         ];
     }
 
