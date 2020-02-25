@@ -24,8 +24,8 @@ class AcquisitionsTableSeeder extends Seeder
         'description' => 'Purchased from a retail store (e.g. GameStop)'
       ],
       [
-        'title' => 'Donation',
-        'description' => 'Donated (e.g. given to you by a friend)'
+        'title' => 'Donation / Present',
+        'description' => 'Donated (e.g. given to you by a friend) or a present (e.g. birthday, christmas)'
       ],
       [
         'title' => 'Garage Sale',
