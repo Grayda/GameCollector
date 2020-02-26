@@ -71,6 +71,7 @@ class Item extends Resource
         'condition' => ['title'],
         'region' => ['title'],
         'type' => ['title'],
+        'tags' => ['name']
     ];
 
     /**
