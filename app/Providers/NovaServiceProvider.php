@@ -61,11 +61,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-          new CollectionTypeBreakdown,
-          new CollectionPlatformBreakdown,
-          new CollectionAcquisitionBreakdown,
-          new CollectionConditionBreakdown,
-          new CollectionSizeBreakdown
+          (new CollectionTypeBreakdown)->width('1/4'),
+          (new CollectionPlatformBreakdown)->width('1/4'),
+          (new CollectionAcquisitionBreakdown)->width('1/4'),
+          (new CollectionConditionBreakdown)->width('1/4'),
+          (new CollectionSizeBreakdown)->width('1/4')
         ];
     }
 
