@@ -36,6 +36,10 @@ class TagsTableSeeder extends Seeder
         'slug' => '{"en":"limited-edition"}'
       ],
       [
+        'name' => '{"en":"Collector\'s Edition"}',
+        'slug' => '{"en":"collectors-edition"}'
+      ],
+      [
         'name' => '{"en":"Third Party"}',
         'slug' => '{"en":"third-party"}'
       ],
@@ -43,5 +47,9 @@ class TagsTableSeeder extends Seeder
         'name' => '{"en":"Reproduction"}',
         'slug' => '{"en":"reproduction"}'
       ],
+      [
+        'name' => '{"en":"Wishlist"}',
+        'slug' => '{"en":"wishlist"}'
+      ]]);
     }
 }
