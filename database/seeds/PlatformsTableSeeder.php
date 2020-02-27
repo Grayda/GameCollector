@@ -100,6 +100,32 @@ class PlatformsTableSeeder extends Seeder
         'title' => 'Xbox 360',
         'description' => 'Xbox 360',
         'manufacturer' => 'Microsoft'
-      ]]);
+      ],
+      [
+        'title' => 'Famicom',
+        'description' => 'Nintendo Famicom (not the FDS or Super Famicom)',
+        'manufacturer' => 'Nintendo'
+      ],
+      [
+        'title' => 'Famicom Disk System',
+        'description' => 'Famicom Disk System (FDS)',
+        'manufacturer' => 'Nintendo'
+      ],
+      [
+        'title' => 'Super Famicom',
+        'description' => 'Super Famicom',
+        'manufacturer' => 'Nintendo'
+      ],
+      [
+        'title' => 'Nintendo 64DD',
+        'description' => 'Nintendo 64DD Disk Drive',
+        'manufacturer' => 'Nintendo'
+      ],
+      [
+        'title' => 'Other',
+        'description' => 'Other Platforms',
+        'manufacturer' => 'Other'
+      ],
+    ]);
     }
 }
