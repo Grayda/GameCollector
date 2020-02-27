@@ -2,9 +2,6 @@
 
 namespace App\Policies;
 
-use App\User;
-use Spatie\Tags\Tag as Tag;
-
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TagPolicy extends BasePolicy

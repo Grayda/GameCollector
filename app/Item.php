@@ -25,6 +25,11 @@ class Item extends Model implements HasMedia
         'purchase_price' => 0,
     ];
 
+    public static function getTagClassName(): string
+    {
+      return Tag::class;
+    }
+
     function acquisition() {
       return $this->belongsTo(Acquisition::class)->orderBy('title');
     }

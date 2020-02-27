@@ -74,6 +74,16 @@ class Item extends Resource
     ];
 
     /**
+     * Hides a resource from the sidebar if you don't have access.
+     * Still show the resources on the form, but just hides the nav
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     */
+    public static function availableForNavigation(Request $request)
+    {
+      return true;
+    }
+
+    /**
      * Build an "index" query for the given resource.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request

@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-use Spatie\Tags\Tag as TagModel;
 use App\Policies\TagPolicy;
 
 class AuthServiceProvider extends ServiceProvider
@@ -15,8 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // We need to register this here because it's actually a model from a separate namespace.
-        TagModel::class => TagPolicy::class,
+      //
     ];
 
     /**

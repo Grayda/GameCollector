@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource as NovaResource;
+use Illuminate\Http\Request;
 
 abstract class Resource extends NovaResource
 {
@@ -55,5 +56,15 @@ abstract class Resource extends NovaResource
     public static function relatableQuery(NovaRequest $request, $query)
     {
         return parent::relatableQuery($request, $query);
+    }
+
+    /**
+     * Hides a resource from the sidebar if you don't have access.
+     * Still show the resources on the form, but just hides the nav
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     */
+    public static function availableForNavigation(Request $request)
+    {
+      return $request->user()->is_admin;
     }
 }
