@@ -14,8 +14,26 @@
       <div class="card-body">
         <h5 class="card-title">{{ $game->title }}</h5>
         <p class="card-text">
-          Type: {{ $game->type->title ?? 'n/a' }}<br />
-          Platform: {{ $game->platform->title ?? 'n/a' }}<br />
+          <table class="table">
+            <tr>
+              <th>Platform:</th>
+              <td>{{ $game->platform->title ?? 'n/a' }}</td>
+            </tr>
+            <tr>
+              <th>Type:</th>
+              <td>{{ $game->type->title ?? 'n/a' }}</td>
+            </tr>
+            <tr>
+              <th>Included Items:</th>
+              <td>
+                <ul>
+                  @foreach($game->feature_ids as $key => $feature)
+                    {!! $feature == true ? '<li>' . $key . '</li>' : '' !!}
+                  @endforeach
+                </ul>
+              </td>
+            </tr>
+          </table>
         </p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
