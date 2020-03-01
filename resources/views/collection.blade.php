@@ -10,7 +10,7 @@
     <div class="col-3">
     {{ $game->getFirstMediaUrl() }}
     <div class="card">
-      <img src="{{ $game->getFirstMediaUrl('medium-size') }}" class="card-img-top img-fluid">
+      <img src="{{ $game->getMedia('')[0]->getUrl('medium-size') }}" class="card-img-top img-fluid">
       <div class="card-body">
         <h5 class="card-title">{{ $game->title }}</h5>
         <p class="card-text">
