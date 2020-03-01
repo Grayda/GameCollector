@@ -24,6 +24,10 @@
               <td>{{ $game->type->title ?? 'n/a' }}</td>
             </tr>
             <tr>
+              <th>Condition:</th>
+              <td>{{ $game->condition->title ?? 'n/a' }}</td>
+            </tr>
+            <tr>
               <th>Included Items:</th>
               <td>
                 <ul>
@@ -35,7 +39,6 @@
             </tr>
           </table>
         </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
   </div>
