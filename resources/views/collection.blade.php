@@ -7,9 +7,9 @@
 
   <div class="row">
   @foreach($collection['items'] as $game)
-    <div class="col">
+    <div class="col-3">
     {{ $game->getFirstMediaUrl() }}
-    <div class="card w-50">
+    <div class="card">
       <img src="{{ $game->getFirstMediaUrl('') }}" class="card-img-top img-fluid">
       <div class="card-body">
         <h5 class="card-title">{{ $game->title }}</h5>
