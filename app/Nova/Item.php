@@ -18,6 +18,8 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\Boolean;
 
+use App\Nova\Actions\AddToCollection;
+
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 use Spatie\TagsField\Tags;
@@ -221,6 +223,7 @@ class Item extends Resource
     public function actions(Request $request)
     {
         return [
+          new AddToCollection,
           new DownloadExcel,
         ];
     }
