@@ -7,6 +7,7 @@ use Wildside\Userstamps\Userstamps;
 use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\Image\Manipulations;
 use \Spatie\Tags\HasTags;
 
 class Item extends Model implements HasMedia

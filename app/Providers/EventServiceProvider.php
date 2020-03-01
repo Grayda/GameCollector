@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'Spatie\MediaLibrary\Events\MediaHasBeenAdded' => [
+          'App\Listeners\FixImageOrientation'
+        ],
     ];
 
     /**
