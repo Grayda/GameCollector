@@ -73,7 +73,8 @@ class Item extends Resource
         'condition' => ['title'],
         'region' => ['title'],
         'type' => ['title'],
-        'tags' => ['name']
+        'tags' => ['name'],
+        'platform' => ['title']
     ];
 
     /**
@@ -196,7 +197,7 @@ class Item extends Resource
           new Filters\TypeFilter,
           new Filters\ConditionFilter,
           new Filters\RegionFilter,
-
+          new Filters\PlatformFilter
         ];
     }
 

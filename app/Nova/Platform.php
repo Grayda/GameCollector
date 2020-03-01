@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Platform extends Resource
@@ -51,7 +52,8 @@ class Platform extends Resource
             ID::make()->sortable(),
             Text::make('Title'),
             Text::make('Description'),
-            Text::make('Manufacturer')
+            Text::make('Manufacturer'),
+            HasMany::make('Items'),
         ];
     }
 
