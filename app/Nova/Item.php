@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Currency;
@@ -15,6 +16,7 @@ use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\BooleanGroup;
+use Laravel\Nova\Fields\Boolean;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
@@ -149,18 +151,12 @@ class Item extends Resource
               ->hideFromIndex()
               ->help('What condition is this item in?'),
             BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'title')),
-            BelongsTo::make('Related Item', 'parent', Item::class)
-              ->nullable()
-              ->hideFromDetail()
-              ->hideFromIndex()
-              ->help('Specifies if an item belongs to another item'),
-            Number::make('Related items', function() {
-              return $this->parent()->count() + $this->children()->count();
+            Number::make('Collections', function() {
+              return $this->collection()->count();
             })
               ->sortable()
               ->onlyOnIndex(),
-            HasOne::make('Parent Item', 'parent', Item::class),
-            HasMany::make('Child Item', 'children', Item::class),
+            BelongsToMany::make('Collection'),
             Heading::make('Additional Information'),
             Markdown::make('Notes')
               ->alwaysShow(),

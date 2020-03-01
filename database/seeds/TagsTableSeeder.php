@@ -36,10 +36,6 @@ class TagsTableSeeder extends Seeder
         'slug' => '{"en":"limited-edition"}'
       ],
       [
-        'name' => '{"en":"Collector\'s Edition"}',
-        'slug' => '{"en":"collectors-edition"}'
-      ],
-      [
         'name' => '{"en":"Third Party"}',
         'slug' => '{"en":"third-party"}'
       ],
@@ -50,6 +46,15 @@ class TagsTableSeeder extends Seeder
       [
         'name' => '{"en":"Wishlist"}',
         'slug' => '{"en":"wishlist"}'
-      ]]);
+      ],
+      [
+        'name' => '{"en":"Played"}',
+        'slug' => '{"en":"played"}'
+      ],
+      [
+        'name' => '{"en":"Playing"}',
+        'slug' => '{"en":"playing"}'
+      ],
+    ]);
     }
 }

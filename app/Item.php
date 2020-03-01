@@ -25,6 +25,10 @@ class Item extends Model implements HasMedia
         'purchase_price' => 0,
     ];
 
+    protected $fillable = [
+      'platform_id'
+    ];
+
     public static function getTagClassName(): string
     {
       return Tag::class;
@@ -38,6 +42,10 @@ class Item extends Model implements HasMedia
       return $this->belongsTo(Condition::class)->orderBy('grade', 'desc');
     }
 
+    function collection() {
+      return $this->belongsToMany(Collection::class)->orderBy('title');
+    }
+
     function platform() {
       return $this->belongsTo(Platform::class)->orderBy('title', 'desc')->orderBy('manufacturer', 'desc');
     }
@@ -48,14 +56,6 @@ class Item extends Model implements HasMedia
 
     function region() {
       return $this->belongsTo(Region::class);
-    }
-
-    function parent() {
-      return $this->belongsTo(Item::class);
-    }
-
-    function children() {
-      return $this->hasMany(Item::class, 'parent_id');
     }
 
     function getRelatedAttribute($value) {
@@ -78,7 +78,7 @@ class Item extends Model implements HasMedia
 
       $this->addMediaConversion('medium-size')
         ->width(800);
-    
+
     }
 
 }

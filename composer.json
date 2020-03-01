@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "doctrine/dbal": "^2.10",
         "ebess/advanced-nova-media-library": "^2.9",
         "fideloper/proxy": "^4.0",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.0",
