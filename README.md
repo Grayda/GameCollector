@@ -12,7 +12,7 @@ GameCollector is a Laravel-based web app that lets you store information about y
    * Tags for marking things as on your wishlist, reproduction, games you've played / are playing
  * Upload images for each item so you can see what you have, what condition it's in, and so on. Also great for preserving game manuals, insets and such.
  * Create collections. They can be as broad as "All my Pokémon Games", or as specific as "Games bought at a garage sale on June 29th 2019"
- * Search to quickly find a game, tag, note or almost anything else about the game. 
+ * Search to quickly find a game, tag, note or almost anything else about the game.
 
 # Requirements
 
@@ -35,3 +35,19 @@ GameCollector is a Laravel-based web app that lets you store information about y
 # Support
 
 This project is a work in progress. Things will change and break. Make sure to take regular backups, as I hold no responsibility for any lost data that occurs as a result of using this software.
+
+# Screenshots
+
+[![Viewing details about a game](https://imgur.com/Z8uDYNw.jpg)](https://imgur.com/Z8uDYNw.jpg)
+
+[![Stats on the dashboard](https://imgur.com/XBvSbMU.jpg)](https://imgur.com/XBvSbMU.jpg)
+
+[![Viewing a list of items](https://imgur.com/ShmZaqs.jpg)](https://imgur.com/ShmZaqs.jpg)
+
+[![Updating an item](https://imgur.com/CSuWNyl.jpg)](https://imgur.com/CSuWNyl.jpg)
+
+[![Adding metadata and media](https://imgur.com/fTnGCw8.jpg)](https://imgur.com/fTnGCw8.jpg)
+
+[![Tagging an item](https://imgur.com/L8Vz5X2.jpg)](https://imgur.com/L8Vz5X2.jpg)
+
+[![Searching for an item](https://imgur.com/0OqsyBh.gif)](https://imgur.com/0OqsyBh.gif)
