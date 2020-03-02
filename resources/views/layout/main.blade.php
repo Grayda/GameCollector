@@ -22,14 +22,18 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
+                        @guest
+                          <li class="nav-item active">
+                              <a class="nav-link" href="/signup">Sign Up</a>
+                          </li>
+                        @endguest
+                        @auth
+                          <li class="nav-item active">
+                              <a class="nav-link" href="/collect">Collections</a>
+                          </li>
+                        @endauth
                     </ul>
                 </div>
             </nav>
