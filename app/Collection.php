@@ -16,20 +16,17 @@ class Collection extends Model
       'fields' => 'array'
     ];
 
-    protected $attributes = [
-      'fields' => [
+    function __construct() {
+      $this->attributes['collection_id'] = Str::uuid(); // Because we can't do functions in variable declarations outside of a function.
+      $this->attributes['fields'] = json_encode([
         'notes' => false,
-        'condition' => false,
+        'condition' => true,
         'region' => true,
         'tags' => false,
         'type' => true,
-        'images' => true
-      ]
-    ];
-
-    function __construct() {
-      $this->attributes['collection_id'] = Str::uuid(); // Because we can't do functions in variable declarations outside of a function.
-
+        'images' => true,
+        'features' => true
+      ]);
       parent::__construct();
     }
 
