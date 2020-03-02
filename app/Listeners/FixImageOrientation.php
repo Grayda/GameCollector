@@ -26,7 +26,9 @@ class FixImageOrientation
      */
      public function handle(MediaHasBeenAdded $event)
      {
-        $this->correctImageOrientation($event->media->getPath());
+       if($event->media->mime_type == 'image/jpeg') {
+         $this->correctImageOrientation($event->media->getPath());
+       }
      }
 
      private function correctImageOrientation($filename) {
