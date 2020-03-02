@@ -4,7 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Spatie\Tags\Tag as TagModel;
+use Laravel\Nova\Fields\Markdown;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -15,7 +15,7 @@ class Tag extends Resource
      *
      * @var string
      */
-    public static $model = TagModel::class;
+    public static $model = 'App\Tag';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -49,7 +49,8 @@ class Tag extends Resource
     public function fields(Request $request)
     {
       return [
-          Text::make('Name')->sortable(),
+          Text::make('Title')->sortable(),
+          Markdown::make('Description')->sortable(),
       ];
     }
 

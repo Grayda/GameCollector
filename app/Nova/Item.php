@@ -22,7 +22,7 @@ use App\Nova\Actions\AddToCollection;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
-use Spatie\TagsField\Tags;
+use Superlatif\NovaTagInput\Tags;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use Titasgailius\SearchRelations\SearchesRelations;
 
@@ -164,6 +164,8 @@ class Item extends Resource
             Markdown::make('Notes')
               ->alwaysShow(),
             Tags::make('Tags')
+              ->autocompleteItems(\App\Tag::pluck('title')->toArray())
+              ->placeholder('Collectors Edition')
               ->help('Extra tags to add to the item'),
             KeyValue::make('Metadata')
               ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),

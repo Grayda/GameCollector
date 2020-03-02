@@ -8,18 +8,17 @@ use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Image\Manipulations;
-use \Spatie\Tags\HasTags;
 
 class Item extends Model implements HasMedia
 {
     use HasMediaTrait;
     use Userstamps;
-    use HasTags;
 
     protected $casts = [
       'metadata' => 'array',
       'acquired_at' => 'date',
-      'feature_ids' => 'array'
+      'feature_ids' => 'array',
+      'tags' => 'array'
     ];
 
     protected $attributes = [

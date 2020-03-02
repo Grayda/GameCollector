@@ -17,7 +17,7 @@
         "laravel/nova": "~2.0",
         "laravel/tinker": "^2.0",
         "maatwebsite/laravel-nova-excel": "^1.1",
-        "spatie/nova-tags-field": "^2.3",
+        "superlatif/nova-tag-input": "^1.1",
         "titasgailius/search-relations": "^1.0",
         "wildside/userstamps": "^1.1"
     },

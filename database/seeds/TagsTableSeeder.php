@@ -12,48 +12,44 @@ class TagsTableSeeder extends Seeder
     public function run()
     {
       DB::table('tags')->insert([[
-        'name' => '{"en":"Sold"}',
-        'slug' => '{"en":"sold"}'
+        'title' => 'Sold',
+        'description' => 'Item has been sold'
       ],
       [
-        'name' => '{"en":"Modded"}',
-        'slug' => '{"en":"modded"}'
+        'title' => 'Modded',
+        'description' => 'Item is modified (e.g. mod chip, different case, new screen)'
       ],
       [
-        'name' => '{"en":"Lost"}',
-        'slug' => '{"en":"lost"}'
+        'title' => 'Lost',
+        'description' => 'Item can\'t be found'
       ],
       [
-        'name' => '{"en":"Stolen"}',
-        'slug' => '{"en":"stolen"}'
+        'title' => 'Stolen',
+        'description' => 'Item was stolen'
       ],
       [
-        'name' => '{"en":"Rare"}',
-        'slug' => '{"en":"rare"}'
+        'title' => 'Rare',
+        'description' => 'Item is rare or very hard to come by'
       ],
       [
-        'name' => '{"en":"Limited Edition"}',
-        'slug' => '{"en":"limited-edition"}'
+        'title' => 'Limited Edition',
+        'description' => 'Item is limited edition, sold in smaller numbers'
       ],
       [
-        'name' => '{"en":"Third Party"}',
-        'slug' => '{"en":"third-party"}'
+        'title' => 'Third Party',
+        'description' => 'Item is a third party item (e.g. aftermarket controllers, clones etc.)'
       ],
       [
-        'name' => '{"en":"Reproduction"}',
-        'slug' => '{"en":"reproduction"}'
+        'title' => 'Reproduction',
+        'description' => 'Item is a reproduction (e.g. games you would buy on AliExpress)'
       ],
       [
-        'name' => '{"en":"Wishlist"}',
-        'slug' => '{"en":"wishlist"}'
+        'title' => 'Wishlist',
+        'description' => 'Items not yet owned'
       ],
       [
-        'name' => '{"en":"Played"}',
-        'slug' => '{"en":"played"}'
-      ],
-      [
-        'name' => '{"en":"Playing"}',
-        'slug' => '{"en":"playing"}'
+        'title' => 'Played',
+        'description' => 'Game, console etc. that has been played, either to completion, or at least partially'
       ],
     ]);
     }
