@@ -4,7 +4,6 @@
   <h1 class="display-3">{{ $collection->title }}</h1>
   <p class="lead">A collection of {{ $collection->items->count() }} {{ Str::plural('item', $collection->items->count()) }} by {{ $collection->owner->name ?? 'A User' }}
   <blockquote class="blockquote">{{ $collection->description }}</blockquote>
-
   <div class="row">
   @foreach($collection['items'] as $game)
 

@@ -13,6 +13,7 @@ class Collection extends Model
 
     protected $casts = [
       'public' => 'boolean',
+      'fields' => 'array'
     ];
 
     protected $attributes = [
@@ -22,6 +23,7 @@ class Collection extends Model
         'region' => true,
         'tags' => false,
         'type' => true,
+        'images' => true
       ]
     ];
 

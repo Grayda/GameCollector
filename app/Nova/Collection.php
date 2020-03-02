@@ -63,6 +63,7 @@ class Collection extends Resource
               ->help('Is this collection shareable?'),
             BooleanGroup::make('Fields')
               ->options([
+                'images' => 'Images',
                 'notes' => 'Notes',
                 'condition' => 'Condition',
                 'region' => 'Region',
