@@ -63,7 +63,8 @@ class Item extends Resource
         'id',
         'title',
         'metadata',
-        'notes'
+        'notes',
+        'tags'
     ];
 
     /**
@@ -75,7 +76,6 @@ class Item extends Resource
         'condition' => ['title'],
         'region' => ['title'],
         'type' => ['title'],
-        'tags' => ['name'],
         'platform' => ['title']
     ];
 
