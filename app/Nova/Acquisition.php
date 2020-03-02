@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Acquisition extends Resource
@@ -51,11 +53,13 @@ class Acquisition extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title')
-              ->help('The title of this acquisition'),
-            Markdown::make('Description')
-              ->help('A short description of this acquisition method')
-
+            Text::make('Title'),
+            Markdown::make('Description'),
+            Number::make('Number of items', function($value) {
+              return $value->items()->count();
+            })
+              ->exceptOnForms(),
+            HasMany::make('Items')
         ];
     }
 

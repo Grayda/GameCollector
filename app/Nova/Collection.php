@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -60,6 +61,15 @@ class Collection extends Resource
               ->help('Description of this collection'),
             Boolean::make('Public')
               ->help('Is this collection shareable?'),
+            BooleanGroup::make('Fields')
+              ->options([
+                'notes' => 'Notes',
+                'condition' => 'Condition',
+                'region' => 'Region',
+                'tags' => 'Tags',
+                'type' => 'Item Type',
+              ])
+              ->help('What fields should appear in the collection?'),
             BelongsToMany::make('Items'),
             Text::make('Collection URL', function($value) {
               if($value->public) {

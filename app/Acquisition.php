@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Acquisition extends Model
 {
     function items() {
-      return $this->belongsToMany(Item::class);
+      return $this->hasMany(Item::class);
     }
 }

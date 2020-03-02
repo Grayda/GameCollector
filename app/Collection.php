@@ -12,13 +12,21 @@ class Collection extends Model
     use Userstamps;
 
     protected $casts = [
-      'public' => 'boolean'
+      'public' => 'boolean',
+    ];
+
+    protected $attributes = [
+      'fields' => [
+        'notes' => false,
+        'condition' => false,
+        'region' => true,
+        'tags' => false,
+        'type' => true,
+      ]
     ];
 
     function __construct() {
-      $this->attributes = [
-        'collection_id' => Str::uuid() // Because we can't do functions in variable declarations outside of a function.
-      ];
+      $this->attributes['collection_id'] = Str::uuid(); // Because we can't do functions in variable declarations outside of a function.
 
       parent::__construct();
     }

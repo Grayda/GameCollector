@@ -4,6 +4,10 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Region extends Resource
@@ -48,6 +52,13 @@ class Region extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Title'),
+            Markdown::make('Description'),
+            Number::make('Number of items', function($value) {
+              return $value->items()->count();
+            })
+              ->exceptOnForms(),
+            HasMany::make('Items')
         ];
     }
 
