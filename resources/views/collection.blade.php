@@ -1,11 +1,9 @@
 @extends('layout.main')
 @section('content')
-  <div class="jumbotron pt-3">
-    <div class="container-fluid my-3">
-      <h1>{{ $collection->title }}</h1>
-      <p class="lead">A collection of {{ $collection->items->count() }} {{ Str::plural('item', $collection->items->count()) }} by {{ $collection->owner->name ?? 'A User' }}</p>
-      <blockquote class="blockquote">{{ $collection->description }}</blockquote>
-    </div>
+  <div class="p-4">
+    <h1 class="display-4">{{ $collection->title }}</h1>
+    <p class="lead">A collection of {{ $collection->items->count() }} {{ Str::plural('item', $collection->items->count()) }} by {{ $collection->owner->name ?? 'A User' }}</p>
+    <blockquote class="blockquote">{{ $collection->description }}</blockquote>
   </div>
   <div class="row">
   @foreach($collection['items'] as $game)
@@ -16,7 +14,11 @@
         <img src="{{ $game->getFirstMediaUrl('', 'medium-size') }}" class="card-img-top img-fluid">
       @endif
       <div class="card-body">
-        <h5 class="card-title">{{ $game->title }}</h5>
+        <h5 class="card-title">{{ $game->title }}
+          @if($collection->fields['region'] ?? false)
+            <small class="text-muted">{{ $game->region->title ?? 'Unknown' }}</small>
+          @endif
+        </h5>
         <p class="card-text">
           @if($collection->fields['notes'] ?? false)
             <blockquote class="blockquote">
@@ -28,12 +30,6 @@
               <tr>
                 <th>Platform:</th>
                 <td>{{ $game->platform->title ?? 'n/a' }}</td>
-              </tr>
-            @endif
-            @if($collection->fields['region'] ?? false)
-              <tr>
-                <th>Region:</th>
-                <td>{{ $game->region->title ?? 'Unknown' }}</td>
               </tr>
             @endif
             @if($collection->fields['type'] ?? false)
@@ -52,11 +48,19 @@
               <tr>
                 <th>Features:</th>
                 <td>
-                  <ul>
-                    @foreach($game->feature_ids as $key => $feature)
-                      {!! $feature == true ? '<li>' . $key . '</li>' : '' !!}
-                    @endforeach
-                  </ul>
+                  @foreach($game->feature_ids as $key => $feature)
+                    <span class="badge badge-{{ $feature == true ? 'success' : 'danger' }}">{{ $key ?? 'n/a' }}</span>
+                  @endforeach
+                </td>
+              </tr>
+            @endif
+            @if($collection->fields['tags'] ?? false)
+              <tr>
+                <th>Tags:</th>
+                <td>
+                  @foreach($game->tags as $tag )
+                    <span class="badge badge-primary">{{ $tag['text'] ?? 'n/a' }}</span>
+                  @endforeach
                 </td>
               </tr>
             @endif
