@@ -35,6 +35,6 @@ class Collection extends Model
     }
 
     function owner() {
-      return $this->hasOne(User::class, 'id');
+      return $this->hasOne(User::class, 'id', 'created_by');
     }
 }
