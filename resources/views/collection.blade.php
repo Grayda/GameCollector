@@ -27,6 +27,12 @@
                 <td>{{ $game->platform->title ?? 'n/a' }}</td>
               </tr>
             @endif
+            @if($collection->fields['region'] ?? false)
+              <tr>
+                <th>Region:</th>
+                <td>{{ $game->region->title ?? 'Unknown' }}</td>
+              </tr>
+            @endif
             @if($collection->fields['type'] ?? false)
               <tr>
                 <th>Type:</th>
