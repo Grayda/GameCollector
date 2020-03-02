@@ -1,9 +1,12 @@
 @extends('layout.main')
 @section('content')
-
-  <h1 class="display-3">{{ $collection->title }}</h1>
-  <p class="lead">A collection of {{ $collection->items->count() }} {{ Str::plural('item', $collection->items->count()) }} by {{ $collection->owner->name ?? 'A User' }}
-  <blockquote class="blockquote">{{ $collection->description }}</blockquote>
+  <div class="jumbotron pt-3">
+    <div class="container-fluid my-3">
+      <h1>{{ $collection->title }}</h1>
+      <p class="lead">A collection of {{ $collection->items->count() }} {{ Str::plural('item', $collection->items->count()) }} by {{ $collection->owner->name ?? 'A User' }}</p>
+      <blockquote class="blockquote">{{ $collection->description }}</blockquote>
+    </div>
+  </div>
   <div class="row">
   @foreach($collection['items'] as $game)
 
