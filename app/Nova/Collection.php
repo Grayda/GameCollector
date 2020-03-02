@@ -68,6 +68,7 @@ class Collection extends Resource
                 'region' => 'Region',
                 'tags' => 'Tags',
                 'type' => 'Item Type',
+                'features' => 'Features'
               ])
               ->help('What fields should appear in the collection?'),
             BelongsToMany::make('Items'),

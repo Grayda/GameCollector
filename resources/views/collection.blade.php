@@ -7,34 +7,40 @@
 
   <div class="row">
   @foreach($collection['items'] as $game)
+
     <div class="col-3">
     <div class="card">
-      @if($collection->fields->images)
+      @if($collection->fields['images'] ?? false)
         <img src="{{ $game->getFirstMediaUrl('', 'medium-size') }}" class="card-img-top img-fluid">
       @endif
       <div class="card-body">
         <h5 class="card-title">{{ $game->title }}</h5>
         <p class="card-text">
+          @if($collection->fields['notes'] ?? false)
+            <blockquote class="blockquote">
+              {{ $game->notes }}<br />
+            </blockquote>
+          @endif
           <table class="table">
-            @if($collection->fields->platform)
+            @if($collection->fields['platform'] ?? false)
               <tr>
                 <th>Platform:</th>
                 <td>{{ $game->platform->title ?? 'n/a' }}</td>
               </tr>
             @endif
-            @if($collection->fields->type)
+            @if($collection->fields['type'] ?? false)
               <tr>
                 <th>Type:</th>
                 <td>{{ $game->type->title ?? 'n/a' }}</td>
               </tr>
             @endif
-            @if($collection->fields->condition)
+            @if($collection->fields['condition'] ?? false)
               <tr>
                 <th>Condition:</th>
                 <td>{{ $game->condition->title ?? 'n/a' }}</td>
               </tr>
             @endif
-            @if($collection->fields->features)
+            @if($collection->fields['features'] ?? false)
               <tr>
                 <th>Features:</th>
                 <td>
