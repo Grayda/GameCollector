@@ -16,6 +16,7 @@
         "laravel/framework": "^6.2",
         "laravel/nova": "~2.0",
         "laravel/tinker": "^2.0",
+        "laravel/ui": "^1.2",
         "maatwebsite/laravel-nova-excel": "^1.1",
         "superlatif/nova-tag-input": "^1.1",
         "titasgailius/search-relations": "^1.0",

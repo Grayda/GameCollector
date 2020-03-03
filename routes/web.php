@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/share/collection/{id}', 'CollectionController@view');
+
+Auth::routes(['register' => false]);
+
+Route::get('/home', 'HomeController@index')->name('home');
