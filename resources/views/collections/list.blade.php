@@ -60,11 +60,12 @@
               @endforeach
             </td>
           @endif
+          </tr>
+          @endforeach
         </table>
         </div>
       </div>
     </div>
-    @endforeach
   </div>
 </div>
 
