@@ -14,39 +14,39 @@ class AddSoftDeletes extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
         Schema::table('platforms', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
         Schema::table('conditions', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
         Schema::table('types', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
         Schema::table('acquisitions', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
         Schema::table('features', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
         Schema::table('regions', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
         Schema::table('collections', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
         Schema::table('tags', function (Blueprint $table) {
-          $table->softDeletes()
+          $table->softDeletes();
         });
 
     }
