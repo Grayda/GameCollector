@@ -69,7 +69,8 @@ class Collection extends Resource
                 'region' => 'Region',
                 'tags' => 'Tags',
                 'type' => 'Item Type',
-                'features' => 'Features'
+                'features' => 'Features',
+                'metadata' => 'Metadata'
               ])
               ->help('What fields should appear in the collection?'),
             Select::make('Layout')
@@ -77,6 +78,7 @@ class Collection extends Resource
                 'cards' => 'Card Layout (default)',
                 'list' => 'List layout'
               ])
+              ->hideFromIndex()
               ->displayUsingLabels()
               ->help('Pick a layout to use'),
             Boolean::make('Public')

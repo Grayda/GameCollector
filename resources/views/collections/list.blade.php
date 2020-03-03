@@ -60,6 +60,23 @@
               @endforeach
             </td>
           @endif
+          @if($collection->fields['metadata'] ?? false)
+              <td>
+                <strong>Metadata:</strong><br />
+                <table class="table">
+                  <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                  </tr>
+                  <tr>
+                    @foreach($game->metadata as $key => $value )
+                      <td>{{ $key }}</td>
+                      <td>{{ $value }}</td>
+                    @endforeach
+                  </tr>
+                </table>
+              </td>
+          @endif
           </tr>
           @endforeach
         </table>
