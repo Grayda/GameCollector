@@ -41,7 +41,7 @@
         <div class="col"><img src="/site-images/photos-500.jpg" class="img-fluid"></div>
       </div>
     </div>
-    <div class="jumbotron jumbotron-fluid bg-dark text-light">
+    <div class="py-4 bg-dark text-light">
       <h1>Yes!</h1>
     </div>
   </div>

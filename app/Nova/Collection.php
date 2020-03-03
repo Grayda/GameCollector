@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -59,8 +61,6 @@ class Collection extends Resource
               ->help('Name of this collection'),
             Markdown::make('Description')
               ->help('Description of this collection'),
-            Boolean::make('Public')
-              ->help('Is this collection shareable?'),
             BooleanGroup::make('Fields')
               ->options([
                 'images' => 'Images',
@@ -72,6 +72,18 @@ class Collection extends Resource
                 'features' => 'Features'
               ])
               ->help('What fields should appear in the collection?'),
+            Select::make('Layout')
+              ->options([
+                'cards' => 'Card Layout (default)',
+                'list' => 'List layout'
+              ])
+              ->displayUsingLabels()
+              ->help('Pick a layout to use'),
+            Boolean::make('Public')
+              ->help('Is this collection shareable?'),
+            Number::make('Items in Collection', function($value) {
+              return $value->items()->count();
+            }),
             BelongsToMany::make('Items'),
             Text::make('Collection URL', function($value) {
               if($value->public) {
