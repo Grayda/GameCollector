@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Generators;
 
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\Models\Media;

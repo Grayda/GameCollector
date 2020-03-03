@@ -8,11 +8,14 @@ use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Image\Manipulations;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Item extends Model implements HasMedia
 {
     use HasMediaTrait;
     use Userstamps;
+    use SoftDeletes;
 
     protected $casts = [
       'metadata' => 'array',
