@@ -10,7 +10,6 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Image\Manipulations;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class Item extends Model implements HasMedia
 {
     use HasMediaTrait;
@@ -31,11 +30,6 @@ class Item extends Model implements HasMedia
     protected $fillable = [
       'platform_id'
     ];
-
-    public static function getTagClassName(): string
-    {
-      return Tag::class;
-    }
 
     function acquisition() {
       return $this->belongsTo(Acquisition::class)->orderBy('title');

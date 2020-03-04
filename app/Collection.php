@@ -30,6 +30,8 @@ class Collection extends Model
         'features' => true,
         'metadata' => false,
       ]);
+
+      parent::__construct();
     }
 
     function items() {
