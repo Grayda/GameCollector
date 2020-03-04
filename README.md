@@ -25,6 +25,7 @@ GameCollector is a Laravel-based web app that lets you store information about y
 
  * Set up your webserver of choice.
  * Create a new database in MySQL.
+ * [Set up a queue worker (with Redis, database, etc.)](https://laravel.com/docs/7.x/queues)
  * Copy `.env.example` to `.env`
  * Edit `.env` and set your options as necessary.
  * Run `composer install` and provide your Laravel Nova login details.
@@ -35,6 +36,8 @@ GameCollector is a Laravel-based web app that lets you store information about y
 # Support
 
 This project is a work in progress. Things will change and break. Make sure to take regular backups, as I hold no responsibility for any lost data that occurs as a result of using this software.
+
+If you wish to contribute, please ensure that any changes you make are backwards compatible. If you're not sure, submit an issue to discuss it first.
 
 # Screenshots
 
