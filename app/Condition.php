@@ -11,6 +11,6 @@ class Condition extends Model
   use SoftDeletes;
 
   function items() {
-    return $this->belongsToMany(Item::class);
+    return $this->hasMany(Item::class);
   }
 }
