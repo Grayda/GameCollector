@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -62,6 +63,12 @@ class Collection extends Resource
               ->help('Description of this collection'),
             Boolean::make('Public')
               ->help('Is this collection shareable?'),
+            Select::make('Layout')->options([
+              'cards' => 'Card Layout (default)',
+              'list' => 'List Layout'
+            ])
+              ->displayUsingLabels()
+              ->help('Which layout should this collection use?'),
             Number::make('Item Count', function($value) {
               return $value->items()->count();
             })
@@ -78,6 +85,7 @@ class Collection extends Resource
                 'metadata' => 'Metadata'
               ])
               ->help('What fields should appear in the collection?'),
+
             BelongsToMany::make('Items'),
             Text::make('Collection URL', function($value) {
               if($value->public) {

@@ -63,11 +63,7 @@
           @if($collection->fields['metadata'] ?? false)
               <td>
                 <strong>Metadata:</strong><br />
-                <table class="table">
-                  <tr>
-                    <th>Key</th>
-                    <th>Value</th>
-                  </tr>
+                <table class="table table-borderless">
                   <tr>
                     @foreach($game->metadata as $key => $value )
                       <td>{{ $key }}</td>

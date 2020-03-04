@@ -69,11 +69,7 @@
                 <tr>
                   <th>Metadata:</th>
                   <td>
-                    <table>
-                      <tr>
-                        <th>Key</th>
-                        <th>Value</th>
-                      </tr>
+                    <table class="table table-borderless">
                       <tr>
                         @foreach($game->metadata as $key => $value )
                           <td>{{ $key }}</td>
