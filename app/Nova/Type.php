@@ -4,6 +4,10 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Type extends Resource
@@ -36,6 +40,7 @@ class Type extends Resource
      */
     public static $search = [
         'id',
+        'title'
     ];
 
     /**
@@ -47,7 +52,15 @@ class Type extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable()
+              ->hideFromIndex(),
+            Text::make('Title'),
+            Markdown::make('Description'),
+            Number::make('Number of items', function($value) {
+              return $value->items()->count();
+            })
+              ->exceptOnForms(),
+            HasMany::make('Items')
         ];
     }
 

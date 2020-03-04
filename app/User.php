@@ -39,4 +39,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'is_admin' => 'boolean'
     ];
+
+    public function items() {
+      return $this->hasMany(Item::class, 'id', 'created_by');
+    }
 }

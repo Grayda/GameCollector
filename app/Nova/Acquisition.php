@@ -33,7 +33,6 @@ class Acquisition extends Resource
      */
     public static $group = 'Settings';
 
-
     /**
      * The columns that should be searched.
      *
@@ -41,6 +40,7 @@ class Acquisition extends Resource
      */
     public static $search = [
         'id',
+        'title'
     ];
 
     /**
@@ -52,7 +52,8 @@ class Acquisition extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable()
+              ->hideFromIndex(),
             Text::make('Title'),
             Markdown::make('Description'),
             Number::make('Number of items', function($value) {

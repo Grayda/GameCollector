@@ -38,6 +38,8 @@ class Platform extends Resource
      */
     public static $search = [
         'id',
+        'title',
+        'manufacturer'
     ];
 
     /**
@@ -49,7 +51,8 @@ class Platform extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable()
+              ->hideFromIndex(),
             Text::make('Title'),
             Text::make('Description'),
             Text::make('Manufacturer'),

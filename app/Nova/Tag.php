@@ -37,7 +37,7 @@ class Tag extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'title',
     ];
 
     /**
@@ -49,6 +49,8 @@ class Tag extends Resource
     public function fields(Request $request)
     {
       return [
+          ID::make()->sortable()
+            ->hideFromIndex(),
           Text::make('Title')->sortable(),
           Markdown::make('Description')->sortable(),
       ];

@@ -40,6 +40,7 @@ class Region extends Resource
      */
     public static $search = [
         'id',
+        'title'
     ];
 
     /**
@@ -51,7 +52,8 @@ class Region extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable()
+              ->hideFromIndex(),
             Text::make('Title'),
             Markdown::make('Description'),
             Number::make('Number of items', function($value) {
