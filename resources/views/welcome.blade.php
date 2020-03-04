@@ -4,6 +4,7 @@
     <div class="jumbotron jumbotron-fluid">
       <h1 class="display-1 text-center">{{ config('app.name') }}</h1>
       <h2 class="text-center">Manage Your Game Collection</h2>
+      <a href="#" class="btn btn-primary btn-lg btn-jumbo mt-5 py-2"><i class="fas fa-gamepad"></i> Organize Your Collection Now!</a>
     </div>
     <div class="container mb-5">
       <h3 class="display-4">Rein in your games</h3>
@@ -42,7 +43,14 @@
       </div>
     </div>
     <div class="py-4 bg-dark text-light">
-      <h1>Yes!</h1>
+      <h1>Open Source</h1>
+      <p class="lead">{{ config('app.name') }} is an open-source project, built on top of Laravel + Laravel Nova. This means you're free to take it, improve it, and give back if you wish.</p>
+      <a href="https://github.com/grayda/gamecollector" class="btn btn-lg btn-primary"><i class="fab fa-github"></i> View the code on GitHub</a>
     </div>
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="text-muted">&copy; {{ \Carbon\Carbon::now()->format('Y') }} davidgray Photography</span>
+      </div>
+    </footer>
   </div>
 @endsection
