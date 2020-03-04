@@ -51,6 +51,10 @@ class TagsTableSeeder extends Seeder
         'title' => 'Played',
         'description' => 'Game, console etc. that has been played, either to completion, or at least partially'
       ],
+      [
+        'title' => 'Selling',
+        'description' => 'This item is for sale'
+      ],
     ]);
     }
 }

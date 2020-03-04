@@ -28,8 +28,8 @@ class AcquisitionsTableSeeder extends Seeder
         'description' => 'Donated (e.g. given to you by a friend) or a present (e.g. birthday, christmas)'
       ],
       [
-        'title' => 'Garage Sale',
-        'description' => 'Purchased from a garage sale'
+        'title' => 'Garage Sale / Flea Market',
+        'description' => 'Purchased from a garage sale or flea market'
       ],
       [
         'title' => 'Pawn Shop',

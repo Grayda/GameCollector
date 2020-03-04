@@ -28,8 +28,12 @@ class RegionsTableSeeder extends Seeder
         'description' => 'PAL games',
       ],
       [
-        'title' => 'Other',
+        'title' => 'Other / Region Free',
         'description' => 'Games from other regions',
+      ],
+      [
+        'title' => 'Unknown',
+        'description' => 'Region Unknown',
       ],
       ]);
     }
