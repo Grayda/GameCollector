@@ -75,7 +75,6 @@ class Collection extends Resource
                 'tags' => 'Tags',
                 'type' => 'Item Type',
                 'features' => 'Features',
-                'prices' => 'Prices',
                 'metadata' => 'Metadata'
               ])
               ->help('What fields should appear in the collection?'),
