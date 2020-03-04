@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -10898,5 +10898,13 @@ a.text-dark:focus {
 
 .item-img {
   max-height: 10vh !important;
+}
+
+.btn-jumbo {
+  width: 25vw;
+  font-size: 1.5rem;
+  background: #3490dc;
+  padding-top: 0.5% !important;
+  padding-bottom: 0.5% !important;
 }
 
