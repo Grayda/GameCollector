@@ -52,6 +52,10 @@ class TypesTableSeeder extends Seeder
         'description' => 'A manual or booklet for an item'
       ],
       [
+        'title' => 'Book',
+        'description' => 'A book, such as strategy guides, art books, supplementary booklets etc.'
+      ],
+      [
         'title' => 'Other',
         'description' => 'Other type of item'
       ]]);
