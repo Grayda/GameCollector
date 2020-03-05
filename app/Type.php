@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Type extends Model
 {
     use SoftDeletes;
+
+    function items() {
+      return $this->belongsToMany(Item::class);
+    }
+    
 }
