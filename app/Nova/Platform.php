@@ -54,12 +54,15 @@ class Platform extends Resource
         return [
             ID::make()->sortable()
               ->hideFromIndex(),
-            Text::make('Title'),
+            Text::make('Title')
+              ->sortable(),
             Text::make('Description'),
-            Text::make('Manufacturer'),
+            Text::make('Manufacturer')
+              ->sortable(),
             Number::make('Number of items', function($value) {
               return $value->items()->count();
-            }),
+            })
+              ->sortable(),,
             HasMany::make('Items'),
         ];
     }
