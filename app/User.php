@@ -49,19 +49,25 @@ class User extends Authenticatable
       return $this->hasMany(Item::class, 'created_by');
     }
 
+    public function collections() {
+      return $this->hasMany(Collection::class, 'created_by');
+    }
+
     public function getItemLimitAttribute() {
       $plan = $this->plan;
       return $this->attributes['item_limit'] = ($plan['limit'] ?? 0) - ($this->items()->count() ?? 0);
     }
 
     public function getUserPlanAttribute() {
-      $plan = config('access.tiers.' . ($this->plan ?? 'level1'));
+      $plan = config('access.tiers.' . ($this->plan ?? 'none'));
       $remaining = ($plan['limit'] ?? 0) - ($this->items()->count() ?? 0);
+      $collection_remaining = ($plan['collection_limit'] ?? 0) - ($this->collections()->count() ?? 0);
 
       return $this->attributes['user_plan'] = [
         'plan' => $plan,
         'remaining' => $remaining,
-        'over_limit' => ($plan['limit'] == -1 ?  false : $remaining <= 0)
+        'over_limit' => ($plan['limit'] == -1 ?  false : $remaining <= 0),
+        'over_collection_limit' => ($plan['collection_limit'] == -1 ?  false : $collection_remaining <= 0)
       ];
 
     }

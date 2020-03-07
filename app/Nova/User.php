@@ -7,7 +7,9 @@ use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasMany;
 
 class User extends Resource
 {
@@ -69,8 +71,25 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
 
-            Number::make('Number of items')
-                ->exceptOnForms()
+            Number::make('Number of items', function($value) {
+              return $this->items()->count() ?? 0;
+            })
+                ->exceptOnForms(),
+
+            Number::make('Number of collections', function($value) {
+              return $this->collections()->count() ?? 0;
+            })
+                ->exceptOnForms(),
+
+            Select::make('Plan')
+              ->options(function() {
+                return collect(config('access.tiers'))->keys()->combine(collect(config('access.tiers'))->pluck('name'));
+              })
+              ->displayUsingLabels()
+              ->help('Which plan is this user on?'),
+
+            HasMany::make('Items'),
+            HasMany::make('Collections')
         ];
     }
 

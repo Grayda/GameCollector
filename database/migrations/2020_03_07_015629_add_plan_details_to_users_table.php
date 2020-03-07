@@ -15,7 +15,7 @@ class AddPlanDetailsToUsersTable extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->string('plan')->nullable();
+            $table->string('plan')->default('none');
         });
     }
 
