@@ -38,7 +38,7 @@ class ItemPolicy
      */
     public function view(User $user, Item $item)
     {
-        return $user->id === $item->created_by;
+        return ($user->id === $item->created_by);
     }
 
     /**
@@ -49,7 +49,7 @@ class ItemPolicy
      */
     public function create(User $user)
     {
-        return !is_null($user->email_verified_at);
+        return !is_null($user->email_verified_at) && (!$user->user_plan['over_limit']);
     }
 
     /**
@@ -85,7 +85,7 @@ class ItemPolicy
      */
     public function restore(User $user, Item $item)
     {
-        return $user->id === $item->created_by;
+        return ($user->id === $item->created_by) && ($user->item_limit > 0);
     }
 
     /**

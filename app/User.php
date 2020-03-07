@@ -40,7 +40,30 @@ class User extends Authenticatable
         'is_admin' => 'boolean'
     ];
 
+    protected $appends = [
+      'item_limit',
+      'user_plan'
+    ];
+
     public function items() {
-      return $this->hasMany(Item::class, 'id', 'created_by');
+      return $this->hasMany(Item::class, 'created_by');
     }
+
+    public function getItemLimitAttribute() {
+      $plan = $this->plan;
+      return $this->attributes['item_limit'] = ($plan['limit'] ?? 0) - ($this->items()->count() ?? 0);
+    }
+
+    public function getUserPlanAttribute() {
+      $plan = config('access.tiers.' . ($this->plan ?? 'level1'));
+      $remaining = ($plan['limit'] ?? 0) - ($this->items()->count() ?? 0);
+
+      return $this->attributes['user_plan'] = [
+        'plan' => $plan,
+        'remaining' => $remaining,
+        'over_limit' => ($plan['limit'] == -1 ?  false : $remaining <= 0)
+      ];
+
+    }
+
 }
