@@ -20,7 +20,8 @@
         "maatwebsite/laravel-nova-excel": "^1.1",
         "superlatif/nova-tag-input": "^1.1",
         "titasgailius/search-relations": "^1.0",
-        "wildside/userstamps": "^1.1"
+        "wildside/userstamps": "^1.1",
+        "grayda/nova-plan-card": "*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
@@ -53,10 +54,16 @@
             "Tests\\": "tests/"
         }
     },
-    "repositories": [{
-        "type": "composer",
-        "url": "https://nova.laravel.com"
-    }],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/NovaPlanCard"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {

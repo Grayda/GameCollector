@@ -18,6 +18,8 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\Boolean;
 
+use Grayda\NovaPlanCard\NovaPlanCard;
+
 use App\Nova\Actions\AddToCollection;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
@@ -189,7 +191,9 @@ class Item extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+          (new NovaPlanCard)->currentUserDetails()
+        ];
     }
 
     /**
