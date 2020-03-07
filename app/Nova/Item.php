@@ -174,7 +174,10 @@ class Item extends Resource
               ->conversionOnDetailView('thumb') // conversion used on the model's view
               ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
               ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-              ->fullSize() // full size column
+              ->fullSize()
+              ->canSee(function($request) {
+                return $request->user()->user_plan['plan']['photos'] === true;
+              }) // full size column
         ];
     }
 
