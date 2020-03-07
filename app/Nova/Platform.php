@@ -62,7 +62,7 @@ class Platform extends Resource
             Number::make('Number of items', function($value) {
               return $value->items()->count();
             })
-              ->sortable(),,
+              ->sortable(),
             HasMany::make('Items'),
         ];
     }
