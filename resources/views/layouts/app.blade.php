@@ -35,9 +35,12 @@
                     <ul class="navbar-nav mr-auto">
                       @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="/collect"></a>
+                            <a class="nav-link" href="/collect">Your Items</a>
                         </li>
                       @endauth
+                      <li class="nav-item">
+                        <a class="nav-link" href="/help">Help</a>
+                      </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
