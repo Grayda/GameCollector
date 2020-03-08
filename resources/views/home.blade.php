@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome {{ auth()->user()->name }}!
+                    <div>
+                      <a href="/collect" class="btn btn-primary">Go to your items</a>
+                      <a href="https://patreon.com/gamecollector" class="btn btn-secondary">Go to Patreon</a>
+                    </div>
                 </div>
             </div>
         </div>

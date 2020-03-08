@@ -43,6 +43,9 @@
       </div>
     </div>
     <div class="py-4 bg-dark text-light">
+      <h1>Screenshots</h1>
+    </div>
+    <div class="py-4">
       <h1>Open Source</h1>
       <p class="lead">{{ config('app.name') }} is an open-source project, built on top of Laravel + Laravel Nova. This means you're free to take it, improve it, and give back if you wish.</p>
       <a href="https://github.com/grayda/gamecollector" class="btn btn-lg btn-primary"><i class="fab fa-github"></i> View the code on GitHub</a>

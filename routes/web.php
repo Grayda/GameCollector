@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('/terms', 'terms');
 Route::view('/help', 'help.index');
+Route::view('/getstarted', 'getstarted');
