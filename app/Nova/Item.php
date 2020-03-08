@@ -126,7 +126,7 @@ class Item extends Resource
                 'extraAttributes' => [
                   'placeholder' => 'Super Mario Bros. 3',
                 ],
-              ]),
+              ])->sortable(),
             BelongsTo::make('Platform')
               ->withoutTrashed()
               ->sortable()
@@ -134,6 +134,7 @@ class Item extends Resource
             BelongsTo::make('Region')
               ->nullable()
               ->hideFromIndex()
+              ->sortable()
               ->help('What region this item is from'),
             BelongsTo::make('Type')
               ->withoutTrashed()
@@ -146,14 +147,17 @@ class Item extends Resource
             BelongsTo::make('Acquisition Method', 'acquisition', 'App\Nova\Acquisition')
               ->withoutTrashed()
               ->hideFromIndex()
+              ->sortable()
               ->help('How was this item acquired?'),
             Currency::make('Purchase Price')
               ->nullable()
+              ->sortable()
               ->help('How much did you pay for this item?'),
             Heading::make('Item Condition'),
             BelongsTo::make('Condition')
               ->withoutTrashed()
               ->hideFromIndex()
+              ->sortable()
               ->help('What condition is this item in?'),
             BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'title')),
             Number::make('Collections', function() {
@@ -178,7 +182,7 @@ class Item extends Resource
               ->conversionOnForm('thumb') // conversion used to display the image on the model's form
               ->fullSize()
               ->canSee(function($request) {
-                return $request->user()->user_plan['plan']['photos'] === true;
+                return $request->user()->user_plan['plan']['photos'] === true; // You have to be on a plan that has photo access.
               }) // full size column
         ];
     }
