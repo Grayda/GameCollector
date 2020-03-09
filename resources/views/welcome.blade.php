@@ -4,7 +4,7 @@
     <div class="jumbotron jumbotron-fluid">
       <h1 class="display-1 text-center">{{ config('app.name') }}</h1>
       <h2 class="text-center">Manage Your Game Collection</h2>
-      <a href="#" class="btn btn-primary btn-lg btn-jumbo mt-5 py-2"><i class="fas fa-gamepad"></i> Organize Your Collection Now!</a>
+      <a href="/getstarted" class="btn btn-primary btn-lg btn-jumbo mt-5 py-2"><i class="fas fa-gamepad"></i> Organize Your Collection Now!</a>
     </div>
     <div class="container mb-5">
       <h3 class="display-4">Rein in your games</h3>
@@ -44,6 +44,42 @@
     </div>
     <div class="py-4 bg-dark text-light">
       <h1>Screenshots</h1>
+      <div class="container">
+        <div class="row align-items-end">
+          <div class="col-3">
+            <a href="/site-images/screenshots/1.jpg" target="_blank">
+              <img src="/site-images/screenshots/1.jpg" class="img-fluid">
+              <div>
+                <small>Sharing a collection of items</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="/site-images/screenshots/2.jpg" target="_blank">
+              <img src="/site-images/screenshots/2.jpg" class="img-fluid">
+              <div>
+                <small>Editing an existing item</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="/site-images/screenshots/3.jpg" target="_blank">
+              <img src="/site-images/screenshots/3.jpg" class="img-fluid">
+              <div>
+                <small>Adding notes, photos and metadata to an item</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="/site-images/screenshots/4.jpg" target="_blank">
+              <img src="/site-images/screenshots/4.jpg" class="img-fluid">
+              <div>
+                <small>Searching for an item</small>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="py-4">
       <h1>Open Source</h1>
