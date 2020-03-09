@@ -12,16 +12,18 @@
         "doctrine/dbal": "^2.10",
         "ebess/advanced-nova-media-library": "^2.9",
         "fideloper/proxy": "^4.0",
+        "grayda/nova-plan-card": "*",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.0",
         "laravel/framework": "^6.2",
         "laravel/nova": "~2.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^1.2",
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "league/flysystem-cached-adapter": "~1.0",
         "maatwebsite/laravel-nova-excel": "^1.1",
         "superlatif/nova-tag-input": "^1.1",
         "titasgailius/search-relations": "^1.0",
-        "wildside/userstamps": "^1.1",
-        "grayda/nova-plan-card": "*"
+        "wildside/userstamps": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
