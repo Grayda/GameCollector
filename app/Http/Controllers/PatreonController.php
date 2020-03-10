@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PatreonController extends Controller
 {
@@ -10,8 +11,8 @@ class PatreonController extends Controller
     // We're interested in a few things here, namely their
     // email address, how much they've pledged, and what their name is.
     function handleWebhook(Request $request) {
-      Storage::disk('local')->put('file.txt', $request->all());
-      
+      Storage::disk('local')->put('file.txt', $request->getContent());
+
       // First, verify that it's a valid message from Patreon.
       if($this->verifyPatreonHash($request) !== true) {
         return false;
@@ -28,7 +29,7 @@ class PatreonController extends Controller
           $this->deleteUser($request); // Disable, rather than delete
         break;
         default:
-          return false;
+          return abort(500);
         break;
       }
 
