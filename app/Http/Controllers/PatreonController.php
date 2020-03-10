@@ -50,5 +50,26 @@ class PatreonController extends Controller
 
     function createUser(Request $request) {
       // First, work out what tier they've pledged to.
+      if($request->has('data.attributes.pledge_amount_cents')) {
+        $pledge = $request->input('data.attributes.pledge_amount_cents', 0);
+        $plan = collect(config('access.tiers'))->sortByDesc('conditions.min-pledge', SORT_NUMERIC)->where('conditions.min-pledge', '<=', $pledge)->first()
+      } else {
+        abort(400);
+      }
+
+      // Then get their user URL
+      if($request->has('data.relationships.user.links.related')) {
+        $url = $request->input('data.relationships.user.links.related', null);
+        $client = new GuzzleHttp\Client();
+        $res = $client->get($url);
+        echo $res->getBody(); // { "type": "User", ....
+
+      } else {
+        abort(400);
+      }
+
+
+
+
     }
 }

@@ -2,6 +2,16 @@
 
 return [
   'tiers' => [ // Access levels
+    'level3' => [
+      'name' => 'Completionist',
+      'photos' => true,
+      'limit' => -1, // Unlimited items.
+      'collection_limit' => -1, // Unlimited collections.
+      'conditions' => [
+        'min-pledge' => 1000,
+        'max-pledge' => 90000
+      ]
+    ],
     'none' => [
       'name' => 'No Plan',
       'photos' => false, // User can't upload photos
@@ -32,15 +42,6 @@ return [
         'max-pledge' => 999
       ]
     ],
-    'level3' => [
-      'name' => 'Completionist',
-      'photos' => true,
-      'limit' => -1, // Unlimited items.
-      'collection_limit' => -1, // Unlimited collections.
-      'conditions' => [
-        'min-pledge' => 1000,
-        'max-pledge' => 90000
-      ]
-    ]
+
   ]
 ];

@@ -14,6 +14,7 @@
         "fideloper/proxy": "^4.0",
         "grayda/nova-plan-card": "*",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.0",
+        "laravel/cashier": "^10.7",
         "laravel/framework": "^6.2",
         "laravel/nova": "~2.0",
         "laravel/tinker": "^2.0",
