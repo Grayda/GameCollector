@@ -60,7 +60,7 @@ class Platform extends Resource
             Text::make('Manufacturer')
               ->sortable(),
             Number::make('Number of items', function($value) {
-              return $value->items()->count();
+              return $value->items()->mine()->count();
             })
               ->sortable(),
             HasMany::make('Items'),

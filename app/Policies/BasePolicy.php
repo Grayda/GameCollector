@@ -30,9 +30,7 @@ class BasePolicy
      */
     public function view(User $user, $resource)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        return !is_null($user->email_verified_at);
     }
 
     /**

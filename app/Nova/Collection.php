@@ -70,7 +70,7 @@ class Collection extends Resource
               ->displayUsingLabels()
               ->help('Which layout should this collection use?'),
             Number::make('Item Count', function($value) {
-              return $value->items()->count();
+              return $value->items()->mine()->count();
             })
               ->exceptOnForms(),
             BooleanGroup::make('Fields')

@@ -57,7 +57,7 @@ class Acquisition extends Resource
             Text::make('Title'),
             Markdown::make('Description'),
             Number::make('Number of items', function($value) {
-              return $value->items()->count();
+              return $value->items()->mine()->count();
             })
               ->exceptOnForms(),
             HasMany::make('Items')

@@ -55,13 +55,6 @@ class Item extends Model implements HasMedia
       return $this->belongsTo(Region::class);
     }
 
-    function getRelatedAttribute($value) {
-      $parents = $this->parent;
-      $children = $this->children;
-
-      return $parents->merge($children);
-    }
-
     public function registerMediaCollections()
     {
       $this->addMediaCollection('item_images');
@@ -76,6 +69,22 @@ class Item extends Model implements HasMedia
       $this->addMediaConversion('medium-size')
         ->width(800);
 
+    }
+
+    // Gets your own items.
+    // If you're not logged in, returns nothing.
+    // If you're logged in, returns just yours, unless you're
+    // an admin, in which case it'll show everything.
+    public function scopeMine($query) {
+      if(!auth()->user()) {
+        return null;
+      } else {
+          if(auth()->user()->is_admin) {
+            return $query;
+          } else {
+            return $query->where('created_by', auth()->user()->id);
+          }
+      }
     }
 
 }

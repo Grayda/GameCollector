@@ -72,7 +72,7 @@ class User extends Resource
                 ->updateRules('nullable', 'string', 'min:8'),
 
             Number::make('Number of items', function($value) {
-              return $this->items()->count() ?? 0;
+              return $this->items()->mine()->count() ?? 0;
             })
                 ->exceptOnForms(),
 
@@ -84,6 +84,9 @@ class User extends Resource
             Select::make('Plan')
               ->options(function() {
                 return collect(config('access.tiers'))->keys()->combine(collect(config('access.tiers'))->pluck('name'));
+              })
+              ->canSee(function($request) {
+                return $request->user()->is_admin ?? false;
               })
               ->displayUsingLabels()
               ->help('Which plan is this user on?'),
