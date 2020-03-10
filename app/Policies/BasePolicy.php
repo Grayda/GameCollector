@@ -10,16 +10,15 @@ class BasePolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view any resource.
+     * Determine whether the user can view any resources.
      *
      * @param  \App\User  $user
      * @return mixed
      */
     public function viewAny(User $user)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        // Only allow viewing if the user has verified their email
+        return !is_null($user->email_verified_at);
     }
 
     /**

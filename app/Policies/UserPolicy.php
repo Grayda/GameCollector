@@ -18,4 +18,31 @@ class UserPolicy extends BasePolicy
     {
         //
     }
+
+    /**
+     * Determine whether the user can view any resource.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
+    public function viewAny(User $user)
+    {
+        if ($user->is_admin === true) {
+            return true;
+        }
+    }
+
+    /**
+     * Determine whether the user can view the resource.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Model  $resource
+     * @return mixed
+     */
+    public function view(User $user, $resource)
+    {
+        if ($user->is_admin === true) {
+            return true;
+        }
+    }
 }
