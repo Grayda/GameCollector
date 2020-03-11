@@ -17,10 +17,7 @@ Route::get('/', function () {
 
 Route::get('/share/collection/{id}', 'CollectionController@view');
 
-Auth::routes(['register' => false]);
-
-// Turn this off later
-Route::view('/register', 'register');
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

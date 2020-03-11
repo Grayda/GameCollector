@@ -86,10 +86,5 @@
       <p class="lead">{{ config('app.name') }} is an open-source project, built on top of Laravel + Laravel Nova. This means you're free to take it, improve it, and give back if you wish.</p>
       <a href="https://github.com/grayda/gamecollector" class="btn btn-lg btn-primary"><i class="fab fa-github"></i> View the code on GitHub</a>
     </div>
-    <footer class="footer mt-auto py-3">
-      <div class="container">
-        <span class="text-muted">&copy; {{ \Carbon\Carbon::now()->format('Y') }} davidgray Photography</span>
-      </div>
-    </footer>
   </div>
 @endsection

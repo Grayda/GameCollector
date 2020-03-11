@@ -84,9 +84,14 @@
             </div>
         </nav>
 
-        <main class="pt-4">
+        <main class="py-4">
           @yield('content')
         </main>
+        <footer class="footer mt-auto py-3">
+          <div class="container">
+            <span class="text-muted">&copy; {{ \Carbon\Carbon::now()->format('Y') }} davidgray Photography</span>
+          </div>
+        </footer>
     </div>
 </body>
 </html>
