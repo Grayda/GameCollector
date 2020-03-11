@@ -10908,3 +10908,41 @@ a.text-dark:focus {
   padding-bottom: 0.5% !important;
 }
 
+.subscription-option input[type=radio] {
+  display: none;
+}
+
+.subscription-option label {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 4px;
+  background: #f8f9fa;
+  color: #545454;
+  font-size: 40px;
+  text-align: center;
+  cursor: pointer;
+  padding: 25px 0;
+  transition: 0.3s ease all;
+}
+
+.subscription-option .plan-icon {
+  display: block;
+  font-size: 40px;
+}
+
+.subscription-option .plan-name {
+  display: block;
+  font-size: 24px;
+}
+
+.subscription-option .plan-description {
+  display: block;
+  font-size: 18px;
+}
+
+.subscription-option input[type=radio]:checked + label {
+  background: #0B79EE;
+  color: #FFF;
+}
+

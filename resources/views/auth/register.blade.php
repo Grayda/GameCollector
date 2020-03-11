@@ -1,7 +1,33 @@
 @extends('layouts.app')
 
+@push('stripe-card')
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    (function() {
+      var stripe = Stripe('{{ config('cashier.key') }}');
+      var elements = stripe.elements();
+
+      // Custom styling can be passed to options when creating an Element.
+      var style = {
+        base: {
+          // Add your base input styles here. For example:
+          fontSize: '16px',
+          color: '#32325d',
+        },
+      };
+
+      // Create an instance of the card Element.
+      var card = elements.create('card', {style: style});
+      // Add an instance of the card Element into the `card-element` <div>.
+      card.mount('#card-element');
+
+    })()
+  </script>
+@endpush
+
+
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -61,6 +87,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="card-element" class="col-md-4 col-form-label text-md-right">
+                              {{ __('Credit or Debit Card') }}
+                            </label>
+                            <div class="col-md-6">
+                               <div class="form-control" id="card-element"></div>
+                             </div>
+                             <div>
+                               <!-- Used to display Element errors -->
+                               <span id="card-errors" role="alert"></span>
+                             </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -74,4 +113,5 @@
         </div>
     </div>
 </div>
+  @stack('stripe-card')
 @endsection

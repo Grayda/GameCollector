@@ -11,4 +11,14 @@ class SubscriptionController extends Controller
         'intent' => $request->user()->createSetupIntent()
       ]);
     }
+
+    function update(Request $request) {
+      dd($request);
+    }
+
+    function cancel(Request $request) {
+      $request->validate([
+        'confirm' => 'required|accepted'
+      ]);
+    }
 }

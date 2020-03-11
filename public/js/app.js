@@ -49661,8 +49661,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Documents\GitHub\GameCollect\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Documents\GitHub\GameCollect\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\graydav1\Documents\GitHub\GameCollect\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\graydav1\Documents\GitHub\GameCollect\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
