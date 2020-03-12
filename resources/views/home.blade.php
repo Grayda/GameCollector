@@ -16,8 +16,16 @@
 
                     <p class="lead">Welcome {{ auth()->user()->name }}!</p>
                     <div>
-                      <p class="lead">Subscription status: {!! auth()->user()->subscribed() ? '<span class="badge badge-success">Subscribed</span>' : '<span class="badge badge-danger">Not Subscribed</span>' !!}
-                      <p class="lead">Plan: {{ auth()->user()->plan }}</p>
+                      <p class="lead">Subscription status: <span class="badge badge-{{ auth()->user()->subscribed() ? 'success' : 'danger' }}">{{ auth()->user()->subscribed() ? 'Subscribed' : 'Not Subscribed' }}
+                      <p class="lead">Plan: {{ config('access.tiers.' . auth()->user()->plan)['name'] ?? 'None' }}</p>
+                      @if(auth()->user()->subscription('default')->hasIncompletePayment())
+                        <p class="lead text-danger">Your last payment was not completed!</p>
+                        <p class="lead">
+                          <a href="{{ route('cashier.payment', auth()->user()->subscription()->latestPayment()->id) }}">
+                            Please confirm your payment.
+                          </a>
+                        </p>
+                      @endif
                     </div>
                 </div>
             </div>

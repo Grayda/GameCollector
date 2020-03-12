@@ -35,7 +35,12 @@ class SubscriptionController extends Controller
 
       $stripeCustomer = $user->createOrGetStripeCustomer();
       $user->updateDefaultPaymentMethod($request->input('payment_method'));
-      $user->newSubscription('default', $tiers[$request->input('plan')]['id'])->create($request->input('payment_method'));
+      // If the user has already subscribed, we want to swap, instead of creating a new subscription.
+      if($user->subscribed()) {
+        $user->subscription('default')->swap($tiers[$request->input('plan')]['id']);
+      } else {
+        $user->newSubscription('default', $tiers[$request->input('plan')]['id'])->create($request->input('payment_method'));
+      }
       $user->plan = $request->input('plan');
       $user->save();
       return redirect('/home');
