@@ -14,10 +14,10 @@
                         </div>
                     @endif
 
-                    Welcome {{ auth()->user()->name }}!
+                    <p class="lead">Welcome {{ auth()->user()->name }}!</p>
                     <div>
-                      <a href="/collect" class="btn btn-primary">Go to your items</a>
-                      <a href="https://patreon.com/gamecollector" class="btn btn-secondary">Go to Patreon</a>
+                      <p class="lead">Subscription status: {!! auth()->user()->subscribed() ? '<span class="badge badge-success">Subscribed</span>' : '<span class="badge badge-danger">Not Subscribed</span>' !!}
+                      <p class="lead">Plan: {{ auth()->user()->plan }}</p>
                     </div>
                 </div>
             </div>

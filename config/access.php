@@ -2,46 +2,48 @@
 
 return [
   'tiers' => [ // Access levels
-    'level3' => [
-      'name' => 'Completionist',
-      'photos' => true,
-      'limit' => -1, // Unlimited items.
-      'collection_limit' => -1, // Unlimited collections.
-      'conditions' => [
-        'min-pledge' => 1000,
-        'max-pledge' => 90000
-      ]
-    ],
     'none' => [
+      'id' => '',
       'name' => 'No Plan',
       'photos' => false, // User can't upload photos
       'limit' => 0, // Can only add 100 items
       'collection_limit' => 0,
-      'conditions' => [
-        'min-pledge' => -1000,
-        'max-pledge' => 0
-      ]
+      'icon' => 'fas fa-mobile',
+      'price' => 0,
+      'selectable' => false,
     ],
-    'level1' => [
+    'casual-gamer' => [
+      'id' => 'plan_GtSyLg7xrUh2yD',
       'name' => 'Casual Gamer',
       'photos' => false, // User can't upload photos
       'limit' => 100, // Can only add 100 items
       'collection_limit' => 10, // Can only add 10 collections
-      'conditions' => [
-        'min-pledge' => 200,
-        'max-pledge' => 499
-      ]
+      'icon' => 'fas fa-mobile',
+      'price' => 2,
+      'selectable' => true,
+      'default' => false,
     ],
-    'level2' => [
+    'hardcore-gamer' => [
+      'id' => 'plan_GtSyfwJOqHyLWU',
       'name' => 'Hardcore Gamer',
       'photos' => true, // User can add photos
       'limit' => 500, // Can add up to 500 items
       'collection_limit' => 50, // Can add up to 50 collections
-      'conditions' => [
-        'min-pledge' => 500,
-        'max-pledge' => 999
-      ]
+      'icon' => 'fas fa-gamepad',
+      'price' => 5,
+      'selectable' => true,
+      'default' => true,
     ],
-
+    'completionist' => [
+      'id' => 'plan_GtSzRzUhAadmqI',
+      'name' => 'Completionist',
+      'photos' => true,
+      'limit' => -1, // Unlimited items.
+      'collection_limit' => -1, // Unlimited collections.
+      'icon' => 'fas fa-trophy',
+      'price' => 10,
+      'selectable' => true,
+      'default' => false,
+    ],
   ]
 ];

@@ -16,6 +16,31 @@ class SubscriptionController extends Controller
       dd($request);
     }
 
+    function showSubscribeView(Request $request) {
+      return view('subscription.subscribe', [
+        'intent' => $request->user()->createSetupIntent()
+      ]);
+    }
+
+    function subscribe(Request $request) {
+
+      $tiers = collect(config('access.tiers'));
+
+      $request->validate([
+        'plan' => 'required|in:' . $tiers->keys()->join(','),
+        'payment_method' => 'required|starts_with:pm_'
+      ]);
+
+      $user = $request->user();
+
+      $stripeCustomer = $user->createOrGetStripeCustomer();
+      $user->updateDefaultPaymentMethod($request->input('payment_method'));
+      $user->newSubscription('default', $tiers[$request->input('plan')]['id'])->create($request->input('payment_method'));
+      $user->plan = $request->input('plan');
+      $user->save();
+      return redirect('/home');
+    }
+
     function cancel(Request $request) {
       $request->validate([
         'confirm' => 'required|accepted'
