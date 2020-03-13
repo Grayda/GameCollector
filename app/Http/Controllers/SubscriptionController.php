@@ -43,7 +43,7 @@ class SubscriptionController extends Controller
       }
       $user->plan = $request->input('plan');
       $user->save();
-      return redirect('/home');
+      return redirect('/home')->with('status', 'Plan has been confirmed');
     }
 
     function cancel(Request $request) {
