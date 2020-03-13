@@ -4,7 +4,7 @@
     <div class="jumbotron jumbotron-fluid">
       <h1 class="display-1 text-center">{{ config('app.name') }}</h1>
       <h2 class="text-center">Manage Your Game Collection</h2>
-      <a href="/getstarted" class="btn btn-primary btn-lg btn-jumbo mt-5 py-2"><i class="fas fa-gamepad"></i> Organize Your Collection Now!</a>
+      <a href="/register" class="btn btn-primary btn-lg btn-jumbo mt-5 py-2"><i class="fas fa-gamepad"></i> Organize Your Collection Now!</a>
     </div>
     <div class="container mb-5">
       <h3 class="display-4">Rein in your games</h3>

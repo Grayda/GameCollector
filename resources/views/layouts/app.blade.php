@@ -38,11 +38,6 @@
                             <a class="nav-link" href="/collect">Your Items</a>
                         </li>
                       @endauth
-                      @guest
-                        <li class="nav-item">
-                          <a class="nav-link" href="/getstarted">Get Started</a>
-                        </li>
-                      @endguest
                       <li class="nav-item">
                         <a class="nav-link" href="/help">Help</a>
                       </li>
