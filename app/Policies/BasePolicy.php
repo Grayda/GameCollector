@@ -18,7 +18,7 @@ class BasePolicy
     public function viewAny(User $user)
     {
         // Only allow viewing if the user has verified their email
-        return !is_null($user->email_verified_at);
+        return $user->subscribed() || $user->is_admin === true;
     }
 
     /**
@@ -30,7 +30,7 @@ class BasePolicy
      */
     public function view(User $user, $resource)
     {
-        return !is_null($user->email_verified_at);
+        return $user->subscribed() || $user->is_admin === true;
     }
 
     /**
@@ -41,9 +41,7 @@ class BasePolicy
      */
     public function create(User $user)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        return $user->is_admin === true;
     }
 
     /**
@@ -55,9 +53,7 @@ class BasePolicy
      */
     public function update(User $user, $resource)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        return $user->is_admin === true;
     }
 
     /**
@@ -69,9 +65,7 @@ class BasePolicy
      */
     public function delete(User $user, $resource)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        return $user->is_admin === true;
     }
 
     /**
@@ -83,9 +77,7 @@ class BasePolicy
      */
     public function restore(User $user, $resource)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        return $user->is_admin === true;
     }
 
     /**
@@ -97,8 +89,6 @@ class BasePolicy
      */
     public function forceDelete(User $user, $resource)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        return $user->is_admin === true;
     }
 }

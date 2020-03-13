@@ -12,9 +12,9 @@ class CollectionPolicy
 
     public function before(User $user, $ability)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+      if ($user->is_admin === true) {
+          return true;
+      }
     }
 
     /**
@@ -26,7 +26,7 @@ class CollectionPolicy
     public function viewAny(User $user)
     {
       // Only allow viewing if the user has verified their email
-      return !is_null($user->email_verified_at);
+      return $user->subscribed() || $user->is_admin;
     }
 
     /**
@@ -53,7 +53,7 @@ class CollectionPolicy
      */
     public function create(User $user)
     {
-        return !is_null($user->email_verified_at);
+        return $user->subscribed() && !$user->user_plan['over_collection_limit'];
     }
 
     /**
@@ -101,6 +101,6 @@ class CollectionPolicy
      */
     public function forceDelete(User $user, Collection $collection)
     {
-        return $user->is_admin === true;
+        return $user->is_admin;
     }
 }

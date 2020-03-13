@@ -26,7 +26,7 @@ class ItemPolicy
     public function viewAny(User $user)
     {
         // Only allow viewing if the user has verified their email
-        return !is_null($user->email_verified_at);
+        return $user->subscribed();
     }
 
     /**
@@ -49,7 +49,7 @@ class ItemPolicy
      */
     public function create(User $user)
     {
-        return !is_null($user->email_verified_at) && (!$user->user_plan['over_limit']);
+        return $user->subscribed() && !$user->user_plan['over_limit'];
     }
 
     /**

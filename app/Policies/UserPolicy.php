@@ -27,9 +27,7 @@ class UserPolicy extends BasePolicy
      */
     public function viewAny(User $user)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        return true;
     }
 
     /**
@@ -41,8 +39,18 @@ class UserPolicy extends BasePolicy
      */
     public function view(User $user, $resource)
     {
-        if ($user->is_admin === true) {
-            return true;
-        }
+        return $user->is_admin || $user->id === $resource->id;
+    }
+
+    /**
+     * Determine whether the user can update the item.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Item  $item
+     * @return mixed
+     */
+    public function update(User $user, $resource)
+    {
+        return $user->is_admin || $user->id === $resource->id;
     }
 }

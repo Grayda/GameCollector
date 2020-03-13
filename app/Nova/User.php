@@ -11,6 +11,8 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 
+use Laravel\Nova\Http\Requests\NovaRequest;
+
 class User extends Resource
 {
     /**
@@ -42,6 +44,22 @@ class User extends Resource
     public static $search = [
         'id', 'name', 'email',
     ];
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if($request->user()->is_admin === true) {
+          return $query;
+        } else {
+          return $query->where('id', $request->user()->id);
+        }
+    }
 
     /**
      * Get the fields displayed by the resource.
