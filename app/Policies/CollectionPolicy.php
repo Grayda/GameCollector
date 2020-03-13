@@ -10,13 +10,6 @@ class CollectionPolicy
 {
     use HandlesAuthorization;
 
-    public function before(User $user, $ability)
-    {
-      if ($user->is_admin === true) {
-          return true;
-      }
-    }
-
     /**
      * Determine whether the user can view any collections.
      *
