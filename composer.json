@@ -25,6 +25,7 @@
         "spatie/laravel-backup": "^6.8",
         "superlatif/nova-tag-input": "^1.1",
         "titasgailius/search-relations": "^1.0",
+        "wehaa/custom-links": "^0.1.1",
         "wildside/userstamps": "^1.1"
     },
     "require-dev": {

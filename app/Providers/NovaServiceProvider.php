@@ -12,6 +12,8 @@ use App\Nova\Metrics\CollectionConditionBreakdown;
 use App\Nova\Metrics\CollectionAcquisitionBreakdown;
 use App\Nova\Metrics\CollectionSizeBreakdown;
 
+use Wehaa\CustomLinks\CustomLinks;
+
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
     /**
@@ -86,7 +88,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+          new CustomLinks(),
+        ];
     }
 
     /**
