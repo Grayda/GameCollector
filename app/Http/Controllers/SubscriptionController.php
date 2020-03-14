@@ -47,8 +47,17 @@ class SubscriptionController extends Controller
     }
 
     function cancel(Request $request) {
+
       $request->validate([
-        'confirm' => 'required|accepted'
+        'cancel' => 'required|in:cancel'
       ]);
+
+      try {
+        $request->user()->subscription()->cancel();
+      } catch(\Exception $ex) {
+        return redirect('/subscription/cancel')->with('issue', 'There was an issue cancelling your subscription. Please contact ' . config('mail.from.address') . ' and include this in your email: ' . $ex->getMessage());
+      }
+
+      return redirect('/home');
     }
 }
