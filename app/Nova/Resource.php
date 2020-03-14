@@ -65,6 +65,6 @@ abstract class Resource extends NovaResource
      */
     public static function availableForNavigation(Request $request)
     {
-      return $request->user()->subscribed() || $user->is_admin === true;
+      return $request->user()->subscribed() || $request->user()->is_admin === true;
     }
 }
