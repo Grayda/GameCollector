@@ -10942,17 +10942,7 @@ a.text-dark:focus {
 }
 
 .subscription-option input[type=radio]:checked + label {
-  background: #3490dc;
-  color: #f8f9fa;
-}
-
-.subscription-option input[type=radio]:checked.hardcore-gamer + label {
-  background: #e3342f !important;
-  color: #f8f9fa;
-}
-
-.subscription-option input[type=radio]:checked.completionist + label {
-  background: #38c172 !important;
-  color: #f8f9fa;
+  background: #0B79EE;
+  color: #FFF;
 }
 
