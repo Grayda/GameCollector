@@ -9,7 +9,7 @@
     <div class="row">
     @foreach($collection['items'] as $game)
 
-      <div class="col-3">
+      <div class="col-sm-3">
       <div class="card">
         @if($collection->fields['images'] ?? false)
           <img src="{{ $game->getFirstMediaUrl('', 'medium-size') }}" class="card-img-top img-fluid">
