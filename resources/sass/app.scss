@@ -63,7 +63,17 @@
     }
 
     input[type=radio]:checked + label {
-        background: #0B79EE;
-        color: #FFF;
+        background: $blue;
+        color: $light;
+    }
+
+    input[type=radio]:checked.hardcore-gamer + label {
+        background: $red !important;
+        color: $light;
+    }
+
+    input[type=radio]:checked.completionist + label {
+        background: $green !important;
+        color: $light;
     }
 }
