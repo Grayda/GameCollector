@@ -70,6 +70,11 @@
           <td><b>{{ auth()->user()->items()->count() }} / {{ auth()->user()->user_plan['plan']['limit'] }}</b> items, <b>{{ auth()->user()->collections()->count() }} / {{ auth()->user()->user_plan['plan']['collection_limit'] }}</b> collections{!! auth()->user()->user_plan['plan']['photos'] ? ', <b>Photo upload enabled</b>' : '' !!}</td>
           <td></td>
         </tr>
+        <tr>
+          <th>Invoices</th>
+          <td>{{ auth()->user()->invoices()->count() }} available</td>
+          <td><a href="/subscription/invoices">See Invoices</a></td>
+        </tr>        
     </table>
   </div>
   <div class="row">

@@ -60,4 +60,11 @@ class SubscriptionController extends Controller
 
       return redirect('/home');
     }
+
+    function downloadInvoice(Request $request, $invoice) {
+      return $request->user()->downloadInvoice($invoice, [
+          'vendor' => 'davidgray Photography',
+          'product' => config('app.name'),
+      ]);
+    }
 }
