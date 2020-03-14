@@ -7,75 +7,81 @@
   </div>
   <div class="row">
     <h2>Subscription Status</h2>
-    <table class="table table-bordered">
-      <tr>
-        <th>Plan</th>
-        <td>{{ auth()->user()->user_plan['plan']['name'] }}</td>
-        <td><a href="/subscription/update">Change</a></td>
-      </tr>
-      <tr>
-        <th>Status</th>
+    @if(auth()->user()->subscribed())
+      <table class="table table-bordered">
+        <tr>
+          <th>Plan</th>
+          <td>{{ auth()->user()->user_plan['plan']['name'] }}</td>
+          <td><a href="/subscription/update">Change Plan</a></td>
+        </tr>
+        <tr>
+          <th>Status</th>
 
-        @if(auth()->user()->subscription('default')->onGracePeriod())
-          <td>
-            <div class="badge badge-warning">Cancelling</div>
-          </td>
-          <td>
-            <a href="/subscription/cancel">Resume Subscription</a>
-          </td>
-        @elseif(auth()->user()->subscription('default')->ended())
-          <td>
-            <div class="badge badge-danger">Cancelled</div>
-          </td>
-          <td>
-            <a href="/subscription/subscribe">Re-Subscribe</a>
-          </td>
-        @elseif(auth()->user()->subscribed() && !auth()->user()->subscription('default')->onGracePeriod())
-          <td>
-            <div class="badge badge-success">Subscribed</div>
-          </td>
-          <td>
-            <a href="/subscription/cancel">Cancel Subscription</a>
-          </td>
-        @endif
-        </td>
-      </tr>
-      <tr>
           @if(auth()->user()->subscription('default')->onGracePeriod())
-            <th>
-              Plan will end on
-            </th>
             <td>
-              {{ auth()->user()->subscription()->ends_at->format('D jS F Y \a\t h:ia T') }}
+              <div class="badge badge-warning">Cancelling</div>
+            </td>
+            <td>
+              <a href="/subscription/cancel">Resume Subscription</a>
             </td>
           @elseif(auth()->user()->subscription('default')->ended())
-            <th>
-              Plan ended on
-            </th>
             <td>
-              {{ auth()->user()->subscription()->ends_at->format('D jS F Y \a\t h:ia T') }}
+              <div class="badge badge-danger">Cancelled</div>
+            </td>
+            <td>
+              <a href="/subscription/subscribe">Re-Subscribe</a>
             </td>
           @elseif(auth()->user()->subscribed() && !auth()->user()->subscription('default')->onGracePeriod())
-            <th>
-              Next renewal date
-            </th>
             <td>
-              {{ Carbon\Carbon::createFromTimestamp(auth()->user()->subscription()->asStripeSubscription()->current_period_end)->format('D jS F Y h:ia T') }}
+              <div class="badge badge-success">Subscribed</div>
+            </td>
+            <td>
+              <a href="/subscription/cancel">Cancel Subscription</a>
             </td>
           @endif
-          <td></td>
+          </td>
         </tr>
         <tr>
-          <th>Usage</th>
-          <td><b>{{ auth()->user()->items()->count() }} / {{ auth()->user()->user_plan['plan']['limit'] }}</b> items, <b>{{ auth()->user()->collections()->count() }} / {{ auth()->user()->user_plan['plan']['collection_limit'] }}</b> collections{!! auth()->user()->user_plan['plan']['photos'] ? ', <b>Photo upload enabled</b>' : '' !!}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Invoices</th>
-          <td>{{ auth()->user()->invoices()->count() }} available</td>
-          <td><a href="/subscription/invoices">See Invoices</a></td>
-        </tr>        
-    </table>
+            @if(auth()->user()->subscription('default')->onGracePeriod())
+              <th>
+                Plan will end on
+              </th>
+              <td>
+                {{ auth()->user()->subscription()->ends_at->format('D jS F Y \a\t h:ia T') }}
+              </td>
+            @elseif(auth()->user()->subscription('default')->ended())
+              <th>
+                Plan ended on
+              </th>
+              <td>
+                {{ auth()->user()->subscription()->ends_at->format('D jS F Y \a\t h:ia T') }}
+              </td>
+            @elseif(auth()->user()->subscribed() && !auth()->user()->subscription('default')->onGracePeriod())
+              <th>
+                Next renewal date
+              </th>
+              <td>
+                {{ Carbon\Carbon::createFromTimestamp(auth()->user()->subscription()->asStripeSubscription()->current_period_end)->format('D jS F Y h:ia T') }}
+              </td>
+            @endif
+            <td></td>
+          </tr>
+          <tr>
+            <th>Usage</th>
+            <td><b>{{ auth()->user()->items()->count() }} / {{ auth()->user()->user_plan['plan']['limit'] }}</b> items, <b>{{ auth()->user()->collections()->count() }} / {{ auth()->user()->user_plan['plan']['collection_limit'] }}</b> collections{!! auth()->user()->user_plan['plan']['photos'] ? ', <b>Photo upload enabled</b>' : '' !!}</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Invoices</th>
+            <td>{{ auth()->user()->invoices()->count() }} available</td>
+            <td><a href="/subscription/invoices">See Invoices</a></td>
+          </tr>
+      </table>
+    @else
+      </div>
+      <div class="row">
+        <p class="lead">You're not subscribed to any plan yet. Head over <a href="/subscription/subscribe">to the subscription page</a> to get started</p>
+    @endif
   </div>
   <div class="row">
     <h2>User Information</h2>
