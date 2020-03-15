@@ -5,9 +5,13 @@
             <input class="{{ $key }}" type="radio" id="{{ $key }}" name="plan" value="{{ $key }}" {{ auth()->user()->plan == $key ? 'checked' : '' }} {{ auth()->user()->plan == "none" && $tier['default'] ? 'checked' : '' }}>
             <label for="{{ $key }}">
                 <span class="plan-icon"><i class="{{ $tier['icon'] }}"></i></span>
-                <span class="plan-price">${{ $tier['price'] }} <small>/mo</small></span>
+                <span class="plan-price">${{ $tier['price'] }} <small>/month</small></span>
                 <span class="plan-name">{{ $tier['name'] }}</span>
-                <span class="plan-description">{{ $tier['limit'] < 0 ? 'Unlimited' : $tier['limit'] }} Items {{ $tier['photos'] ? ' + Photos' : '' }}</span>
+                <span class="plan-description">
+                  <b>Items:</b> {{ $tier['limit'] < 0 ? 'Unlimited' : $tier['limit'] }}<br />
+                  <b>Collections:</b> {{ $tier['collection_limit'] < 0 ? 'Unlimited' : $tier['collection_limit'] }}<br />
+                  <b>Photos:</b> {{ $tier['photos'] ? 'Yes' : 'No' }}
+                </span>
             </label>
         </div>
     </div>
