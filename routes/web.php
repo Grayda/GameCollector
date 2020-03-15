@@ -26,15 +26,18 @@ Route::view('/help', 'help.index');
 Route::view('/getstarted', 'getstarted');
 
 Route::name('subscription:')->prefix('subscription')->middleware('auth')->group(function() {
-  Route::get('/update', 'SubscriptionController@showUpdateView');
-  Route::post('/update', 'SubscriptionController@update');
+  Route::get('/updatepayment', 'SubscriptionController@showUpdatePaymentView');
+  Route::post('/updatepayment', 'SubscriptionController@updatePayment');
+
+  Route::get('/updateplan', 'SubscriptionController@showUpdatePlanView')->middleware('subscribed');
+  Route::post('/updateplan', 'SubscriptionController@updatePlan')->middleware('subscribed');
 
   Route::view('/invoices', 'subscription.invoices');
   Route::get('/invoices/download/{invoice}', 'SubscriptionController@downloadInvoice');
 
   Route::get('/subscribe', 'SubscriptionController@showSubscribeView');
   Route::post('/subscribe', 'SubscriptionController@subscribe');
-  
-  Route::view('/cancel', 'subscription.cancel');
-  Route::post('/cancel', 'SubscriptionController@cancel');
+
+  Route::view('/cancel', 'subscription.cancel')->middleware('subscribed');
+  Route::post('/cancel', 'SubscriptionController@cancel')->middleware('subscribed');
 });

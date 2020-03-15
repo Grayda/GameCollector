@@ -12,7 +12,7 @@
         <tr>
           <th>Plan</th>
           <td>{{ auth()->user()->user_plan['plan']['name'] }}</td>
-          <td><a href="/subscription/update">Change Plan</a></td>
+          <td><a href="/subscription/updateplan">Change Plan</a></td>
         </tr>
         <tr>
           <th>Status</th>
@@ -70,6 +70,11 @@
             <th>Usage</th>
             <td><b>{{ auth()->user()->items()->count() }} / {{ auth()->user()->user_plan['plan']['limit'] }}</b> items, <b>{{ auth()->user()->collections()->count() }} / {{ auth()->user()->user_plan['plan']['collection_limit'] }}</b> collections{!! auth()->user()->user_plan['plan']['photos'] ? ', <b>Photo upload enabled</b>' : '' !!}</td>
             <td></td>
+          </tr>
+          <tr>
+            <th>Card Number</th>
+            <td>{{ str_repeat("*", 12) . auth()->user()->card_last_four }}</td>
+            <td><a href="/subscription/updatepayment">Update payment method</a></td>
           </tr>
           <tr>
             <th>Invoices</th>

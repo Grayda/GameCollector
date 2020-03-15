@@ -6,14 +6,42 @@ use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
 {
-    function showUpdateView(Request $request) {
-      return view('subscription.update', [
+    function showUpdatePlanView(Request $request) {
+      return view('subscription.updateplan', [
         'intent' => $request->user()->createSetupIntent()
       ]);
     }
 
-    function update(Request $request) {
-      dd($request);
+    function updatePlan(Request $request) {
+      $tiers = collect(config('access.tiers'));
+
+      $request->validate([
+        'plan' => 'required|in:' . $tiers->keys()->join(','),
+      ]);
+
+      $request->user()->subscription()->swap(config('access.tiers.' . $request->input('plan') . '.id'));
+      $request->user()->plan = $request->input('plan');
+      $request->user()->save();
+
+      return view('home')->with('success', 'Plan updated');
+
+    }
+
+    function showUpdatePaymentView(Request $request) {
+      return view('subscription.updatepayment', [
+        'intent' => $request->user()->createSetupIntent()
+      ]);
+    }
+
+    function updatePayment(Request $request) {
+      $request->validate([
+        'payment_method' => 'required|starts_with:pm_'
+      ]);
+
+      $request->user()->updateDefaultPaymentMethod($request->input('payment_method'));
+
+      return view('home')->with('success', 'Payment method updated');
+
     }
 
     function showSubscribeView(Request $request) {

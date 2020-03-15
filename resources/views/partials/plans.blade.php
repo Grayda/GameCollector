@@ -2,7 +2,7 @@
   @foreach(collect(config('access.tiers'))->where('selectable') as $key => $tier)
     <div class="col">
         <div class="subscription-option">
-            <input class="{{ $key }}" type="radio" id="{{ $key }}" name="plan" value="{{ $key }}" @if(auth()->user()->plan == $key) checked @else {{ $tier['default'] ? 'checked' : '' }} @endif>
+            <input class="{{ $key }}" type="radio" id="{{ $key }}" name="plan" value="{{ $key }}" {{ auth()->user()->plan == $key ? 'checked' : '' }} {{ auth()->user()->plan == "none" && $tier['default'] ? 'checked' : '' }}>
             <label for="{{ $key }}">
                 <span class="plan-icon"><i class="{{ $tier['icon'] }}"></i></span>
                 <span class="plan-price">${{ $tier['price'] }} <small>/mo</small></span>
