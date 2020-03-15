@@ -6,11 +6,6 @@ use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
 {
-    function showUpdatePlanView(Request $request) {
-      return view('subscription.updateplan', [
-        'intent' => $request->user()->createSetupIntent()
-      ]);
-    }
 
     function updatePlan(Request $request) {
       $tiers = collect(config('access.tiers'));
@@ -86,6 +81,17 @@ class SubscriptionController extends Controller
         $request->user()->subscription()->cancel();
       } catch(\Exception $ex) {
         return redirect('/subscription/cancel')->with('issue', 'There was an issue cancelling your subscription. Please contact ' . config('mail.from.address') . ' and include this in your email: ' . $ex->getMessage());
+      }
+
+      return redirect('/home');
+    }
+
+    function resume(Request $request) {
+
+      try {
+        $request->user()->subscription()->resume();
+      } catch(\Exception $ex) {
+        return redirect('/subscription/resume')->with('issue', 'There was an issue resuming your subscription. Please contact ' . config('mail.from.address') . ' and include this in your email: ' . $ex->getMessage());
       }
 
       return redirect('/home');

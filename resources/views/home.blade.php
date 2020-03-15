@@ -22,7 +22,7 @@
               <div class="badge badge-warning">Cancelling</div>
             </td>
             <td>
-              <a href="/subscription/cancel">Resume Subscription</a>
+              <a href="/subscription/resume">Resume Subscription</a>
             </td>
           @elseif(auth()->user()->subscription('default')->ended())
             <td>

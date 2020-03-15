@@ -25,8 +25,8 @@
     @enderror
     <form action="/subscription/cancel" method="post" class="form-group">
       @csrf
-      <div class="col-6 offset-3">
-        <input type="text" class="form-control" placeholder="cancel" id="cancel" name="cancel">
+      <div class="col-6 offset-3 pb-3">
+        <input autocomplete="off" type="text" class="form-control" placeholder="cancel" id="cancel" name="cancel">
       </div>
       <button type="submit" class="btn btn-lg btn-danger">Cancel my subscription</button>
     </form>

@@ -15,10 +15,10 @@ class IsSubscribed
      */
      public function handle($request, Closure $next)
      {
-         if ($request->user() && ! $request->user()->subscribed('default')) {
-             return abort(403);
+         if($request->user() && !$request->user()->subscribed('default')) {
+           return abort(403);
+         } else {
+           return $next($request);
          }
-
-         return $next($request);
      }
 }

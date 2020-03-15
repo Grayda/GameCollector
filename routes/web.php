@@ -29,7 +29,7 @@ Route::name('subscription:')->prefix('subscription')->middleware('auth')->group(
   Route::get('/updatepayment', 'SubscriptionController@showUpdatePaymentView');
   Route::post('/updatepayment', 'SubscriptionController@updatePayment');
 
-  Route::get('/updateplan', 'SubscriptionController@showUpdatePlanView')->middleware('subscribed');
+  Route::view('/updateplan', 'subscription.updateplan')->middleware('subscribed');
   Route::post('/updateplan', 'SubscriptionController@updatePlan')->middleware('subscribed');
 
   Route::view('/invoices', 'subscription.invoices');
@@ -40,4 +40,7 @@ Route::name('subscription:')->prefix('subscription')->middleware('auth')->group(
 
   Route::view('/cancel', 'subscription.cancel')->middleware('subscribed');
   Route::post('/cancel', 'SubscriptionController@cancel')->middleware('subscribed');
+
+  Route::view('/resume', 'subscription.resume')->middleware('ongraceperiod');
+  Route::post('/resume', 'SubscriptionController@resume')->middleware('ongraceperiod');
 });
