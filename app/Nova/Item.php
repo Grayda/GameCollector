@@ -166,6 +166,23 @@ class Item extends Resource
               ->sortable()
               ->onlyOnIndex(),
             BelongsToMany::make('Collection'),
+            Heading::make('Seller Information'),
+            Currency::make('Selling Price')
+              ->nullable()
+              ->sortable()
+              ->help('How much do you want for this item?'),
+            Date::make('Date Sold', 'sold_at')
+              ->nullable()
+              ->help('When did you sell this item?'),
+            BelongsTo::make('Sell Method', 'soldmethod', 'App\Nova\Acquisition')
+              ->withoutTrashed()
+              ->hideFromIndex()
+              ->sortable()
+              ->help('How did you sell this item?'),
+            Currency::make('Sold Price')
+              ->nullable()
+              ->sortable()
+              ->help('How much was this item sold for?'),
             Heading::make('Additional Information'),
             Markdown::make('Notes')
               ->alwaysShow(),
