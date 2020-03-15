@@ -67,7 +67,9 @@ class SubscriptionController extends Controller
       if($user->subscribed()) {
         $user->subscription('default')->swap($tiers[$request->input('plan')]['id']);
       } else {
-        $user->newSubscription('default', $tiers[$request->input('plan')]['id'])->create($request->input('payment_method'));
+        $user->newSubscription('default', $tiers[$request->input('plan')]['id'])->create($request->input('payment_method'), [
+          'name' => $user->name
+        ]);
       }
       $user->plan = $request->input('plan');
       $user->save();
