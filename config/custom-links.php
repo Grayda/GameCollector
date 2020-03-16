@@ -21,7 +21,7 @@ return [
          * ]
          */
 
-        'Misc' => [
+        'Links' => [
             '_links'  => [
                 'User Dashboard' => [
                     '_url'    => '/home',
