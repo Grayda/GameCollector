@@ -120,18 +120,19 @@ class Item extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()
-              ->sortable()
-              ->hideFromIndex(),
-            (new Tabs('Item Details', [
+            (new Tabs('Details', [
               'Basic Details' => [
+                ID::make()
+                  ->sortable()
+                  ->hideFromIndex(),
                 Text::make('Title')
                   ->sortable()
+                  ->required()
                   ->withMeta([
                     'extraAttributes' => [
                       'placeholder' => 'Super Mario Bros. 3',
                     ],
-                  ])->sortable(),
+                  ]),
                 BelongsTo::make('Platform')
                   ->withoutTrashed()
                   ->sortable()
@@ -146,8 +147,8 @@ class Item extends Resource
                   ->sortable()
                   ->help('What type of item is this?'),
                 BelongsTo::make('Condition')
+                  ->nullable()
                   ->withoutTrashed()
-                  ->hideFromIndex()
                   ->sortable()
                   ->help('What condition is this item in?'),
                 BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'title')),
@@ -156,38 +157,52 @@ class Item extends Resource
               'Acquisition Details' => [
                 Date::make('Date Acquired', 'acquired_at')
                   ->nullable()
+                  ->hideFromIndex()
                   ->help('When was this item acquired?'),
                 BelongsTo::make('Acquisition Method', 'acquisition', 'App\Nova\Acquisition')
+                  ->nullable()
+                  ->hideFromIndex()
                   ->withoutTrashed()
                   ->hideFromIndex()
                   ->sortable()
                   ->help('How was this item acquired?'),
                 Currency::make('Purchase Price')
                   ->nullable()
+                  ->hideFromIndex()
                   ->sortable()
                   ->help('How much did you pay for this item?'),
               ],
               'Seller Details' => [
                 Date::make('Date Sold', 'sold_at')
                   ->nullable()
+                  ->hideFromIndex()
                   ->help('If this item has sold, when did it sell?'),
-                BelongsTo::make('Sell Method', 'soldmethod', 'App\Nova\Acquisition')
-                  ->withoutTrashed()
+                BelongsTo::make('Sell Method', 'sold_method', 'App\Nova\Acquisition')
                   ->nullable()
+                  ->withoutTrashed()
                   ->hideFromIndex()
                   ->sortable()
                   ->help('Where was this item sold?'),
+                Currency::make('Selling Price')
+                  ->nullable()
+                  ->hideFromIndex()
+                  ->sortable()
+                  ->help('How much are you selling this item for?'),
                 Currency::make('Sold Price')
                   ->nullable()
+                  ->hideFromIndex()
                   ->sortable()
                   ->help('How much did this item sell for?'),
+                Heading::make('Don\'t forget to tag your item with the \'Selling\' tag!')
+                  ->onlyOnForms()
               ],
               'Additional Information' => [
                 Markdown::make('Notes')
+                  ->nullable()
                   ->alwaysShow(),
                 Tags::make('Tags')
                   ->autocompleteItems(\App\Tag::pluck('title')->toArray())
-                  ->placeholder('Collectors Edition')
+                  ->placeholder('Collectors Edition, Selling')
                   ->help('Extra tags to add to the item'),
                 KeyValue::make('Metadata')
                   ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),
@@ -209,9 +224,9 @@ class Item extends Resource
                 })
                   ->sortable()
                   ->onlyOnIndex(),
-                BelongsToMany::make('Collection'),
+                BelongsToMany::make('Collections', 'Collection'),
               ]
-            ])),
+            ]))->withToolbar()->defaultSearch(true),
 
         ];
     }
