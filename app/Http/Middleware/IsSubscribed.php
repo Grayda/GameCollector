@@ -17,12 +17,12 @@ class IsSubscribed
      {
         if($request->user()) {
           if(!$request->user()->subscribed('default')) {
-            return abort(403);
+            return redirect('/subscription/subscribe');
           } else {
             return $next($request);
           }
         } else {
-          return abort(403);
+          return route('login');
         }
      }
 }
