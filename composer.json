@@ -11,6 +11,7 @@
         "php": "^7.2",
         "doctrine/dbal": "^2.10",
         "ebess/advanced-nova-media-library": "^2.9",
+        "eminiarts/nova-tabs": "^1.2",
         "fideloper/proxy": "^4.0",
         "grayda/nova-plan-card": "*",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.0",

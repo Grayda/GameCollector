@@ -18,6 +18,9 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\Boolean;
 
+use Eminiarts\Tabs\Tabs;
+use Eminiarts\Tabs\TabsOnEdit;
+
 use Grayda\NovaPlanCard\NovaPlanCard;
 
 use App\Nova\Actions\AddToCollection;
@@ -34,6 +37,7 @@ class Item extends Resource
 {
 
     use SearchesRelations;
+    use TabsOnEdit;
 
     /**
      * The model the resource corresponds to.
@@ -119,88 +123,96 @@ class Item extends Resource
             ID::make()
               ->sortable()
               ->hideFromIndex(),
-            Heading::make('Item Details'),
-            Text::make('Title')
-              ->sortable()
-              ->withMeta([
-                'extraAttributes' => [
-                  'placeholder' => 'Super Mario Bros. 3',
-                ],
-              ])->sortable(),
-            BelongsTo::make('Platform')
-              ->withoutTrashed()
-              ->sortable()
-              ->help('What platform is this item for?'),
-            BelongsTo::make('Region')
-              ->nullable()
-              ->hideFromIndex()
-              ->sortable()
-              ->help('What region this item is from'),
-            BelongsTo::make('Type')
-              ->withoutTrashed()
-              ->sortable()
-              ->help('What type of item is this?'),
-            Heading::make('Acquisition Details'),
-            Date::make('Date Acquired', 'acquired_at')
-              ->nullable()
-              ->help('When was this item acquired?'),
-            BelongsTo::make('Acquisition Method', 'acquisition', 'App\Nova\Acquisition')
-              ->withoutTrashed()
-              ->hideFromIndex()
-              ->sortable()
-              ->help('How was this item acquired?'),
-            Currency::make('Purchase Price')
-              ->nullable()
-              ->sortable()
-              ->help('How much did you pay for this item?'),
-            Heading::make('Item Condition'),
-            BelongsTo::make('Condition')
-              ->withoutTrashed()
-              ->hideFromIndex()
-              ->sortable()
-              ->help('What condition is this item in?'),
-            BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'title')),
-            Number::make('Collections', function() {
-              return $this->collection()->count();
-            })
-              ->sortable()
-              ->onlyOnIndex(),
-            BelongsToMany::make('Collection'),
-            Heading::make('Seller Information'),
-            Currency::make('Selling Price')
-              ->nullable()
-              ->sortable()
-              ->help('How much do you want for this item?'),
-            Date::make('Date Sold', 'sold_at')
-              ->nullable()
-              ->help('When did you sell this item?'),
-            BelongsTo::make('Sell Method', 'soldmethod', 'App\Nova\Acquisition')
-              ->withoutTrashed()
-              ->hideFromIndex()
-              ->sortable()
-              ->help('How did you sell this item?'),
-            Currency::make('Sold Price')
-              ->nullable()
-              ->sortable()
-              ->help('How much was this item sold for?'),
-            Heading::make('Additional Information'),
-            Markdown::make('Notes')
-              ->alwaysShow(),
-            Tags::make('Tags')
-              ->autocompleteItems(\App\Tag::pluck('title')->toArray())
-              ->placeholder('Collectors Edition')
-              ->help('Extra tags to add to the item'),
-            KeyValue::make('Metadata')
-              ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),
-            Images::make('Images', 'item_images')
-              ->conversionOnPreview('medium-size') // conversion used to display the "original" image
-              ->conversionOnDetailView('thumb') // conversion used on the model's view
-              ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
-              ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-              ->fullSize()
-              ->canSee(function($request) {
-                return $request->user()->user_plan['plan']['photos'] === true; // You have to be on a plan that has photo access.
-              }) // full size column
+            (new Tabs('Item Details', [
+              'Basic Details' => [
+                Text::make('Title')
+                  ->sortable()
+                  ->withMeta([
+                    'extraAttributes' => [
+                      'placeholder' => 'Super Mario Bros. 3',
+                    ],
+                  ])->sortable(),
+                BelongsTo::make('Platform')
+                  ->withoutTrashed()
+                  ->sortable()
+                  ->help('What platform is this item for?'),
+                BelongsTo::make('Region')
+                  ->nullable()
+                  ->hideFromIndex()
+                  ->sortable()
+                  ->help('What region this item is from'),
+                BelongsTo::make('Type')
+                  ->withoutTrashed()
+                  ->sortable()
+                  ->help('What type of item is this?'),
+                BelongsTo::make('Condition')
+                  ->withoutTrashed()
+                  ->hideFromIndex()
+                  ->sortable()
+                  ->help('What condition is this item in?'),
+                BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'title')),
+
+              ],
+              'Acquisition Details' => [
+                Date::make('Date Acquired', 'acquired_at')
+                  ->nullable()
+                  ->help('When was this item acquired?'),
+                BelongsTo::make('Acquisition Method', 'acquisition', 'App\Nova\Acquisition')
+                  ->withoutTrashed()
+                  ->hideFromIndex()
+                  ->sortable()
+                  ->help('How was this item acquired?'),
+                Currency::make('Purchase Price')
+                  ->nullable()
+                  ->sortable()
+                  ->help('How much did you pay for this item?'),
+              ],
+              'Seller Details' => [
+                Date::make('Date Sold', 'sold_at')
+                  ->nullable()
+                  ->help('If this item has sold, when did it sell?'),
+                BelongsTo::make('Sell Method', 'soldmethod', 'App\Nova\Acquisition')
+                  ->withoutTrashed()
+                  ->nullable()
+                  ->hideFromIndex()
+                  ->sortable()
+                  ->help('Where was this item sold?'),
+                Currency::make('Sold Price')
+                  ->nullable()
+                  ->sortable()
+                  ->help('How much did this item sell for?'),
+              ],
+              'Additional Information' => [
+                Markdown::make('Notes')
+                  ->alwaysShow(),
+                Tags::make('Tags')
+                  ->autocompleteItems(\App\Tag::pluck('title')->toArray())
+                  ->placeholder('Collectors Edition')
+                  ->help('Extra tags to add to the item'),
+                KeyValue::make('Metadata')
+                  ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),
+              ],
+              'Images' => [
+                Images::make('Images', 'item_images')
+                  ->conversionOnPreview('medium-size') // conversion used to display the "original" image
+                  ->conversionOnDetailView('thumb') // conversion used on the model's view
+                  ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+                  ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+                  ->fullSize()
+                  ->canSee(function($request) {
+                    return $request->user()->user_plan['plan']['photos'] === true; // You have to be on a plan that has photo access.
+                  }) // full size column
+              ],
+              'Collections' => [
+                Number::make('Collections', function() {
+                  return $this->collection()->count();
+                })
+                  ->sortable()
+                  ->onlyOnIndex(),
+                BelongsToMany::make('Collection'),
+              ]
+            ])),
+
         ];
     }
 
