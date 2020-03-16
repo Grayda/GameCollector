@@ -35,7 +35,7 @@ class Item extends Model implements HasMedia
       return $this->belongsTo(Acquisition::class)->orderBy('title');
     }
 
-    function soldmethod() {
+    function sold_method() {
       return $this->belongsTo(Acquisition::class)->orderBy('title');
     }
 
