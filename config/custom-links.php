@@ -23,8 +23,16 @@ return [
 
         'Misc' => [
             '_links'  => [
-                'Subscription Info' => [
+                'User Dashboard' => [
                     '_url'    => '/home',
+                    '_target' => '_blank'
+                ],
+                'Change Plan' => [
+                    '_url'    => '/subscription/updateplan',
+                    '_target' => '_blank'
+                ],
+                'Discord' => [
+                    '_url'    => 'https://discord.gg/wUXqTRy',
                     '_target' => '_blank'
                 ],
             ],
