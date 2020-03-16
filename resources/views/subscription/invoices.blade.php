@@ -5,9 +5,14 @@
 
   <div class="container">
     <h1>Invoices</h1>
-    <p class="lead">You have {{ auth()->user()->invoices()->count() }} invoices available</p>
+    <p class="lead">You have {{ auth()->user()->invoicesIncludingPending()->count() }} invoices available</p>
     <table class="table table-bordered">
-      @foreach(auth()->user()->invoices() as $invoice)
+      <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Download Link</th>
+      </tr>
+      @foreach(auth()->user()->invoicesIncludingPending() as $invoice)
         <tr>
             <td>{{ $invoice->date()->toFormattedDateString() }}</td>
             <td>{{ $invoice->total() }}</td>
