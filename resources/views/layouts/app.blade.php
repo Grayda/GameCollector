@@ -34,9 +34,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                       @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="/collect">Your Items</a>
-                        </li>
+                        @if(auth()->user()->subscribed())
+                          <li class="nav-item">
+                              <a class="nav-link" href="/collect">Your Items</a>
+                          </li>
+                        @endif
                       @endauth
                       <li class="nav-item">
                         <a class="nav-link" href="/help">Help</a>
