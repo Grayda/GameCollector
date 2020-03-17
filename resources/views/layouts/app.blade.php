@@ -87,9 +87,15 @@
         <main class="py-4">
           @yield('content')
         </main>
-        <footer class="footer mt-auto py-3">
+        <footer class="footer mt-auto py-3 text-center">
           <div class="container">
-            <span class="text-muted">&copy; {{ \Carbon\Carbon::now()->format('Y') }} davidgray Photography</span>
+            <div>
+              <span class="text-muted">Powered by <a href="/">@include('vendor.nova.partials.logo')</a></span>
+            </div>
+            <div>
+              <span class="text-muted">Rein in your game collection today!</span>
+            </div>
+            <div><small><span class="text-muted">&copy; {{ \Carbon\Carbon::now()->format('Y') }} davidgray Photography</span></small></div>
           </div>
         </footer>
     </div>
