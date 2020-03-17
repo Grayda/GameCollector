@@ -14,7 +14,7 @@ class AddLayoutToCollections extends Migration
     public function up()
     {
         Schema::table('collections', function (Blueprint $table) {
-            $table->string('layout')->nullable();
+            $table->string('layout')->default('cards');
         });
     }
 
