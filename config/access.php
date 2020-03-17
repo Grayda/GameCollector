@@ -10,7 +10,9 @@ return [
       'collection_limit' => 0,
       'icon' => 'fas fa-mobile',
       'price' => 0,
+      'trial' => false,
       'selectable' => false,
+      'default' => false,
     ],
     'konami-code' => [ // This plan is unlimited but free.
       'id' => env('PLAN_KONAMI_ID'),
@@ -20,6 +22,7 @@ return [
       'collection_limit' => -1, // Can only add 10 collections
       'icon' => 'fas fa-user-secret',
       'price' => 0,
+      'trial' => false,
       'selectable' => true,
       'default' => false,
     ],
@@ -31,6 +34,7 @@ return [
       'collection_limit' => 10, // Can only add 10 collections
       'icon' => 'fas fa-mobile',
       'price' => 2,
+      'trial' => false,
       'selectable' => true,
       'default' => false,
     ],
@@ -43,6 +47,7 @@ return [
       'icon' => 'fas fa-gamepad',
       'price' => 5,
       'selectable' => true,
+      'trial' => false,
       'default' => true,
     ],
     'completionist' => [
@@ -54,6 +59,7 @@ return [
       'icon' => 'fas fa-trophy',
       'price' => 10,
       'selectable' => true,
+      'trial' => false,
       'default' => false,
     ],
   ]
