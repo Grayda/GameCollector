@@ -15,12 +15,12 @@ return [
     'konami-code' => [ // This plan is unlimited but free.
       'id' => env('PLAN_KONAMI_ID'),
       'name' => 'Konami Code',
-      'photos' => false, // User can't upload photos
+      'photos' => true, // User can't upload photos
       'limit' => -1, // Can only add 100 items
       'collection_limit' => -1, // Can only add 10 collections
-      'icon' => 'fas fa-mobile',
+      'icon' => 'fas fa-user-secret',
       'price' => 0,
-      'selectable' => false,
+      'selectable' => true,
       'default' => false,
     ],
     'casual-gamer' => [
