@@ -12,8 +12,19 @@ return [
       'price' => 0,
       'selectable' => false,
     ],
+    'konami-code' => [ // This plan is unlimited but free.
+      'id' => env('PLAN_KONAMI_ID'),
+      'name' => 'Konami Code',
+      'photos' => false, // User can't upload photos
+      'limit' => -1, // Can only add 100 items
+      'collection_limit' => -1, // Can only add 10 collections
+      'icon' => 'fas fa-mobile',
+      'price' => 0,
+      'selectable' => false,
+      'default' => false,
+    ],
     'casual-gamer' => [
-      'id' => 'plan_GtSyLg7xrUh2yD',
+      'id' => env('PLAN_CASUAL_ID'),
       'name' => 'Casual Gamer',
       'photos' => false, // User can't upload photos
       'limit' => 100, // Can only add 100 items
@@ -24,7 +35,7 @@ return [
       'default' => false,
     ],
     'hardcore-gamer' => [
-      'id' => 'plan_GtSyfwJOqHyLWU',
+      'id' => env('PLAN_HARDCORE_ID'),
       'name' => 'Hardcore Gamer',
       'photos' => true, // User can add photos
       'limit' => 500, // Can add up to 500 items
@@ -35,7 +46,7 @@ return [
       'default' => true,
     ],
     'completionist' => [
-      'id' => 'plan_GtSzRzUhAadmqI',
+      'id' => env('PLAN_COMPLETIONIST_ID'),
       'name' => 'Completionist',
       'photos' => true,
       'limit' => -1, // Unlimited items.
