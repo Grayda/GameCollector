@@ -105,16 +105,6 @@ class User extends Resource
             })
                 ->exceptOnForms(),
 
-            Select::make('Plan')
-              ->options(function() {
-                return collect(config('access.tiers'))->keys()->combine(collect(config('access.tiers'))->pluck('name'));
-              })
-              ->canSee(function($request) {
-                return $request->user()->is_admin ?? false;
-              })
-              ->displayUsingLabels()
-              ->help('Which plan is this user on?'),
-
             HasMany::make('Items'),
             HasMany::make('Collections')
         ];
