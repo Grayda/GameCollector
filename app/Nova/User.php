@@ -89,6 +89,12 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
 
+            Select::make('Currency Code')
+                ->options(config('currencies'))
+                ->displayUsingLabels()
+                ->rules('in:' . collect(config('currencies'))->keys()->join(','))
+                ->help('Used to set what currency is shown. Is for display purposes only and does not affect billing'),
+
             Number::make('Number of items', function($value) {
               return $this->items()->mine()->count() ?? 0;
             })

@@ -84,6 +84,7 @@ class Collection extends Resource
               'list' => 'List Layout'
             ])
               ->displayUsingLabels()
+              ->required()
               ->help('Which layout should this collection use?'),
             Number::make('Item Count', function($value) {
               return $value->items()->mine()->count();
@@ -98,8 +99,10 @@ class Collection extends Resource
                 'tags' => 'Tags',
                 'type' => 'Item Type',
                 'features' => 'Features',
-                'metadata' => 'Metadata'
+                'metadata' => 'Metadata',
+                'selling_price' => 'Selling Price'
               ])
+              ->required()
               ->help('What fields should appear in the collection?'),
 
             BelongsToMany::make('Items'),

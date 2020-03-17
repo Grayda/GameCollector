@@ -29,6 +29,7 @@ class Collection extends Model
         'type' => true,
         'features' => true,
         'metadata' => false,
+        'selling_price' => false,
       ]);
 
       parent::__construct();

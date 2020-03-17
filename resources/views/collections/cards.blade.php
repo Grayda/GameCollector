@@ -17,7 +17,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ $game->title }}
             @if($collection->fields['region'] ?? false)
-              <small class="text-muted">{{ $game->region->title ?? 'Unknown' }}</small>
+              <small class="text-muted">{{ $game->region->title ?? '' }}</small>
             @endif
           </h5>
           <p class="card-text">
@@ -27,6 +27,12 @@
               </blockquote>
             @endif
             <table class="table">
+              @if($collection->fields['selling_price'] ?? false)
+                <tr>
+                  <th>Price:</th>
+                  <td>{{ $game->selling_price ?? 'Contact Seller' }} {{ $game->selling_currency_code ?? 'USD' }}</td>
+                </tr>
+              @endif
               @if($collection->fields['platform'] ?? false)
                 <tr>
                   <th>Platform:</th>

@@ -17,9 +17,15 @@
             <strong>Title / Region:</strong><br />
             {{ $game->title }}
             @if($collection->fields['region'] ?? false)
-              <small class="text-muted">{{ $game->region->title ?? 'Unknown' }}</small>
+              <small class="text-muted">{{ $game->region->title ?? '' }}</small>
             @endif
           </td>
+          @if($collection->fields['selling_price'] ?? false)
+            <td>
+              <strong>Price:</strong><br />
+              {{ $game->selling_price ?? 'Contact Seller' }} {{ $game->selling_currency_code ?? 'USD' }}
+            </td>
+          @endif
           @if($collection->fields['platform'] ?? false)
             <td>
               <strong>Platform:</strong><br />

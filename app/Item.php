@@ -31,6 +31,15 @@ class Item extends Model implements HasMedia
       'platform_id'
     ];
 
+    function __construct() {
+      if(auth()->check()) {
+        $this->attributes['purchase_currency_code'] = auth()->user()->currency_code ?? 'USD';
+        $this->attributes['selling_currency_code'] = auth()->user()->currency_code ?? 'USD';
+      }
+
+      parent::__construct();
+    }
+
     function acquisition() {
       return $this->belongsTo(Acquisition::class)->orderBy('title');
     }

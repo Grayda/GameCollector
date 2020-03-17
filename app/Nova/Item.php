@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\Boolean;
@@ -171,6 +172,11 @@ class Item extends Resource
                   ->hideFromIndex()
                   ->sortable()
                   ->help('How much did you pay for this item?'),
+                Select::make('Currency', 'purchase_currency_code')
+                  ->options(config('currencies'))
+                  ->displayUsingLabels()
+                  ->rules('in:' . collect(config('currencies'))->keys()->join(','))
+                  ->help('The currency this item is selling / sold in'),
               ],
               'Seller Details' => [
                 Date::make('Date Sold', 'sold_at')
@@ -193,6 +199,11 @@ class Item extends Resource
                   ->hideFromIndex()
                   ->sortable()
                   ->help('How much did this item sell for?'),
+                Select::make('Currency', 'selling_currency_code')
+                  ->options(config('currencies'))
+                  ->displayUsingLabels()
+                  ->rules('in:' . collect(config('currencies'))->keys()->join(','))
+                  ->help('The currency this item is selling / sold in'),
                 Heading::make('Don\'t forget to tag your item with the \'Selling\' tag!')
                   ->onlyOnForms()
               ],
