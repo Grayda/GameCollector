@@ -250,14 +250,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['card'],
@@ -281,64 +273,18 @@ var render = function() {
     [
       _c("div", { staticClass: "px-3 py-3 text-center " }, [
         _vm.card.user_plan.over_limit
-          ? _c("p", { staticClass: "danger" }, [
-              _c("b", [
-                _vm._v(
-                  "You've hit your limit of " +
-                    _vm._s(_vm.card.user_plan.plan.limit) +
-                    " items! Please delete some, or switch plans via the Game Collector Patreon!"
-                )
-              ])
+          ? _c("p", [
+              _vm._v(
+                "You've hit your item limit! Please adjust your subscription or remove some items"
+              )
             ])
           : _vm._e(),
         _vm._v(" "),
         _vm.card.user_plan.over_collection_limit
-          ? _c("p", { staticClass: "danger" }, [
-              _c("b", [
-                _vm._v(
-                  "You've hit your collection limit of " +
-                    _vm._s(_vm.card.user_plan.plan.collection_limit) +
-                    " collections! Please delete some, or switch plans via the Game Collector Patreon!"
-                )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.card.user_plan.plan.limit < 0
-          ? _c("div", [
-              _c("p", [
-                _vm._v("Hi "),
-                _c("b", [_vm._v(_vm._s(_vm.card.user))]),
-                _vm._v(", you're on the "),
-                _c("b", [_vm._v(_vm._s(_vm.card.user_plan.plan.name))]),
-                _vm._v(" plan")
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "If you want to adjust your plan, visit the Game Collector Patreon"
-                )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.card.user_plan.over_limit && !_vm.card.user_plan.limit < 0
-          ? _c("div", [
-              _c("p", [
-                _vm._v("Hi "),
-                _c("b", [_vm._v(_vm._s(_vm.card.user))]),
-                _vm._v(", you're on the "),
-                _c("b", [_vm._v(_vm._s(_vm.card.user_plan.plan.name))]),
-                _vm._v(" plan and you've got "),
-                _c("b", [_vm._v(_vm._s(_vm.card.user_plan.remaining))]),
-                _vm._v(" items left")
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "If you want to adjust your plan, visit the Game Collector Patreon"
-                )
-              ])
+          ? _c("p", [
+              _vm._v(
+                "You've hit your collection limit! Please adjust your subscription or remove some collections"
+              )
             ])
           : _vm._e()
       ])
