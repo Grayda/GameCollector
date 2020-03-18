@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <h2>Subscription Status</h2>
-    @if(auth()->user()->subscribed())
+    @if(auth()->user()->subscription())
       <table class="table table-bordered">
         <tr>
           <th>Plan</th>
