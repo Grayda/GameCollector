@@ -223,7 +223,7 @@ class Item extends Resource
                   ->placeholder('Collectors Edition, Selling')
                   ->help('Extra tags to add to the item'),
                 KeyValue::make('Metadata')
-                  ->help('Store additional metadata here, such as serial numbers, CD keys etc.'),
+                  ->help('Store additional metadata here, such as serial numbers, CD keys etc. Prefix a key with a ! to prevent it from showing up in collections'),
               ],
               'Images' => [
                 Images::make('Images', 'item_images')

@@ -76,12 +76,14 @@
                   <th>Metadata:</th>
                   <td>
                     <table class="table table-borderless">
-                      <tr>
                         @foreach($game->metadata as $key => $value )
-                          <td>{{ $key }}</td>
-                          <td>{{ $value }}</td>
+                          <tr>
+                            @if(!Str::startsWith($key, '!'))
+                              <td>{{ $key }}</td>
+                              <td>{{ $value }}</td>
+                            @endif
+                          </tr>
                         @endforeach
-                      </tr>
                     </table>
                   </td>
                 </tr>
