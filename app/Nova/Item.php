@@ -152,7 +152,7 @@ class Item extends Resource
                   ->withoutTrashed()
                   ->sortable()
                   ->help('What condition is this item in?'),
-                BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'title')),
+                BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'slug')),
 
               ],
               'Acquisition Details' => [
