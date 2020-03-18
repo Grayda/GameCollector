@@ -174,6 +174,7 @@ class Item extends Resource
                   ->help('How much did you pay for this item?'),
                 Select::make('Currency', 'purchase_currency_code')
                   ->options(config('currencies'))
+                  ->hideFromIndex()
                   ->displayUsingLabels()
                   ->rules('in:' . collect(config('currencies'))->keys()->join(','))
                   ->help('The currency this item is selling / sold in'),
@@ -203,6 +204,7 @@ class Item extends Resource
                   ->help('How much did this item sell for?'),
                 Select::make('Currency', 'selling_currency_code')
                   ->options(config('currencies'))
+                  ->hideFromIndex()
                   ->displayUsingLabels()
                   ->rules('in:' . collect(config('currencies'))->keys()->join(','))
                   ->help('The currency this item is selling / sold in'),
