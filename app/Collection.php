@@ -18,6 +18,10 @@ class Collection extends Model
       'fields' => 'array'
     ];
 
+    protected $attributes = [
+      'layout' => 'cards'
+    ];
+
     function __construct() {
       $this->attributes['collection_id'] = Str::uuid(); // Because we can't do functions in variable declarations outside of a function.
       $this->attributes['fields'] = json_encode([ // Even though fields is cast to an array, we need to json_encode it here for some reason.

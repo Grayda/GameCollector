@@ -80,7 +80,7 @@ class Collection extends Resource
             Boolean::make('Public')
               ->help('Is this collection shareable?'),
             Select::make('Layout')->options([
-              'cards' => 'Card Layout (default)',
+              'cards' => 'Card Layout',
               'list' => 'List Layout'
             ])
               ->displayUsingLabels()
