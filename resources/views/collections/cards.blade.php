@@ -23,7 +23,7 @@
           <p class="card-text">
             @if($collection->fields['notes'] ?? false)
               <blockquote class="blockquote">
-                {{ $game->notes }}<br />
+                {!! Markdown::convertToHtml($game->notes ?? '') !!}<br />
               </blockquote>
             @endif
             <table class="table">

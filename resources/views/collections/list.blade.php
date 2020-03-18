@@ -35,7 +35,7 @@
           @if($collection->fields['notes'] ?? false)
             <td>
               <strong>Notes:</strong><br />
-              {{ $game->notes }}
+              {!! Markdown::convertToHtml($game->notes ?? '') !!}<br />
             </td>
           @endif
           @if($collection->fields['type'] ?? false)
