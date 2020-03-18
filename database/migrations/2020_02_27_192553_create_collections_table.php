@@ -17,7 +17,7 @@ class CreateCollectionsTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('collection_id'); // Because we're not going to use an integer for the primary key
             $table->string('title'); // Collection title
-            $table->text('description'); // Collection description
+            $table->text('description')->nullable(); // Collection description
             $table->boolean('public')->default(false); // Is this collection public?
             $table->bigInteger('created_by')->nullable(); // Who created this? Used to track your own stuff.
             $table->bigInteger('updated_by')->nullable(); // Who updated this? Not used, but required by the Userstamps package
