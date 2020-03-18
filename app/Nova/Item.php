@@ -179,6 +179,8 @@ class Item extends Resource
                   ->help('The currency this item is selling / sold in'),
               ],
               'Seller Details' => [
+                Heading::make('This tab should be used if you\'re intending to sell this item.')
+                  ->onlyOnForms(),
                 Date::make('Date Sold', 'sold_at')
                   ->nullable()
                   ->hideFromIndex()
@@ -210,6 +212,11 @@ class Item extends Resource
               'Additional Information' => [
                 Markdown::make('Notes')
                   ->nullable()
+                  ->help('Notes about this item')
+                  ->alwaysShow(),
+                Markdown::make('Private Notes')
+                  ->nullable()
+                  ->help('Private notes. These are NEVER shown in collections')
                   ->alwaysShow(),
                 Tags::make('Tags')
                   ->autocompleteItems(\App\Tag::pluck('title')->toArray())
