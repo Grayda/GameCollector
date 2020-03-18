@@ -20,7 +20,7 @@ class CollectionAcquisitionBreakdown extends Partition
     {
       return $this->count($request, Item::class, 'acquisition_id')
         ->label(function($value) {
-          return Acquisition::where('id', $value)->first()->title;
+          return optional(Acquisition::where('id', $value)->first())->title;
         });
     }
 
