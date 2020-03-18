@@ -30,7 +30,7 @@
               @if($collection->fields['selling_price'] ?? false)
                 <tr>
                   <th>Price:</th>
-                  <td>{{ $game->selling_price ?? 'Contact Seller' }} {{ $game->selling_currency_code ?? 'USD' }}</td>
+                  <td>{{ $game->selling_price ?? 'Contact Seller' }} {{ $game->selling_price ? $game->selling_currency_code ?? 'USD' : '' }}</td>
                 </tr>
               @endif
               @if($collection->fields['platform'] ?? false)
@@ -55,8 +55,8 @@
                 <tr>
                   <th>Features:</th>
                   <td>
-                    @foreach($game->feature_ids as $key => $feature)
-                      <span class="badge badge-{{ $feature == true ? 'success' : 'danger' }}">{{ $key ?? 'n/a' }}</span>
+                    @foreach($game->features as $key => $value)
+                      <span class="badge badge-{{ $value == true ? 'success' : 'danger' }}">{{ $key ?? 'n/a' }}</span>
                     @endforeach
                   </td>
                 </tr>

@@ -68,6 +68,16 @@ class Item extends Model implements HasMedia
       return $this->belongsTo(Region::class);
     }
 
+    function getFeaturesAttribute() {
+      $res = [];
+      foreach($this->feature_ids as $key => $value) {
+        $feature = Feature::where('slug', $key)->first();
+        $res[$feature->title] = $value;
+      }
+
+      return $res;
+    }
+
     public function registerMediaCollections()
     {
       $this->addMediaCollection('item_images');

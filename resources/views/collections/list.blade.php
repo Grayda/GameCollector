@@ -53,8 +53,8 @@
           @if($collection->fields['features'] ?? false)
             <td>
               <strong>Features:</strong><br />
-              @foreach($game->feature_ids as $key => $feature)
-                <span class="badge badge-{{ $feature == true ? 'success' : 'danger' }}">{{ $key ?? 'n/a' }}</span>
+              @foreach($game->features as $key => $value)
+                <span class="badge badge-{{ $value == true ? 'success' : 'danger' }}">{{ $key ?? 'n/a' }}</span>
               @endforeach
             </td>
           @endif
