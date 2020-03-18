@@ -23,7 +23,7 @@ return [
       'icon' => 'fas fa-user-secret',
       'price' => 0,
       'trial' => false,
-      'selectable' => true,
+      'selectable' => false,
       'default' => false,
     ],
     'casual-gamer' => [
