@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container text-center">
+<div class="container text-center">
     <h1>Game Collector Pricing</h1>
     <p>Game Collector has {{ collect(config('access.tiers'))->where('selectable')->count() }} plans available, with different limits</p>
+    <p>
     <div class="row">
-      @foreach(collect(config('access.tiers'))->where('selectable') as $key => $tier)
-        <div class="col">
-            <div class="subscription-option">
-                <label for="{{ $key }}">
+        @foreach(collect(config('access.tiers'))->where('selectable') as $key => $tier)
+            <div class="col">
+                <div class="subscription-option">
+                    <label for="{{ $key }}">
                     <span class="plan-icon"><i class="{{ $tier['icon'] }}"></i></span>
                     <span class="plan-price">${{ $tier['price'] }} <small>/month</small></span>
                     <span class="plan-name">{{ $tier['name'] }}</span>
@@ -18,12 +19,9 @@
                       <b>Photos:</b> {{ $tier['photos'] ? 'Yes' : 'No' }}
                     </span>
                 </label>
+                </div>
             </div>
-        </div>
-      @endforeach
+            @endforeach
     </div>
-    <div class="row">
-      <h2>What's included?</h2>
-    </div>
-  </div>
+</div>
 @endsection
