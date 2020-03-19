@@ -24,7 +24,6 @@ Want to use Game Collector but don't want to / can't host it yourself? Sign up h
  * PHP 7.2
  * MySQL 5.7.8 or later (for JSON support)
  * **A valid Laravel Nova 2.0 license**
- * `intl` PHP extension for currency
 
 # Installation
 
@@ -36,11 +35,11 @@ Want to use Game Collector but don't want to / can't host it yourself? Sign up h
  * Run `composer install` and provide your Laravel Nova login details.
  * Run `php artisan migrate --seed`
  * Use `php artisan tinker` to create a new user.
- * Go to `/collection` on your webserver to get started (e.g. http://localhost/gamecollector/collection)
+ * Go to `/collect` on your webserver to get started (e.g. http://localhost/gamecollector/collection)
 
 # Support
 
-This project is a work in progress. Things will change and break. Make sure to take regular backups, as I hold no responsibility for any lost data that occurs as a result of using this software.
+This project is a work in progress. Initially, things will change and break. Make sure to take regular backups, as I hold no responsibility for any lost data in this development version.
 
 If you wish to contribute, please ensure that any changes you make are backwards compatible. If you're not sure, submit an issue to discuss it first.
 
