@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/terms', 'terms');
 Route::view('/help', 'help.index');
 Route::view('/getstarted', 'getstarted');
+Route::view('/pricing', 'pricing');
 
 Route::name('subscription:')->prefix('subscription')->middleware('auth')->group(function() {
   Route::get('/updatepayment', 'SubscriptionController@showUpdatePaymentView');
