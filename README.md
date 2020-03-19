@@ -2,17 +2,22 @@
 
 GameCollector is a Laravel-based web app that lets you store information about your video game collection.
 
+# Before You Begin
+Want to use Game Collector but don't want to / can't host it yourself? Sign up here: https://gamecollector.online
+
 # Features
 
  * Uses [Laravel Nova](https://nova.laravel.com) for a robust front-end
  * Has lots of fields useful for collectors and sellers, including:
    * When and where you bought an item and how much it cost you.
+   * Selling fields such as where you sold it, for how much, and how much you listed it for.
    * The condition of the item
    * Metadata field so you can add arbitrary information such as publisher, serial numbers, CD keys etc.
    * Tags for marking things as on your wishlist, reproduction, games you've played / are playing
  * Upload images for each item so you can see what you have, what condition it's in, and so on. Also great for preserving game manuals, insets and such.
  * Create collections. They can be as broad as "All my Pokémon Games", or as specific as "Games bought at a garage sale on June 29th 2019"
  * Search to quickly find a game, tag, note or almost anything else about the game.
+ * Comes with Laravel Cashier support, so you can plug in your own Stripe details.
 
 # Requirements
 
