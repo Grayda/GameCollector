@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
@@ -94,6 +95,12 @@ class User extends Resource
                 ->displayUsingLabels()
                 ->rules('in:' . collect(config('currencies'))->keys()->join(','))
                 ->help('Used to set what currency is shown. Is for display purposes only and does not affect billing'),
+
+            Boolean::make('Is Admin', 'is_admin')
+              ->exceptOnForms()
+              ->canSee(function($request) {
+                return $request->user()->is_admin;
+              }),
 
             Number::make('Number of items', function($value) {
               return $this->items()->mine()->count() ?? 0;
