@@ -96,6 +96,12 @@ class User extends Resource
                 ->rules('in:' . collect(config('currencies'))->keys()->join(','))
                 ->help('Used to set what currency is shown. Is for display purposes only and does not affect billing'),
 
+            Select::make('Plan')
+                ->options(collect(config('access.tiers'))->where('selectable'))
+                ->exceptOnForms()
+                ->displayUsingLabels()
+                ->help('Which plan the user is on. Plans must be changed via the link in the sidebar'),
+
             Boolean::make('Is Admin', 'is_admin')
               ->exceptOnForms()
               ->canSee(function($request) {

@@ -10,7 +10,7 @@
       <div class="container text-center">
         <h1>Update Payment Method</h1>
         <p class="lead">Credit cards are securely handled by Stripe and your card details are never stored with {{ config('app.name') }}</p>
-        <p class="lead">Current card on file: {{ Str::title(auth()->user()->card_brand ?? "Unknown") }} {{ str_repeat("*", 23) . auth()->user()->card_last_four ?? "xxxx" }}</p>
+        <p class="lead">Current card on file: {{ Str::title(auth()->user()->card_brand ?? "Unknown") }} {{ str_repeat("*", 23) . auth()->user()->card_last_four ?? "????" }}</p>
         @include('partials.card')
         <div class="row pt-5">
           <div class="col-6 offset-3">

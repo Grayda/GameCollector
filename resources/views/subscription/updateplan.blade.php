@@ -5,7 +5,7 @@
     @csrf
     <div class="container text-center pt-4">
         <h1>Pick a Plan</h1>
-        <p class="lead">Plans start at $2 USD. Pick one that suits your needs best. You can change plans or cancel at any time</p>
+        <p class="lead">If you change your plan, you will be prorated accordingly, and a line will appear on your invoice. Changes to your plan take place immediately.</p>
         <div class="form-group">
           @include('partials.plans')
           <div class="row pt-5">

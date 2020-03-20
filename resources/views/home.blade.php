@@ -24,6 +24,13 @@
             <td>
               <a href="/subscription/resume">Resume Subscription</a>
             </td>
+          @elseif(auth()->user()->onTrial())
+            <td>
+              <div class="badge badge-info text-light">{{ auth()->user()->user_plan['plan']['trial'] }} Day Trial</div>
+            </td>
+            <td>
+              <a href="/subscription/cancel">Cancel Trial</a>
+            </td>
           @elseif(auth()->user()->subscription('default')->ended())
             <td>
               <div class="badge badge-danger">Cancelled</div>
@@ -48,6 +55,13 @@
               </th>
               <td>
                 {{ auth()->user()->subscription()->ends_at->format('D jS F Y \a\t h:ia T') }}
+              </td>
+            @elseif(auth()->user()->subscription('default')->onTrial())
+              <th>
+                Trial will end on
+              </th>
+              <td>
+                {{ auth()->user()->subscription()->trial_ends_at->format('D jS F Y \a\t h:ia T') }}
               </td>
             @elseif(auth()->user()->subscription('default')->ended())
               <th>

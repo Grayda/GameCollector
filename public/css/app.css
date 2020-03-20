@@ -10935,6 +10935,11 @@ a.text-dark:focus {
   font-size: 24px;
 }
 
+.subscription-option .plan-trial {
+  display: block;
+  font-size: 18px;
+}
+
 .subscription-option .plan-description {
   display: block;
   font-size: 18px;

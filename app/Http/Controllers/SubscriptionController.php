@@ -47,7 +47,7 @@ class SubscriptionController extends Controller
 
     function subscribe(Request $request) {
 
-      $tiers = collect(config('access.tiers'));
+      $tiers = collect(config('access.tiers'))->where('selectable');
 
       $request->validate([
         'plan' => 'required|in:' . $tiers->keys()->join(','),
@@ -62,7 +62,7 @@ class SubscriptionController extends Controller
       if($user->subscribed()) {
         $user->subscription('default')->swap($tiers[$request->input('plan')]['id']);
       } else {
-        $user->newSubscription('default', $tiers[$request->input('plan')]['id'])->create($request->input('payment_method'), [
+        $user->newSubscription('default', $tiers[$request->input('plan')]['id'])->trialDays($tiers[$request->input('plan')]['trial'])->create($request->input('payment_method'), [
           'name' => $user->name
         ]);
       }

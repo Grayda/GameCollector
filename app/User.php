@@ -24,6 +24,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * The attributes that are NOT mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        'plan',
+        'is_admin'
+    ];
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -39,7 +49,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'is_admin' => 'boolean'
+        'is_admin' => 'boolean',
+        'trial_ends_at' => 'datetime'
     ];
 
     protected $appends = [

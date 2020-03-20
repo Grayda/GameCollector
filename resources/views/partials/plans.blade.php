@@ -6,6 +6,7 @@
             <label for="{{ $key }}">
                 <span class="plan-icon"><i class="{{ $tier['icon'] }}"></i></span>
                 <span class="plan-price">${{ $tier['price'] }} <small>/month</small></span>
+                <span class="plan-trial">{{ $tier['trial'] }} day trial</span>
                 <span class="plan-name">{{ $tier['name'] }}</span>
                 <span class="plan-description">
                   <b>Items:</b> {{ $tier['limit'] < 0 ? 'Unlimited' : $tier['limit'] }}<br />

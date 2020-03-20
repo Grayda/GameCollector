@@ -34,7 +34,7 @@ return [
       'collection_limit' => 10, // Can only add 10 collections
       'icon' => 'fas fa-mobile',
       'price' => 2,
-      'trial' => false,
+      'trial' => 7, // 7 Day Trial
       'selectable' => true,
       'default' => false,
     ],
@@ -47,7 +47,7 @@ return [
       'icon' => 'fas fa-gamepad',
       'price' => 5,
       'selectable' => true,
-      'trial' => false,
+      'trial' => 7, // 7 Day Trial
       'default' => true,
     ],
     'completionist' => [
@@ -59,7 +59,7 @@ return [
       'icon' => 'fas fa-trophy',
       'price' => 10,
       'selectable' => true,
-      'trial' => false,
+      'trial' => 7, // 7 Day Trial
       'default' => false,
     ],
   ]
