@@ -19,6 +19,7 @@ class Item extends Model implements HasMedia
     protected $casts = [
       'metadata' => 'array',
       'acquired_at' => 'date',
+      'sold_at' => 'date',
       'feature_ids' => 'array',
       'tags' => 'array'
     ];
