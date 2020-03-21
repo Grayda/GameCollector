@@ -19,7 +19,7 @@ class ItemPolicy
     public function viewAny(User $user)
     {
         // Only allow viewing if the user has verified their email
-        return $user->subscribed();
+        return $user->subscribed() || $user->is_admin;
     }
 
     /**
@@ -78,7 +78,7 @@ class ItemPolicy
      */
     public function restore(User $user, Item $item)
     {
-        return ($user->id === $item->created_by) && ($user->item_limit > 0);
+        return ($user->id === $item->created_by) && (!$user->user_plan['over_limit']);
     }
 
     /**
