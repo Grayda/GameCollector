@@ -25,6 +25,7 @@ use Eminiarts\Tabs\TabsOnEdit;
 use Grayda\NovaPlanCard\NovaPlanCard;
 
 use App\Nova\Actions\AddToCollection;
+use App\Nova\Actions\SetPlatform;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
@@ -301,6 +302,7 @@ class Item extends Resource
     {
         return [
           new AddToCollection,
+          new SetPlatform,
           new DownloadExcel,
         ];
     }
