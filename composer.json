@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "anaseqal/nova-import": "^0.0.2",
         "doctrine/dbal": "^2.10",
         "ebess/advanced-nova-media-library": "^2.9",
         "eminiarts/nova-tabs": "^1.2",
@@ -16,6 +17,7 @@
         "graham-campbell/markdown": "^12.0",
         "grayda/nova-plan-card": "*",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.0",
+        "inspheric/nova-defaultable": "^1.2",
         "laravel/cashier": "^10.7",
         "laravel/framework": "^6.2",
         "laravel/nova": "~2.0",

@@ -13,6 +13,7 @@ use App\Nova\Metrics\CollectionAcquisitionBreakdown;
 use App\Nova\Metrics\CollectionSizeBreakdown;
 
 use Wehaa\CustomLinks\CustomLinks;
+use Anaseqal\NovaImport\NovaImport;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -88,6 +89,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
           new CustomLinks(),
+          new NovaImport,
         ];
     }
 
