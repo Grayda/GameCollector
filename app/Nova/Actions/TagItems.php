@@ -33,7 +33,7 @@ class TagItems extends Action
           break;
           case 'add':
             $tags = collect($fields->tags);
-            $model->tags = $model->tags->merge($tags);
+            $model->tags = $model->tags->merge($tags)->unique()->values();
             $model->save();
           break;
           case 'remove':
