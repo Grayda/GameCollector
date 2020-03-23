@@ -18,8 +18,6 @@ class MarkItemAsSold extends Action
 {
     use InteractsWithQueue, Queueable;
 
-    protected $group = "ABC";
-
     /**
      * Perform the action on the given models.
      *
