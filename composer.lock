@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "629b73d5233f32fda57d36ba46652d66",
+    "content-hash": "52007fa9fbe9ed7be7f5c725ff0e8dec",
     "packages": [
+        {
+            "name": "anaseqal/nova-import",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anaseqal/nova-import.git",
+                "reference": "21e5caaa1a429d92fc92d0bf982fcccc37877ef4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anaseqal/nova-import/zipball/21e5caaa1a429d92fc92d0bf982fcccc37877ef4",
+                "reference": "21e5caaa1a429d92fc92d0bf982fcccc37877ef4",
+                "shasum": ""
+            },
+            "require": {
+                "maatwebsite/excel": "*",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Anaseqal\\NovaImport\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Anaseqal\\NovaImport\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-10-23T16:05:28+00:00"
+        },
         {
             "name": "aws/aws-sdk-php",
             "version": "3.133.37",
