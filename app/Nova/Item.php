@@ -26,6 +26,7 @@ use Grayda\NovaPlanCard\NovaPlanCard;
 
 use App\Nova\Actions\AddToCollection;
 use App\Nova\Actions\SetPlatform;
+use App\Nova\Actions\MarkItemAsSold;
 use App\Nova\Actions\TagItems;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
@@ -303,10 +304,11 @@ class Item extends Resource
     public function actions(Request $request)
     {
         return [
-          new AddToCollection,
-          new TagItems,
-          new SetPlatform,
-          new DownloadExcel,
+          (new AddToCollection),
+          (new TagItems),
+          (new MarkItemAsSold)->showOnTableRow(),
+          (new SetPlatform),
+          (new DownloadExcel),
         ];
     }
 }
