@@ -26,6 +26,7 @@ use Grayda\NovaPlanCard\NovaPlanCard;
 
 use App\Nova\Actions\AddToCollection;
 use App\Nova\Actions\SetPlatform;
+use App\Nova\Actions\TagItems;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
@@ -303,6 +304,7 @@ class Item extends Resource
     {
         return [
           new AddToCollection,
+          new TagItems,
           new SetPlatform,
           new DownloadExcel,
         ];

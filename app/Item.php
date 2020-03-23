@@ -21,7 +21,7 @@ class Item extends Model implements HasMedia
       'acquired_at' => 'date',
       'sold_at' => 'date',
       'feature_ids' => 'array',
-      'tags' => 'array'
+      'tags' => 'collection'
     ];
 
     protected $attributes = [
