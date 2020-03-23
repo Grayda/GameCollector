@@ -277,7 +277,8 @@ class Item extends Resource
           new Filters\TypeFilter,
           new Filters\ConditionFilter,
           new Filters\RegionFilter,
-          new Filters\PlatformFilter
+          new Filters\PlatformFilter,
+          new Filters\ImageFilter,
         ];
     }
 
