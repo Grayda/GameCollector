@@ -139,15 +139,19 @@ class Item extends Resource
                   ]),
                 BelongsTo::make('Platform')
                   ->withoutTrashed()
+                  ->defaultLast()
                   ->sortable()
                   ->help('What platform is this item for?'),
                 BelongsTo::make('Region')
                   ->nullable()
+                  ->withoutTrashed()
+                  ->defaultLast()
                   ->hideFromIndex()
                   ->sortable()
                   ->help('What region this item is from'),
                 BelongsTo::make('Type')
                   ->withoutTrashed()
+                  ->defaultLast()
                   ->sortable()
                   ->help('What type of item is this?'),
                 BelongsTo::make('Condition')
