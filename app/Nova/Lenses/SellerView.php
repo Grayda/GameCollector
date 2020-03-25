@@ -68,6 +68,7 @@ class SellerView extends Lens
               ->nullable(),
             Currency::make('Sold Price')
               ->nullable(),
+            Tags::make('Tags'),
             Currency::make('Profit', function($item) {
               $sold = $item->sold_price ?? 0.00;
               $purchase = $item->purchase_price ?? 0.00;
