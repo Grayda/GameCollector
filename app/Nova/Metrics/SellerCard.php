@@ -25,7 +25,9 @@ class SellerCard extends Value
         $sold = $items->pluck('sold_price')->sum();
 
         return $this->result($sold - $purchase)
-          ->prefix('$')
+          ->dollars()
+          ->format('0,0.00')
+          ->allowZeroResult()
           ->suffix('Profit');
 
     }
