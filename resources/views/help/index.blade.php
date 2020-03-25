@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
+  <div class="container py-4">
     <h1>Game Collector Help</h1>
     <h3>Table of Contents</h3>
 

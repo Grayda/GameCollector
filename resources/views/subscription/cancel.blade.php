@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container text-center">
+  <div class="container text-center py-4">
     <h1>Cancel your subscription</h1>
     <p class="lead">We're sorry to see you go, but it is what it is. Here's what you need to know about cancelling:</p>
   </div>

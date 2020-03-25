@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container-fluid">
+  <div class="card card-body bg-light">
+    @include('partials.edittoolbar', ['id' => $collection->id, 'type' => 'collection'])
+  </div>
+  <div class="container-fluid py-4">
     <h1 class="display-4">{{ $collection->title }}</h1>
     <p class="lead">A collection of {{ $collection->items->count() }} {{ Str::plural('item', $collection->items->count()) }} by {{ $collection->owner->name ?? 'A User' }}</p>
     <blockquote class="blockquote">{{ $collection->description }}</blockquote>
@@ -81,6 +84,9 @@
                 </table>
               </td>
           @endif
+            <td>
+              @include('partials.edittoolbar', ['id' => $game->id, 'type' => 'item'])
+            </td>
           </tr>
           @endforeach
         </table>

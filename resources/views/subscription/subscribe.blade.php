@@ -2,7 +2,7 @@
 @section('content')
   <form action="/subscription/subscribe" method="post" id="payment-form" name="payment-form">
     @csrf
-    <div class="container text-center pt-4">
+    <div class="container text-center py-4">
         <h1>Pick a Plan</h1>
         <p class="lead">Plans start at $2 USD. Pick one that suits your needs best. You can change plans or cancel at any time</p>
         <div class="form-group">

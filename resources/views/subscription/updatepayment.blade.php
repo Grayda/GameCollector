@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
+  <div class="container py-4">
     @isset($success)
       <div class="alert alert-success">{{ $success }}</div>
     @endisset

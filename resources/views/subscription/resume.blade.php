@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container text-center">
+  <div class="container text-center py-4">
     <h1>Resume your subscription</h1>
     <p class="lead">We're glad to see you again. Click the button below and your subscription will be resumed.</p>
   </div>

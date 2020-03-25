@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container text-center">
+  <div class="container text-center py-4">
     <h1>Get Started with {{ config('app.name') }}</h1>
     <p>So you've finally decided to get your game collection under control? Excellent! There are two ways to get started:</p>
     <div class="row">

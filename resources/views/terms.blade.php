@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container-fluid">
+  <div class="container-fluid py-4">
     <h1>Terms of Service</h1>
 
     <p>You may use {{ config('app.name') }} to:</p>
@@ -30,7 +30,7 @@
 
     <a id="privacy">
       <h1>Privacy</h1>
-      <p>{{ config('app.name') }} uses the name and email address you provide to Patreon in order to create an account for you. {{ config('app.name') }} may use Google Analytics to further improve the site. No other information is collected by {{ config('app.name') }}</p>
+      <p>All payment information is handled by Stripe. You can view their privacy policy here: <a href="">https://stripe.com/privacy</a>. {{ config('app.name') }} stores the last 4 digits of your card to help you know what card you have stored with Stripe</p>
     </a>
   </div>
 @endsection

@@ -3,7 +3,7 @@
 @section('title', 'Invoices')
 @section('content')
 
-  <div class="container">
+  <div class="container py-4">
     <h1>Invoices</h1>
     <p class="lead">You have {{ auth()->user()->invoicesIncludingPending()->count() }} invoices available</p>
     <table class="table table-bordered">
