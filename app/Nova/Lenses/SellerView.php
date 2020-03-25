@@ -5,6 +5,8 @@ namespace App\Nova\Lenses;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Http\Requests\LensRequest;
 use Laravel\Nova\Lenses\Lens;
@@ -37,6 +39,29 @@ class SellerView extends Lens
             ID::make('ID', 'id')->sortable()
               ->hideFromIndex(),
             Text::make('Title')->sortable(),
+            BelongsTo::make('Platform')
+              ->withoutTrashed()
+              ->defaultLast()
+              ->sortable()
+              ->help('What platform is this item for?'),
+            BelongsTo::make('Region')
+              ->nullable()
+              ->withoutTrashed()
+              ->defaultLast()
+              ->hideFromIndex()
+              ->sortable()
+              ->help('What region this item is from'),
+            BelongsTo::make('Type')
+              ->withoutTrashed()
+              ->defaultLast()
+              ->sortable()
+              ->help('What type of item is this?'),
+            BelongsTo::make('Condition')
+              ->nullable()
+              ->withoutTrashed()
+              ->sortable()
+              ->help('What condition is this item in?'),
+            BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'slug')),
             Currency::make('Purchase Price')
               ->nullable(),
             Currency::make('Selling Price')

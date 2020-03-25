@@ -24,7 +24,7 @@ use Eminiarts\Tabs\TabsOnEdit;
 
 use Grayda\NovaPlanCard\NovaPlanCard;
 
-use App\Nova\Lenses\SellerLens;
+use App\Nova\Lenses\SellerView;
 
 use App\Nova\Actions\AddToCollection;
 use App\Nova\Actions\SetPlatform;
