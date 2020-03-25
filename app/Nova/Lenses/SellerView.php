@@ -12,6 +12,8 @@ use Superlatif\NovaTagInput\Tags;
 use Laravel\Nova\Http\Requests\LensRequest;
 use Laravel\Nova\Lenses\Lens;
 
+use App\Nova\Metrics\SellerCard;
+
 class SellerView extends Lens
 {
     /**
@@ -87,7 +89,9 @@ class SellerView extends Lens
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+          (new SellerCard)->help('Shows you how much you\'ve made selling items by deducting purchase price from sold price. An item must be tagged \'Selling\' or \'Sold\' to be displayed')
+        ];
     }
 
     /**
