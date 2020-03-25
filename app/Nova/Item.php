@@ -24,6 +24,8 @@ use Eminiarts\Tabs\TabsOnEdit;
 
 use Grayda\NovaPlanCard\NovaPlanCard;
 
+use App\Nova\Lenses\SellerLens;
+
 use App\Nova\Actions\AddToCollection;
 use App\Nova\Actions\SetPlatform;
 use App\Nova\Actions\MarkItemAsSold;
@@ -296,7 +298,9 @@ class Item extends Resource
      */
     public function lenses(Request $request)
     {
-        return [];
+        return [
+          new SellerView
+        ];
     }
 
     /**
