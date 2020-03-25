@@ -18,9 +18,9 @@ class CollectionPlatformBreakdown extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-      return $this->count($request, Item::class, 'platform_id')
+      return $this->count($request, Item::mine(), 'platform_id')
         ->label(function($value) {
-          return Platform::where('id', $value)->first()->title;
+          return optional(Platform::where('id', $value)->first())->title ?? 'n/a';
         });
     }
 

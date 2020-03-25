@@ -18,9 +18,9 @@ class CollectionTypeBreakdown extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Item::class, 'type_id')
+        return $this->count($request, Item::mine(), 'type_id')
           ->label(function($value) {
-            return Type::where('id', $value)->first()->title;
+            return optional(Type::where('id', $value)->first())->title ?? 'n/a';
           });
     }
 
