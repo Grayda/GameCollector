@@ -23,7 +23,7 @@ class SellerView extends Lens
     public static function query(LensRequest $request, $query)
     {
         return $request->withOrdering($request->withFilters(
-            $query->withTrashed()->whereJsonContains('tags', 'Sold')->orWhereJsonContains('tags', 'Selling')
+            $query->mine()->withTrashed()->whereJsonContains('tags', 'Sold')->orWhereJsonContains('tags', 'Selling')
         ));
     }
 

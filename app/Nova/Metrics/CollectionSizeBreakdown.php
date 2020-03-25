@@ -18,9 +18,11 @@ class CollectionSizeBreakdown extends Value
     public function calculate(NovaRequest $request)
     {
         if($request->user()->is_admin) {
-          return $this->result(Item::where('created_by', $request->user()->id)->count())
-            ->suffix('Items')
-            ->previous(Item::count());
+          return $this->result(Item::count())
+            ->suffix('Items');
+        } else {
+          return $this->result(Item::mine()->count())
+            ->suffix('Items');
         }
 
     }

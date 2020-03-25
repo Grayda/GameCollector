@@ -18,9 +18,9 @@ class CollectionConditionBreakdown extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-      return $this->count($request, Item::class, 'condition_id')
+      return $this->count($request, Item::mine(), 'condition_id')
         ->label(function($value) {
-          return Condition::where('id', $value)->first()->title;
+          return optional(Condition::where('id', $value)->first())->title ?? 'n/a';
         });
     }
 

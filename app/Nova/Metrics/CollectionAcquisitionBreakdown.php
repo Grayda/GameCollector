@@ -18,9 +18,9 @@ class CollectionAcquisitionBreakdown extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-      return $this->count($request, Item::class, 'acquisition_id')
+      return $this->count($request, Item::mine(), 'acquisition_id')
         ->label(function($value) {
-          return optional(Acquisition::where('id', $value)->first())->title;
+          return optional(Acquisition::where('id', $value)->first())->title ?? 'n/a';
         });
     }
 
