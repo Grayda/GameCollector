@@ -42,9 +42,11 @@
                           </li>
                         @endif
                       @endauth
-                      <li class="nav-item">
-                        <a class="nav-link" href="/pricing">Pricing</a>
-                      </li>
+                      @guest
+                        <li class="nav-item">
+                          <a class="nav-link" href="/pricing">Pricing</a>
+                        </li>
+                      @endguest
                       <li class="nav-item">
                         <a class="nav-link" href="/help">Help</a>
                       </li>
