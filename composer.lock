@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "52007fa9fbe9ed7be7f5c725ff0e8dec",
+    "content-hash": "5ce452a5c26e068bdcae2f0d9da6587f",
     "packages": [
         {
             "name": "anaseqal/nova-import",
@@ -1556,6 +1556,47 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "klepak/nova-dynamic-page-title",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/klepak/nova-dynamic-page-title.git",
+                "reference": "6f737f2d471fa8688e9f19167cdd2c65358c04f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/klepak/nova-dynamic-page-title/zipball/6f737f2d471fa8688e9f19167cdd2c65358c04f3",
+                "reference": "6f737f2d471fa8688e9f19167cdd2c65358c04f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Klepak\\NovaDynamicPageTitle\\AssetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Klepak\\NovaDynamicPageTitle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Dynamically updates Laravel Nova page title based on data from Vue router.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-03-30T20:42:01+00:00"
         },
         {
             "name": "laravel/cashier",
