@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-  <div class="card card-body bg-light">
+  <div class="card-body bg-light">
     @include('partials.edittoolbar', ['id' => $collection->id, 'type' => 'collection'])
   </div>
   <div class="container-fluid py-4">
