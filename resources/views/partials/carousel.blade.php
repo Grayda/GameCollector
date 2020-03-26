@@ -1,4 +1,4 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
   <ol class="carousel-indicators">
     @foreach($images as $key => $image)
       <li data-target="#carouselExampleIndicators" data-slide-to="{{ $key }}" class="@if($loop->first) active @endif"></li>
