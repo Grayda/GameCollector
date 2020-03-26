@@ -242,7 +242,10 @@ class Item extends Resource
                   ->conversionOnDetailView('thumb') // conversion used on the model's view
                   ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
                   ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-                  ->fullSize()
+                  ->customPropertiesFields([
+                    Boolean::make('Hide From Collections', 'hide_from_public'),
+                    Markdown::make('Description'),
+                  ])
                   ->canSee(function($request) {
                     return $request->user()->user_plan['plan']['photos'] === true; // You have to be on a plan that has photo access.
                   }) // full size column

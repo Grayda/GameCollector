@@ -91,7 +91,7 @@ class Item extends Model implements HasMedia
         ->height(130);
 
       $this->addMediaConversion('medium-size')
-        ->width(800);
+        ->width(1200);
 
     }
 

@@ -15,7 +15,7 @@
       <div class="col-lg-3">
       <div class="card">
         @if($collection->fields['images'] ?? false)
-          <img src="{{ $game->getFirstMediaUrl('', 'medium-size') }}" class="card-img-top img-fluid">
+          @include('partials.carousel', ['images' => $game->getMedia('', function($media) { return !$media->getCustomProperty('hide_from_public', false); })])
         @endif
         <div class="card-body">
           <h5 class="card-title">{{ $game->title }}
