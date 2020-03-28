@@ -20,7 +20,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ $game->title }}
             @if($collection->fields['region'] ?? false)
-              <small class="text-muted">{{ $game->region->title ?? '' }}</small>
+              <small class="text-muted">{{ optional($game->region)->title ?? '' }}</small>
             @endif
           </h5>
           <p class="card-text">
@@ -39,19 +39,19 @@
               @if($collection->fields['platform'] ?? false)
                 <tr>
                   <th>Platform:</th>
-                  <td>{{ $game->platform->title ?? 'n/a' }}</td>
+                  <td>{{ optional($game->platform)->title ?? 'n/a' }}</td>
                 </tr>
               @endif
               @if($collection->fields['type'] ?? false)
                 <tr>
                   <th>Type:</th>
-                  <td>{{ $game->type->title ?? 'n/a' }}</td>
+                  <td>{{ optional($game->type)->title ?? 'n/a' }}</td>
                 </tr>
               @endif
               @if($collection->fields['condition'] ?? false)
                 <tr>
                   <th>Condition:</th>
-                  <td>{{ $game->condition->title ?? 'n/a' }}</td>
+                  <td>{{ optional($game->condition)->title ?? 'n/a' }}</td>
                 </tr>
               @endif
               @if($collection->fields['features'] ?? false)

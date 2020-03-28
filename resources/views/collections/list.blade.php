@@ -20,7 +20,7 @@
             <strong>Title / Region:</strong><br />
             {{ $game->title }}
             @if($collection->fields['region'] ?? false)
-              <small class="text-muted">{{ $game->region->title ?? '' }}</small>
+              <small class="text-muted">{{ optional($game->region)->title ?? '' }}</small>
             @endif
           </td>
           @if($collection->fields['selling_price'] ?? false)
@@ -32,7 +32,7 @@
           @if($collection->fields['platform'] ?? false)
             <td>
               <strong>Platform:</strong><br />
-              {{ $game->platform->title ?? 'n/a' }}
+              {{ optional($game->platform)->title ?? 'n/a' }}
             </td>
           @endif
           @if($collection->fields['notes'] ?? false)
@@ -44,13 +44,13 @@
           @if($collection->fields['type'] ?? false)
             <td>
               <strong>Item Type:</strong><br />
-              {{ $game->type->title ?? 'n/a' }}
+              {{ optional($game->type)->title ?? 'n/a' }}
             </td>
           @endif
           @if($collection->fields['condition'] ?? false)
             <td>
               <strong>Condition:</strong><br />
-              {{ $game->condition->title ?? 'n/a' }}
+              {{ optional($game->condition)->title ?? 'n/a' }}
             </td>
           @endif
           @if($collection->fields['features'] ?? false)
