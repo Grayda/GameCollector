@@ -73,7 +73,7 @@ class Item extends Model implements HasMedia
       $res = [];
       foreach($this->feature_ids as $key => $value) {
         $feature = Feature::where('slug', $key)->first();
-        $res[$feature->title] = $value;
+        $res[$feature->title ?? null] = $value;
       }
 
       return $res;
