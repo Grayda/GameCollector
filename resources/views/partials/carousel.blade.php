@@ -8,6 +8,11 @@
     @foreach($images as $image)
       <div class="carousel-item @if($loop->first) active @endif">
         <img src="{{ $image->getUrl('medium-size') }}" class="d-block w-100 img-fluid" alt="">
+        @if($image->getCustomProperty('description') ?? null)
+          <div class="carousel-caption d-none d-md-block">
+            <p> {{ $image->getCustomProperty('description') ?? null }}</p>
+          </div>
+        @endif
       </div>
     @endforeach
   </div>
