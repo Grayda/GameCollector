@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ce452a5c26e068bdcae2f0d9da6587f",
+    "content-hash": "454259d93bb6163db0d4d50ee8d673f5",
     "packages": [
         {
             "name": "anaseqal/nova-import",
@@ -278,6 +278,65 @@
                 "time"
             ],
             "time": "2019-11-30T02:33:19+00:00"
+        },
+        {
+            "name": "dmitrybubyakin/nova-medialibrary-field",
+            "version": "2.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmitrybubyakin/nova-medialibrary-field.git",
+                "reference": "e41828b1a3740640935f2f947458e418d442a3e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmitrybubyakin/nova-medialibrary-field/zipball/e41828b1a3740640935f2f947458e418d442a3e6",
+                "reference": "e41828b1a3740640935f2f947458e418d442a3e6",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^2.9|^3.0",
+                "php": "^7.3",
+                "spatie/laravel-medialibrary": "^7.18"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DmitryBubyakin\\NovaMedialibraryField\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DmitryBubyakin\\NovaMedialibraryField\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Bubyakin",
+                    "email": "dimabubyakin97@gmail.com"
+                }
+            ],
+            "description": "Laravel Nova field for managing the Spatie media library.",
+            "homepage": "https://github.com/dmitrybubyakin/nova-medialibrary-field",
+            "keywords": [
+                "laravel",
+                "medialibrary",
+                "nova"
+            ],
+            "time": "2020-03-25T07:57:32+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1089,8 +1148,7 @@
             "dist": {
                 "type": "path",
                 "url": "./nova-components/NovaPlanCard",
-                "reference": "e7c7658e1165c4e28c9e572ce05e5891b69530c7",
-                "shasum": null
+                "reference": "e7c7658e1165c4e28c9e572ce05e5891b69530c7"
             },
             "require": {
                 "php": ">=7.1.0"
