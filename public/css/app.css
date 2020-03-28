@@ -10899,11 +10899,10 @@ a.text-dark:focus {
 }
 
 .btn-jumbo {
-  width: 25vw;
   font-size: 1.5rem;
   background: #3490dc;
-  padding-top: 0.5% !important;
-  padding-bottom: 0.5% !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
 }
 
 .carousel-caption {
