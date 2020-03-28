@@ -239,7 +239,7 @@ class Item extends Resource
               'Images' => [
                 Medialibrary::make('Images', 'item_images')
                   ->mediaOnIndex(1)
-                  ->previewUsing('medium-size')
+                  ->previewUsing('thumb')
                   ->fields(function(){
                     return [
                       Boolean::make('Hide From Collections', 'hide_from_public'),
