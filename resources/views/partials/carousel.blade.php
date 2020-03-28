@@ -1,7 +1,7 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
+<div id="carousel-{{ $images->first()->id }}" class="carousel slide" data-interval="false">
   <ol class="carousel-indicators">
     @foreach($images as $key => $image)
-      <li data-target="#carouselExampleIndicators" data-slide-to="{{ $key }}" class="@if($loop->first) active @endif"></li>
+      <li data-target="#carousel-{{ $images->first()->id }}" data-slide-to="{{ $key }}" class="@if($loop->first) active @endif"></li>
     @endforeach
   </ol>
   <div class="carousel-inner">
@@ -11,11 +11,11 @@
       </div>
     @endforeach
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carousel-{{ $images->first()->id }}" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carousel-{{ $images->first()->id }}" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
