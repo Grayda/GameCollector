@@ -5152,12 +5152,10 @@ input[type=button].btn-block {
 
 @media (min-width: 576px) {
   .card-columns {
-    -webkit-column-count: 3;
-       -moz-column-count: 3;
-            column-count: 3;
-    -webkit-column-gap: 1.25rem;
-       -moz-column-gap: 1.25rem;
-            column-gap: 1.25rem;
+    -moz-column-count: 3;
+         column-count: 3;
+    -moz-column-gap: 1.25rem;
+         column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
   }
@@ -10906,6 +10904,19 @@ a.text-dark:focus {
   background: #3490dc;
   padding-top: 0.5% !important;
   padding-bottom: 0.5% !important;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 0 !important;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 0 !important;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .subscription-option input[type=radio] {

@@ -28,6 +28,19 @@
     padding-bottom: 0.5% !important;
 }
 
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 0 !important;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 0 !important;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
 .subscription-option {
     input[type=radio] {
         display: none;
