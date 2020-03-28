@@ -31,7 +31,7 @@ use App\Nova\Actions\SetPlatform;
 use App\Nova\Actions\MarkItemAsSold;
 use App\Nova\Actions\TagItems;
 
-use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 use Superlatif\NovaTagInput\Tags;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
@@ -237,15 +237,15 @@ class Item extends Resource
                   ->help('Store additional metadata here, such as serial numbers, CD keys etc. Prefix a key with a ! to prevent it from showing up in collections'),
               ],
               'Images' => [
-                Medialibrary::make('Images', 'item_images')
-                  ->mediaOnIndex(1)
-                  ->previewUsing('thumb')
-                  ->fields(function(){
-                    return [
-                      Boolean::make('Hide From Collections', 'hide_from_public'),
-                      Markdown::make('Description'),
-                    ];
-                  })
+                Images::make('Images', 'item_images')
+                  ->conversionOnPreview('medium-size') // conversion used to display the "original" image
+                  ->conversionOnDetailView('thumb') // conversion used on the model's view
+                  ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+                  ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+                  ->customPropertiesFields([
+                    Boolean::make('Hide From Collections', 'hide_from_public'),
+                    Markdown::make('Description'),
+                  ])
                   ->canSee(function($request) {
                     return $request->user()->user_plan['plan']['photos'] === true; // You have to be on a plan that has photo access.
                   }) // full size column
