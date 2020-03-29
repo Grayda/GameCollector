@@ -21,6 +21,7 @@ class CollectionValue extends Value
 
         return $this->result($cost)
           ->dollars()
+          ->format('0,0.00')          
           ->allowZeroResult();
     }
 
