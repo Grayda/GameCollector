@@ -11,6 +11,7 @@ use App\Nova\Metrics\CollectionPlatformBreakdown;
 use App\Nova\Metrics\CollectionConditionBreakdown;
 use App\Nova\Metrics\CollectionAcquisitionBreakdown;
 use App\Nova\Metrics\CollectionSizeBreakdown;
+use App\Nova\Metrics\CollectionValue;
 
 use Wehaa\CustomLinks\CustomLinks;
 use Anaseqal\NovaImport\NovaImport;
@@ -66,7 +67,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
           (new CollectionPlatformBreakdown)->width('1/4'),
           (new CollectionAcquisitionBreakdown)->width('1/4'),
           (new CollectionConditionBreakdown)->width('1/4'),
-          (new CollectionSizeBreakdown)->width('1/4')
+          (new CollectionSizeBreakdown)->width('1/4'),
+          (new CollectionValue)->width('1/4')
         ];
     }
 
