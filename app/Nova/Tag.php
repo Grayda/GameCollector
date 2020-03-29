@@ -52,8 +52,11 @@ class Tag extends Resource
       return [
           ID::make()->sortable()
             ->hideFromIndex(),
-          Text::make('Title')->sortable(),
-          Markdown::make('Description')->sortable(),
+          Text::make('Title')
+            ->sortable(),
+          Markdown::make('Description')
+          ->showOnIndex()
+          ->sortable(),
       ];
     }
 
