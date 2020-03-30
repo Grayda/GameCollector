@@ -41,7 +41,8 @@ class SellerView extends Lens
         return [
             ID::make('ID', 'id')->sortable()
               ->hideFromIndex(),
-            Text::make('Title')->sortable(),
+            Text::make('Title')->sortable()
+              ->detailLink(),
             BelongsTo::make('Platform')
               ->withoutTrashed()
               ->defaultLast()
