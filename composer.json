@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "anaseqal/nova-import": "^0.0.2",
+        "david-griffiths/nova-dark-theme": "^1.0",
         "doctrine/dbal": "^2.10",
         "ebess/advanced-nova-media-library": "^2.9",
         "eminiarts/nova-tabs": "^1.2",

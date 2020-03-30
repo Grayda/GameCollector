@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "454259d93bb6163db0d4d50ee8d673f5",
+    "content-hash": "966b36afbb4ec10af7d7d4ebd9793267",
     "packages": [
         {
             "name": "anaseqal/nova-import",
@@ -280,44 +280,34 @@
             "time": "2019-11-30T02:33:19+00:00"
         },
         {
-            "name": "dmitrybubyakin/nova-medialibrary-field",
-            "version": "2.0.10",
+            "name": "david-griffiths/nova-dark-theme",
+            "version": "v1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dmitrybubyakin/nova-medialibrary-field.git",
-                "reference": "e41828b1a3740640935f2f947458e418d442a3e6"
+                "url": "https://github.com/David-Griffiths/Nova-Dark-Theme.git",
+                "reference": "dfd190f4d3454e5ec066b886ad687c135b680f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmitrybubyakin/nova-medialibrary-field/zipball/e41828b1a3740640935f2f947458e418d442a3e6",
-                "reference": "e41828b1a3740640935f2f947458e418d442a3e6",
+                "url": "https://api.github.com/repos/David-Griffiths/Nova-Dark-Theme/zipball/dfd190f4d3454e5ec066b886ad687c135b680f3b",
+                "reference": "dfd190f4d3454e5ec066b886ad687c135b680f3b",
                 "shasum": ""
             },
             "require": {
-                "laravel/nova": "^2.9|^3.0",
-                "php": "^7.3",
-                "spatie/laravel-medialibrary": "^7.18"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "orchestra/testbench": "^4.0",
-                "phpunit/phpunit": "^8.5"
+                "php": ">=7.1.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "DmitryBubyakin\\NovaMedialibraryField\\FieldServiceProvider"
+                        "DavidGriffiths\\NovaDarkTheme\\ThemeServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "DmitryBubyakin\\NovaMedialibraryField\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
+                    "DavidGriffiths\\NovaDarkTheme\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -325,18 +315,20 @@
             ],
             "authors": [
                 {
-                    "name": "Dmitry Bubyakin",
-                    "email": "dimabubyakin97@gmail.com"
+                    "name": "David Griffiths",
+                    "homepage": "https://github.com/David-Griffiths",
+                    "role": "Developer"
                 }
             ],
-            "description": "Laravel Nova field for managing the Spatie media library.",
-            "homepage": "https://github.com/dmitrybubyakin/nova-medialibrary-field",
+            "description": "A dark theme for Laravel Nova",
+            "homepage": "https://github.com/David-Griffiths/Nova-Dark-Theme",
             "keywords": [
+                "dark",
                 "laravel",
-                "medialibrary",
-                "nova"
+                "nova",
+                "theme"
             ],
-            "time": "2020-03-25T07:57:32+00:00"
+            "time": "2019-02-16T22:07:27+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1148,7 +1140,8 @@
             "dist": {
                 "type": "path",
                 "url": "./nova-components/NovaPlanCard",
-                "reference": "99eec7eb8cca991fee8ad1d2d5da1f5716fd5fcd"
+                "reference": "99eec7eb8cca991fee8ad1d2d5da1f5716fd5fcd",
+                "shasum": null
             },
             "require": {
                 "php": ">=7.1.0"
@@ -4798,16 +4791,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.6",
+            "version": "v4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "20bc0c1068565103075359f5ce9e0639b36f92d1"
+                "reference": "10bb3ee3c97308869d53b3e3d03f6ac23ff985f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/20bc0c1068565103075359f5ce9e0639b36f92d1",
-                "reference": "20bc0c1068565103075359f5ce9e0639b36f92d1",
+                "url": "https://api.github.com/repos/symfony/console/zipball/10bb3ee3c97308869d53b3e3d03f6ac23ff985f7",
+                "reference": "10bb3ee3c97308869d53b3e3d03f6ac23ff985f7",
                 "shasum": ""
             },
             "require": {
@@ -4870,7 +4863,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2020-03-16T08:56:54+00:00"
+            "time": "2020-03-30T11:41:10+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -5907,16 +5900,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.4.6",
+            "version": "v4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "b9863d0f7b684d7c4c13e665325b5ff047de0aee"
+                "reference": "3e40e87a20eaf83a1db825e1fa5097ae89042db3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/b9863d0f7b684d7c4c13e665325b5ff047de0aee",
-                "reference": "b9863d0f7b684d7c4c13e665325b5ff047de0aee",
+                "url": "https://api.github.com/repos/symfony/process/zipball/3e40e87a20eaf83a1db825e1fa5097ae89042db3",
+                "reference": "3e40e87a20eaf83a1db825e1fa5097ae89042db3",
                 "shasum": ""
             },
             "require": {
@@ -5952,7 +5945,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2020-03-23T12:37:11+00:00"
+            "time": "2020-03-27T16:54:36+00:00"
         },
         {
             "name": "symfony/routing",
