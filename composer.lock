@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "966b36afbb4ec10af7d7d4ebd9793267",
+    "content-hash": "57e9993f869d7f3d30d2bdf2323982d5",
     "packages": [
         {
             "name": "anaseqal/nova-import",
@@ -329,6 +329,47 @@
                 "theme"
             ],
             "time": "2019-02-16T22:07:27+00:00"
+        },
+        {
+            "name": "dillingham/nova-detail-link",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dillingham/nova-detail-link.git",
+                "reference": "26dc3278180a43f803725e7143dde0457a530491"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dillingham/nova-detail-link/zipball/26dc3278180a43f803725e7143dde0457a530491",
+                "reference": "26dc3278180a43f803725e7143dde0457a530491",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Dillingham\\NovaDetailLink\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dillingham\\NovaDetailLink\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-04-17T23:12:49+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

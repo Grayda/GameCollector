@@ -134,6 +134,7 @@ class Item extends Resource
                 Text::make('Title')
                   ->sortable()
                   ->required()
+                  ->detailLink()
                   ->withMeta([
                     'extraAttributes' => [
                       'placeholder' => 'Super Mario Bros. 3',
