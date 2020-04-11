@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::middleware('auth:api')->get('/collections', 'ApiController@getCollections');
+Route::middleware('auth:api')->get('/collection/{id}', 'ApiController@getCollection');
+
+Route::middleware('auth:api')->get('/items', 'ApiController@getItems');
+Route::middleware('auth:api')->get('/item/{id}', 'ApiController@getItem');

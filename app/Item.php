@@ -10,7 +10,9 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Image\Manipulations;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Item extends Model implements HasMedia
+use Illuminate\Support\Str;
+
+class Item extends BaseModel implements HasMedia
 {
     use HasMediaTrait;
     use Userstamps;
@@ -37,6 +39,8 @@ class Item extends Model implements HasMedia
         $this->attributes['purchase_currency_code'] = auth()->user()->currency_code ?? 'USD';
         $this->attributes['selling_currency_code'] = auth()->user()->currency_code ?? 'USD';
       }
+
+      $this->attributes['item_id'] = Str::uuid();
 
       parent::__construct();
     }

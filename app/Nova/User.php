@@ -12,6 +12,8 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 
+use App\Nova\Actions\RegenerateApiKey;
+
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
@@ -102,6 +104,9 @@ class User extends Resource
                 ->displayUsingLabels()
                 ->help('Which plan the user is on. Plans must be changed via the link in the sidebar'),
 
+            Text::make('API Token')
+                ->onlyOnDetail(),
+
             Boolean::make('Is Admin', 'is_admin')
               ->exceptOnForms()
               ->canSee(function($request) {
@@ -164,7 +169,9 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+          (new RegenerateApiKey)->onlyOnDetail(),
+        ];
     }
 
     /**

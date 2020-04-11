@@ -7,7 +7,7 @@ use Wildside\Userstamps\Userstamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Collection extends Model
+class Collection extends BaseModel
 {
 
     use Userstamps;
@@ -45,5 +45,21 @@ class Collection extends Model
 
     function owner() {
       return $this->hasOne(User::class, 'id', 'created_by');
+    }
+
+    // Gets your own items.
+    // If you're not logged in, returns nothing.
+    // If you're logged in, returns just yours, unless you're
+    // an admin, in which case it'll show everything.
+    public function scopeMine($query) {
+      if(!auth()->user()) {
+        return null;
+      } else {
+          if(auth()->user()->is_admin) {
+            return $query;
+          } else {
+            return $query->where('created_by', auth()->user()->id);
+          }
+      }
     }
 }
