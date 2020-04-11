@@ -128,9 +128,8 @@ class Item extends Resource
         return [
             (new Tabs('Details', [
               'Basic Details' => [
-                ID::make()
-                  ->sortable()
-                  ->hideFromIndex(),
+                Text::make('Item ID')
+                  ->onlyOnDetail(),
                 Text::make('Title')
                   ->sortable()
                   ->required()
