@@ -28,6 +28,7 @@ use App\Nova\Lenses\SellerView;
 
 use App\Nova\Actions\AddToCollection;
 use App\Nova\Actions\SetPlatform;
+use App\Nova\Actions\MarkItemForSale;
 use App\Nova\Actions\MarkItemAsSold;
 use App\Nova\Actions\TagItems;
 
@@ -317,6 +318,7 @@ class Item extends Resource
         return [
           (new AddToCollection),
           (new TagItems),
+          (new MarkItemForSale)->showOnTableRow(),
           (new MarkItemAsSold)->showOnTableRow(),
           (new SetPlatform),
           (new DownloadExcel)
