@@ -13,7 +13,7 @@
                 <span class="plan-description">
                   <b>Items:</b> {{ $tier['limit'] < 0 ? 'Unlimited' : $tier['limit'] }}<br />
                   <b>Collections:</b> {{ $tier['collection_limit'] < 0 ? 'Unlimited' : $tier['collection_limit'] }}<br />
-                  <b>Photos:</b> {{ $tier['photos'] ? 'Yes' : 'No' }}
+                  <b>Photos:</b> {{ $tier['photos'] ? 'Yes' : 'No' }} @if($tier['photo_limit'] > 0) ({{ $tier['photo_limit'] }} per item) @elseif($tier['photo_limit'] == -1) (Unlimited) @endif
                 </span>
             </label>
         </div>
