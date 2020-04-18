@@ -74,6 +74,9 @@ class User extends Authenticatable
     public function getUserPlanAttribute() {
       $plan = config('access.tiers.' . ($this->plan ?? 'none'));
       $remaining = ($plan['limit'] ?? 0) - ($this->items()->count() ?? 0);
+      if($plan['limit'] === -1) {
+        $remaining = 1;
+      }
       $collection_remaining = ($plan['collection_limit'] ?? 0) - ($this->collections()->count() ?? 0);
 
       return $this->attributes['user_plan'] = [
