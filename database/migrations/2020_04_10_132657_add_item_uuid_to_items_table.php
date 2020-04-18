@@ -14,7 +14,7 @@ class AddItemUuidToItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->uuid('item_id');
+            $table->uuid('item_id')->unique();
         });
     }
 
