@@ -34,7 +34,7 @@ class DuplicateItem extends Action
         $newModel->item_id = Str::uuid();
         $newModel->save();
 
-        return Action::push('/resources/items/' . $newModel->id);
+        return Action::push('/resources/items/' . $newModel->id . '/edit');
     }
 
     /**
