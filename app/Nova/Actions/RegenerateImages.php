@@ -39,8 +39,9 @@ class RegenerateImages extends Action
         }
 
         Artisan::call('medialibrary:regenerate', [
-          '--ids' => $models->pluck('id')->join(','),
-          '--force' => true
+          '--ids' => $models->media()->pluck('id')->join(','),
+          '--force' => true,
+          '--only-missing' => true
         ]);
 
         Cache::increment($key, $models->count());
