@@ -25,11 +25,16 @@ class DuplicateItem extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        foreach($models as $model) {
-          $newModel = $model->replicate();
-          $newModel->item_id = Str::uuid();
-          $newModel->save();
+
+        if(auth()->user()->user_plan['remaining'] <= 0) {
+          return Action::danger('Unable to duplicate item. You have no items remaining!');
         }
+
+        $newModel = $models[0]->replicate();
+        $newModel->item_id = Str::uuid();
+        $newModel->save();
+
+        return Action::push('/resources/items/' . $newModel->id);
     }
 
     /**
