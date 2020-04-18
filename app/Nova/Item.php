@@ -31,6 +31,7 @@ use App\Nova\Actions\SetPlatform;
 use App\Nova\Actions\MarkItemForSale;
 use App\Nova\Actions\MarkItemAsSold;
 use App\Nova\Actions\TagItems;
+use App\Nova\Actions\DuplicateItem;
 
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
@@ -322,6 +323,7 @@ class Item extends Resource
           (new MarkItemForSale)->showOnTableRow(),
           (new MarkItemAsSold)->showOnTableRow(),
           (new SetPlatform),
+          (new DuplicateItem)->onlyOnDetail(),
           (new DownloadExcel)
             ->withHeadings()
             ->only('Title', 'Platform', 'Region', 'Type', 'Condition', 'Acquired At', 'Acquisition', 'Purchase Price', 'Notes', 'Private Notes', 'Tags'),
