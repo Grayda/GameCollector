@@ -26,11 +26,9 @@ class DuplicateItem extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach($models as $model) {
-          for($i = 0; $i <= $fields['number'] - 1; $i++) {
-            $newModel = $model->replicate();
-            $newModel->item_id = Str::uuid();
-            $newModel->save();
-          }
+          $newModel = $model->replicate();
+          $newModel->item_id = Str::uuid();
+          $newModel->save();
         }
     }
 
@@ -41,15 +39,6 @@ class DuplicateItem extends Action
      */
     public function fields()
     {
-        return [
-          Number::make('Number')
-            ->help('How many copies to make (minimum 1, maximum 5)')
-            ->rules(['required', 'numeric', 'min:1', 'max:5', function($attribute, $value, $fail) {
-              $remaining = (auth()->user()->user_plan['remaining'] ?? 0);
-              if($remaining - $value < 0) {
-                $fail('You only have ' . $remaining . ' items left');
-              }
-            }])
-        ];
+        return [];
     }
 }
