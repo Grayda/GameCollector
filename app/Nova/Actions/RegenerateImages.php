@@ -30,16 +30,12 @@ class RegenerateImages extends Action
 
         $tries = Cache::remember($key, now()->addSeconds(30), function() { return 0; });
 
-        if($models->count() > 3) {
-          return Action::danger('You can only regenerate 3 images as a time');
-        }
-
         if($tries + $models->count() > 3) {
           return Action::danger('You can only run this action 3 times every 30 seconds');
         }
 
         Artisan::call('medialibrary:regenerate', [
-          '--ids' => $models->media()->pluck('id')->join(','),
+          '--ids' => $models[0]->media()->pluck('id')->join(','),
           '--force' => true,
           '--only-missing' => true
         ]);
