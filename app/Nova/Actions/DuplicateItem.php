@@ -43,8 +43,13 @@ class DuplicateItem extends Action
     {
         return [
           Number::make('Number')
-            ->help('How many copies to make (minimum 1, maximum 10)')
-            ->rules('min:1|max:10')
+            ->help('How many copies to make (minimum 1, maximum 5)')
+            ->rules(['required', 'numeric', 'min:1', 'max:5', function($attribute, $value, $fail) {
+              $remaining = (auth()->user()->user_plan['remaining'] ?? 0);
+              if($remaining - $value < 0) {
+                $fail('You only have ' . $remaining . ' items left');
+              }
+            }])
         ];
     }
 }
