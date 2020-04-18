@@ -40,7 +40,7 @@ class RegenerateImages extends Action
 
         Artisan::call('medialibrary:regenerate', [
           '--ids' => $models->pluck('id')->join(','),
-          '--force'
+          '--force' => true
         ]);
 
         Cache::increment($key, $models->count());
