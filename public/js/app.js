@@ -49505,6 +49505,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./carouselFix */ "./resources/js/carouselFix.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49571,6 +49573,30 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/carouselFix.js":
+/*!*************************************!*\
+  !*** ./resources/js/carouselFix.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function normalizeSlideHeights() {
+  $('.carousel').each(function () {
+    var items = $('.carousel-item', this); // reset the height
+
+    items.css('min-height', 0); // set the height
+
+    var maxHeight = Math.max.apply(null, items.map(function () {
+      return $(this).outerHeight();
+    }).get());
+    items.css('min-height', maxHeight + 'px');
+  });
+}
+
+$(window).on('load resize orientationchange', normalizeSlideHeights);
 
 /***/ }),
 

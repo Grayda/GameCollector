@@ -26,12 +26,9 @@ class Item extends BaseModel implements HasMedia
       'tags' => 'collection'
     ];
 
-    protected $attributes = [
-        'purchase_price' => 0,
     ];
 
     protected $fillable = [
-      'platform_id'
     ];
 
     function __construct() {
