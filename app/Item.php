@@ -28,7 +28,19 @@ class Item extends BaseModel implements HasMedia
 
     ];
 
-    protected $fillable = [
+    protected $hidden = [
+      'id',
+      'platform_id',
+      'acquisition_id',
+      'condition_id',
+      'type_id',
+      'region_id',
+      'feature_ids',
+      'parent_id',
+      'sold_method_id',
+      'created_by',
+      'updated_by',
+      'deleted_by'
     ];
 
     function __construct() {
