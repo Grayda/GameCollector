@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Currency;
 use Superlatif\NovaTagInput\Tags;
 use Laravel\Nova\Http\Requests\LensRequest;
 use Laravel\Nova\Lenses\Lens;
+use App\Nova\Filters\SoldFilter;
 
 use App\Nova\Metrics\SellerCard;
 
@@ -103,7 +104,9 @@ class SellerView extends Lens
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+          new SoldFilter
+        ];
     }
 
     /**
