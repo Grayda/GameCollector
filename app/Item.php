@@ -26,8 +26,6 @@ class Item extends BaseModel implements HasMedia
       'tags' => 'collection'
     ];
 
-    ];
-
     protected $hidden = [
       'id',
       'platform_id',
