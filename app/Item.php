@@ -26,6 +26,8 @@ class Item extends BaseModel implements HasMedia
       'tags' => 'collection'
     ];
 
+    protected $guarded = [
+      'item_id'
     ];
 
     protected $hidden = [
@@ -78,6 +80,14 @@ class Item extends BaseModel implements HasMedia
       return $this->belongsTo(Type::class)->orderBy('title', 'desc');
     }
 
+    function parent() {
+      return $this->belongsTo(Item::class, 'parent_id');
+    }
+
+    function children() {
+      return $this->hasMany(Item::class, 'parent_id');
+    }
+
     function region() {
       return $this->belongsTo(Region::class);
     }
@@ -90,6 +100,10 @@ class Item extends BaseModel implements HasMedia
       }
 
       return $res;
+    }
+
+    function getPlatformNameAttribute() {
+      return $this->platform->title;
     }
 
     public function registerMediaCollections()

@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
@@ -16,6 +17,7 @@ use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\Boolean;
 
@@ -165,7 +167,12 @@ class Item extends Resource
                   ->sortable()
                   ->help('What condition is this item in?'),
                 BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'slug')),
-
+                DateTime::make('Created At')
+                  ->onlyOnDetail(),
+                DateTime::make('Updated At')
+                  ->onlyOnDetail(),
+                DateTime::make('Deleted At')
+                  ->onlyOnDetail(),
               ],
               'Acquisition Details' => [
                 Date::make('Date Acquired', 'acquired_at')
@@ -253,15 +260,32 @@ class Item extends Resource
                   ->canSee(function($request) {
                     return $request->user()->user_plan['plan']['photos'] === true; // You have to be on a plan that has photo access.
                   }) // full size column
-              ],
-              'Collections' => [
-                Number::make('Collections', function() {
-                  return $this->collection()->count();
-                })
-                  ->sortable()
-                  ->onlyOnIndex(),
-                BelongsToMany::make('Collections', 'Collection'),
-              ]
+                ]
+              ]))->withToolbar()->defaultSearch(true),
+              Number::make('Related Items', function() {
+                return $this->parent()->count() + $this->children()->count();
+              })
+                ->sortable()
+                ->onlyOnIndex(),
+              (new Tabs('Related', [
+                'Collections' => [
+                  Number::make('Collections', function() {
+                    return $this->collection()->count();
+                  })
+                    ->sortable()
+                    ->onlyOnIndex(),
+                  BelongsToMany::make('Collections', 'Collection'),
+                ],
+                'Parent Items' => [
+                  BelongsTo::make('Parent Item', 'parent', 'App\Nova\Item')
+                    ->nullable()
+                    ->hideFromIndex(),
+                ],
+                'Child Items' => [
+                  HasMany::make('Child Items', 'children', 'App\Nova\Item')
+                    ->nullable()
+                    ->hideFromIndex()
+                ]
             ]))->withToolbar()->defaultSearch(true),
 
         ];
