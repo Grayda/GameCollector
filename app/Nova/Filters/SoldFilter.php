@@ -24,7 +24,6 @@ class SoldFilter extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        \Log::error($value);
         return $query->whereJsonContains('tags', [$value]);
     }
 
