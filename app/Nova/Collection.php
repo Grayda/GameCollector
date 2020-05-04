@@ -100,7 +100,8 @@ class Collection extends Resource
                 'type' => 'Item Type',
                 'features' => 'Features',
                 'metadata' => 'Metadata',
-                'selling_price' => 'Selling Price'
+                'selling_price' => 'Selling Price',
+                'related' => 'Child Items'
               ])
               ->required()
               ->help('What fields should appear in the collection?'),

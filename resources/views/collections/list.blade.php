@@ -69,6 +69,12 @@
               @endforeach
             </td>
           @endif
+          @if($collection->fields['related'] ?? false)
+            <td>
+              <strong>Related Items:</strong><br />
+              {{ $game->children->pluck('title')->join(', ') }}
+            </td>
+          @endif
           @if($collection->fields['metadata'] ?? false)
               <td>
                 <strong>Metadata:</strong><br />

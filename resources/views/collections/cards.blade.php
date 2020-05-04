@@ -74,6 +74,14 @@
                   </td>
                 </tr>
               @endif
+              @if($collection->fields['related'] ?? false)
+                <tr>
+                  <th>Related Items:</th>
+                  <td>
+                    {{ $game->children->pluck('title')->join(', ') }}
+                  </td>
+                </tr>
+              @endif
               @if($collection->fields['metadata'] ?? false)
                 <tr>
                   <th>Metadata:</th>
