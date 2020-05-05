@@ -106,6 +106,10 @@ class Item extends BaseModel implements HasMedia
       return ($this->total_sold_price - $this->total_purchase_price) ?? 0.00;
     }
 
+    function getPotentialProfitAttribute() {
+      return ($this->total_selling_price - $this->total_purchase_price) ?? 0.00;
+    }
+
     function getTotalSellingPriceAttribute() {
       return $this->selling_price + $this->children()->pluck('selling_price')->sum() ?? 0.00;
     }

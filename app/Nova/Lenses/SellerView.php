@@ -73,6 +73,7 @@ class SellerView extends Lens
             Currency::make('Sold Price')
               ->nullable(),
             Tags::make('Tags'),
+            Currency::make('Potential Profit'),
             Currency::make('Profit')
 
         ];
