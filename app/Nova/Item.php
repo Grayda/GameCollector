@@ -279,7 +279,9 @@ class Item extends Resource
                 'Parent Items' => [
                   BelongsTo::make('Parent Item', 'parent', 'App\Nova\Item')
                     ->nullable()
-                    ->hideFromIndex(),
+                    ->hideFromIndex()
+                    ->searchable()
+                    ->withSubtitles();,
                 ],
                 'Child Items' => [
                   HasMany::make('Child Items', 'children', 'App\Nova\Item')
