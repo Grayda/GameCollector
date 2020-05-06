@@ -281,7 +281,6 @@ class Item extends Resource
                     ->nullable()
                     ->hideFromIndex()
                     ->searchable()
-                    ->withSubtitles()
                 ],
                 'Child Items' => [
                   HasMany::make('Child Items', 'children', 'App\Nova\Item')
