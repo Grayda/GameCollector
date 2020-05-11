@@ -14,7 +14,7 @@
         @foreach($collection['items'] as $game)
           <tr>
           @if($collection->fields['images'] ?? false)
-            <td><img src="{{ $game->getFirstMediaUrl('', 'medium-size') }}" class="item-img img-fluid"></td>
+            <td><img src="{{ $game->getFirstMediaUrl('item_images', 'medium-size') }}" class="item-img img-fluid"></td>
           @endif
           <td>
             <strong>Title / Region:</strong><br />
