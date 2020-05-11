@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Wildside\Userstamps\Userstamps;
-use Spatie\MediaLibrary\Models\Media;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Image\Manipulations;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 
 class Item extends BaseModel implements HasMedia
 {
-    use HasMediaTrait;
+    use InteractsWithMedia;
     use Userstamps;
     use SoftDeletes;
 
@@ -126,12 +126,12 @@ class Item extends BaseModel implements HasMedia
       return $this->platform->title;
     }
 
-    public function registerMediaCollections()
+    public function registerMediaCollections(): void
     {
       $this->addMediaCollection('item_images');
     }
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
       $this->addMediaConversion('thumb')
         ->width(130)
