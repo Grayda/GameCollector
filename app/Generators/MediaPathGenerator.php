@@ -3,8 +3,8 @@
 namespace App\Generators;
 
 use Illuminate\Support\Str;
-use Spatie\MediaLibrary\Models\Media;
-use Spatie\MediaLibrary\PathGenerator\PathGenerator;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\Support\PathGenerator\PathGenerator;
 
 class MediaPathGenerator implements PathGenerator {
   public function getPath(Media $media) : string
