@@ -107,6 +107,9 @@ class User extends Resource
             Text::make('API Token')
                 ->onlyOnDetail(),
 
+            Text::make('User ID')
+                ->onlyOnDetail(),
+
             Boolean::make('Is Admin', 'is_admin')
               ->exceptOnForms()
               ->canSee(function($request) {

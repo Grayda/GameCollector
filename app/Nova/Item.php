@@ -166,7 +166,9 @@ class Item extends Resource
                   ->withoutTrashed()
                   ->sortable()
                   ->help('What condition is this item in?'),
-                BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'slug')),
+                BooleanGroup::make('Included Items', 'feature_ids')
+                  ->options(\App\Feature::pluck('title', 'slug'))
+                  ->hideFalseValues(),
                 DateTime::make('Created At')
                   ->onlyOnDetail(),
                 DateTime::make('Updated At')

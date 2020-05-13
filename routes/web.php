@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/share/collection/{id}', 'CollectionController@view');
+Route::get('/share/collection/{id}', 'ShareController@viewCollection');
+Route::get('/share/user/{id}', 'ShareController@viewUser');
 
 Auth::routes();
 
