@@ -62,4 +62,8 @@ class Collection extends BaseModel
           }
       }
     }
+
+    public function getUrlAttribute() {
+      return route('share:collection', ['id' => $this->attributes['collection_id']]);
+    }
 }

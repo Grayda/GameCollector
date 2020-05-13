@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/share/collection/{id}', 'ShareController@viewCollection');
-Route::get('/share/user/{id}', 'ShareController@viewUser');
+Route::name('share:')->prefix('share')->group(function() {
+  Route::get('/collection/{id}', 'ShareController@viewCollection')->name('collection');
+  Route::get('/user/{id}', 'ShareController@viewUser')->name('user');
+});
 
 Auth::routes();
 

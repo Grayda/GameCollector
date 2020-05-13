@@ -109,7 +109,7 @@ class Collection extends Resource
             BelongsToMany::make('Items'),
             Text::make('Collection URL', function($value) {
               if($value->public) {
-                return '<a href="' . url('/share/collection/' . $value->collection_id) . '">' . url('/share/collection/' . $value->collection_id) . '</a>';
+                return '<a href="' . $value->url . '" target="blank">' . $value->url . '</a>';
               } else {
                 return 'Make the collection public to get the URL';
               }
