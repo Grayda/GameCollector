@@ -34,7 +34,7 @@ class RegenerateImages extends Action
           return Action::danger('You can only run this action 3 times every 30 seconds');
         }
 
-        Artisan::call('medialibrary:regenerate', [
+        Artisan::call('media-library:regenerate', [
           '--ids' => $models[0]->media()->pluck('id')->join(','),
           '--force' => true,
           '--only-missing' => true
