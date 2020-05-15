@@ -33,7 +33,6 @@ return [
                 ],
                 'Seller View' => [
                     '_url'    => '/collect/resources/items/lens/seller-view',
-                    '_target' => '_blank'
                 ],
                 'Discord' => [
                     '_url'    => 'https://discord.gg/wUXqTRy',
