@@ -31,6 +31,10 @@ return [
                     '_url'    => '/subscription/updateplan',
                     '_target' => '_blank'
                 ],
+                'Seller View' => [
+                    '_url'    => '/collect/resources/items/lens/seller-view',
+                    '_target' => '_blank'
+                ],
                 'Discord' => [
                     '_url'    => 'https://discord.gg/wUXqTRy',
                     '_target' => '_blank'
