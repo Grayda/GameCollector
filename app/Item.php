@@ -111,15 +111,15 @@ class Item extends BaseModel implements HasMedia
     }
 
     function getTotalSellingPriceAttribute() {
-      return $this->selling_price + $this->children()->pluck('selling_price')->sum() ?? 0.00;
+      return $this->selling_price + $this->children()->withTrashed()->pluck('selling_price')->sum() ?? 0.00;
     }
 
     function getTotalSoldPriceAttribute() {
-      return $this->sold_price + $this->children()->pluck('sold_price')->sum() ?? 0.00;
+      return $this->sold_price + $this->children()->withTrashed()->pluck('sold_price')->sum() ?? 0.00;
     }
 
     function getTotalPurchasePriceAttribute() {
-      return $this->purchase_price + $this->children()->pluck('purchase_price')->sum() ?? 0.00;
+      return $this->purchase_price + $this->children()->withTrashed()->pluck('purchase_price')->sum() ?? 0.00;
     }
 
     function getPlatformNameAttribute() {
