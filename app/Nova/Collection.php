@@ -106,7 +106,7 @@ class Collection extends Resource
               ->required()
               ->help('What fields should appear in the collection?'),
 
-            BelongsToMany::make('Items')->withTrashed(),
+            BelongsToMany::make('Items'),
             Text::make('Collection URL', function($value) {
               if($value->public) {
                 return '<a href="' . $value->url . '" target="blank">' . $value->url . '</a>';

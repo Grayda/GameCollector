@@ -13,7 +13,7 @@ class ShareController extends Controller
         'layout' => 'in:cards,list'
       ]);
 
-      $collection = Collection::withTrashed()->where('collection_id', $uuid)->where('public', true)->with(['items', 'owner'])->firstOrFail();
+      $collection = Collection::where('collection_id', $uuid)->where('public', true)->with(['items', 'owner'])->firstOrFail();
 
       if(!empty($request->query('layout'))) {
         $collection->layout = $request->query('layout');
