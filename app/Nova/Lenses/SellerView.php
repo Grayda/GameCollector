@@ -30,6 +30,7 @@ class SellerView extends Lens
               ->withTrashed()
               ->whereJsonContains('tags', 'Sold')
               ->orWhereJsonContains('tags', 'Selling')
+              ->orderBy('updated_at')
               ->orderByRaw('CASE WHEN tags LIKE \'%Selling%\' THEN 1 ELSE 2 END') // Sort by Selling tag first
               ->mine()
         ));
