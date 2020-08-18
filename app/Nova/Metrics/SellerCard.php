@@ -20,7 +20,7 @@ class SellerCard extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        $items = Item::mine()->withTrashed()->whereJsonContains('tags', 'Sold')->orWhereJsonContains('tags', 'Selling');
+        $items = Item::withTrashed()->whereJsonContains('tags', 'Sold')->orWhereJsonContains('tags', 'Selling')->mine();
         $profit = $items->get()->pluck('profit')->sum();
         return $this->result($profit)
           ->dollars()
