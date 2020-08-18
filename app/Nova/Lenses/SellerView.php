@@ -27,10 +27,11 @@ class SellerView extends Lens
     {
         return $request->withOrdering($request->withFilters(
             $query
-              ->mine()
               ->withTrashed()
               ->whereJsonContains('tags', 'Sold')
               ->orWhereJsonContains('tags', 'Selling')
+              ->orderByRaw('CASE WHEN tags LIKE \'%Selling%\' THEN 1 ELSE 2 END') // Sort by Selling tag first
+              ->mine()
         ));
     }
 
