@@ -23,16 +23,14 @@ class SellerView extends Lens
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return mixed
      */
-    public static function query(LensRequest $request, $query)
+    public static function indexQuery(LensRequest $request, $query)
     {
-        return $request->withOrdering($request->withFilters(
-            $query
+            return $query
               ->mine()
               ->withTrashed()
               ->whereJsonContains('tags', 'Sold')
               ->orWhereJsonContains('tags', 'Selling')
-              // ->orderByRaw('CASE WHEN tags LIKE \'%Selling%\' THEN 1 ELSE 2 END') // Sort by Selling tag first
-        ));
+              ->orderByRaw('CASE WHEN tags LIKE \'%Selling%\' THEN 1 ELSE 2 END'); // Sort by Selling tag first
     }
 
     /**
