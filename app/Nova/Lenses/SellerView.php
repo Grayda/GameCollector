@@ -105,12 +105,12 @@ class SellerView extends Lens
     public function filters(Request $request)
     {
         return [
-          new App\Nova\Filters\SoldFilter,
-          new App\Nova\Filters\TypeFilter,
-          new App\Nova\Filters\ConditionFilter,
-          new App\Nova\Filters\RegionFilter,
-          new App\Nova\Filters\PlatformFilter,
-          new App\Nova\Filters\ImageFilter,
+          new \App\Nova\Filters\SoldFilter,
+          new \App\Nova\Filters\TypeFilter,
+          new \App\Nova\Filters\ConditionFilter,
+          new \App\Nova\Filters\RegionFilter,
+          new \App\Nova\Filters\PlatformFilter,
+          new \App\Nova\Filters\ImageFilter,
         ];
     }
 
