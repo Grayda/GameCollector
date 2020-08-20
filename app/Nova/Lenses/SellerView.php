@@ -72,14 +72,19 @@ class SellerView extends Lens
               ->sortable()
               ->help('What condition is this item in?'),
             BooleanGroup::make('Included Items', 'feature_ids')->options(\App\Feature::pluck('title', 'slug')),
-            Currency::make('Total Purchase Price')->nullable(),
+            Currency::make('Total Purchase Price')
+              ->sortable()
+              ->nullable(),
             Currency::make('Selling Price')
               ->nullable(),
             Currency::make('Sold Price')
+              ->sortable()
               ->nullable(),
             Tags::make('Tags'),
-            Currency::make('Potential Profit'),
+            Currency::make('Potential Profit')
+              ->sortable(),
             Currency::make('Profit')
+              ->sortable()
 
         ];
     }
