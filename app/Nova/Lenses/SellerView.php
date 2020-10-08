@@ -12,6 +12,8 @@ use Superlatif\NovaTagInput\Tags;
 use Laravel\Nova\Http\Requests\LensRequest;
 use Laravel\Nova\Lenses\Lens;
 
+use Carbon\Carbon;
+
 use App\Nova\Metrics\SellerCard;
 
 class SellerView extends Lens
@@ -81,6 +83,13 @@ class SellerView extends Lens
               ->sortable()
               ->nullable(),
             Tags::make('Tags'),
+            Text::make('Days Before Sold', function() {
+              if($this->sold_at && $this->acquired_at) {
+                return $this->sold_at->diffInDays($this->acquired_at);
+              } else {
+                return 'n/a';
+              }
+            }),
             Currency::make('Potential Profit')
               ->sortable(),
             Currency::make('Profit')
