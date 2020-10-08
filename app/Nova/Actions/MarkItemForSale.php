@@ -34,7 +34,8 @@ class MarkItemForSale extends Action
           ->unique()
           ->values();
         $item->selling_price = $fields->selling_price;
-        $item->sold_price = 0;
+        $item->sold_price = null;
+        $item->sold_at = null;
         $item->collection()->syncWithoutDetaching($fields->collection);
         $item->save();
       }

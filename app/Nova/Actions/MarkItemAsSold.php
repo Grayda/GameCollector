@@ -35,6 +35,7 @@ class MarkItemAsSold extends Action
           ->values();
         $item->sold_method_id = $fields->method;
         $item->sold_price = $fields->sold_price;
+        $item->sold_at = now();
         $item->save();
         $item->delete();
       }
