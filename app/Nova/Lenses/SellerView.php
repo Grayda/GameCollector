@@ -92,7 +92,7 @@ class SellerView extends Lens
             }),
             Currency::make('Potential Profit')
               ->sortable(),
-            Currency::make('Profit')
+            Currency::make('Total Profit')
               ->sortable()
 
         ];
