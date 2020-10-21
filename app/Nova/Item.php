@@ -355,7 +355,7 @@ class Item extends Resource
           (new DuplicateItem)->onlyOnDetail(),
           (new DownloadExcel)
             ->withHeadings()
-            ->only('Title', 'Platform', 'Region', 'Type', 'Condition', 'Acquired At', 'Acquisition', 'Purchase Price', 'Notes', 'Private Notes', 'Tags'),
+            ->allFields()
         ];
     }
 }
