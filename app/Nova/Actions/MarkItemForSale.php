@@ -37,6 +37,7 @@ class MarkItemForSale extends Action
         $item->sold_price = null;
         $item->sold_at = null;
         $item->collection()->syncWithoutDetaching($fields->collection);
+        $item->restore(); // Undelete if already deleted
         $item->save();
       }
     }
