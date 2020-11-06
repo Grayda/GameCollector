@@ -193,10 +193,6 @@ class Item extends Resource
                   ->hideFromIndex()
                   ->sortable()
                   ->help('How much did you pay for this item?'),
-                Currency::make('Total Purchase Price')
-                  ->sortable()
-                  ->nullable()
-                  ->help('How much did you pay for this item, minus any child items that you\'ve sold?'),
                 Select::make('Currency', 'purchase_currency_code')
                   ->options(config('currencies'))
                   ->hideFromIndex()
@@ -227,6 +223,12 @@ class Item extends Resource
                   ->hideFromIndex()
                   ->sortable()
                   ->help('How much did this item sell for?'),
+                Currency::make('Potential Profit')
+                    ->sortable()
+                    ->onlyOnDetail(),
+                Currency::make('Total Profit')
+                    ->sortable()
+                    ->onlyOnDetail(),
                 Select::make('Currency', 'selling_currency_code')
                   ->options(config('currencies'))
                   ->hideFromIndex()
