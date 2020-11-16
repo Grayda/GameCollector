@@ -32,6 +32,7 @@ class DuplicateItem extends Action
 
         $newModel = $models[0]->replicate();
         $newModel->item_id = Str::uuid();
+        $newModel->title = $newModel->title . " - Copy";
         $newModel->save();
 
         return Action::push('/resources/items/' . $newModel->id . '/edit');
