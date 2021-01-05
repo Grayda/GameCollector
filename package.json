@@ -12,7 +12,7 @@
         "build-nova-plan-card-prod": "cd nova-components/NovaPlanCard && npm run prod"
     },
     "devDependencies": {
-        "axios": "^0.19",
+        "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0.2",
         "jquery": "^3.5.1",
